@@ -9,14 +9,24 @@ class Model_song extends CI_Model {
 		$this->db->where([
 			"id" => $id,
 		]);
+		$this->db->or_where("slug", $id);
 		$get = $this->db->get();
 		$result = $get->row_array();
+
+		// AUTHOR
+		$this->db->select("id, email, dateregister, displayname");
+		$this->db->from("user");
+		$this->db->where([
+			"id" => $result["author"],
+		]);
+		$get = $this->db->get();
+		$result["author"] = $get->row_array();
 
 		// META
 		$this->db->select("key, value");
 		$this->db->from("songmeta");
 		$this->db->where([
-			"id_song" => $id
+			"id_song" => $result["id"]
 		]);
 		$get = $this->db->get();
 		$meta_result = $get->result_array();
@@ -31,7 +41,7 @@ class Model_song extends CI_Model {
 		$this->db->join("cat", "cat.id = cattype.id_cat");
 		$this->db->join("type", "cattype.id_type = type.id");
 		$this->db->where([
-			"songcat.id_song" => $id
+			"songcat.id_song" => $result["id"]
 		]);
 		$get = $this->db->get();
 		$cat = $get->result_array();
@@ -41,7 +51,6 @@ class Model_song extends CI_Model {
 
 		// PERMALINK
 		$result["permalink"] = base_url("bai-hat/{$result["slug"]}");
-
 		return $result;
 	}
 
@@ -132,14 +141,16 @@ class Model_song extends CI_Model {
 		return $result;
 	}
 
-	public function count($cat) {
+	public function count($cat = 0) {
 		$this->load->database();
 		$this->db->select("COUNT(song.id)");
 		$this->db->from("song");
 		$this->db->join("songcat", "song.id = songcat.id_song");
-		$this->db->where([
-			"songcat.id_cat" => $cat,
-		]);
+		if ( $cat != 0 ) {
+			$this->db->where([
+				"songcat.id_cat" => $cat,
+			]);
+		}
 		$get = $this->db->get();
 		return $get->row_array()['COUNT(song.id)'];
 	}
@@ -202,6 +213,26 @@ class Model_song extends CI_Model {
 		// PERMALINK
 		$result["permalink"] = base_url("bai-hat/{$result["slug"]}");
 
+		return $result;
+	}
+
+	public function getother($song_id, $cat_id, $offset = 0, $limit = 5) {
+		$this->db->select("song.id");
+		$this->db->from("song");
+		$this->db->join("songcat", "song.id = songcat.id_song");
+		$this->db->where([
+			"songcat.id_cat" => $cat_id,
+		]);
+		$this->db->where_not_in("song.id", [$song_id]);
+		$this->db->order_by("song.id", "DESC");
+		$this->db->limit($limit, $offset);
+		$get = $this->db->get();
+		$song_id = $get->result_array();
+		// GET SONG
+		$result = [];
+		foreach ($song_id as $value) {
+			$result[] = $this->get($value["id"]);
+		}
 		return $result;
 	}
 }

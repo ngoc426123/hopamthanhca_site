@@ -49,14 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'index';
-$route['404_override'] = '';
+$route['default_controller']   = 'index';
+$route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/search'] = 'index/searchAPI';
-$route['bang-chu-cai'] = 'category/cating/bang-chu-cai';
-$route['tac-gia'] = 'category/cating/tac-gia';
-$route['chuyen-muc'] = 'category/cating/chuyen-muc';
-$route['dieu-bai-hat'] = 'category/cating/dieu-bai-hat';
-
-$route['(.+)/(.+)'] = 'category/catingdetail/$1/$2';
+$route['api/search']     = 'index/searchAPI';
+$route['bang-chu-cai']   = 'category/cating/bang-chu-cai';
+$route['tac-gia']        = 'category/cating/tac-gia';
+$route['chuyen-muc']     = 'category/cating/chuyen-muc';
+$route['dieu-bai-hat']   = 'category/cating/dieu-bai-hat';
+$route['bai-hat/(.+)']   = 'song/detail/$1';
+$route['updatelovesong'] = 'song/updatelove';
+$route['(.+)/(.+)']      = 'category/catingdetail/$1/$2';

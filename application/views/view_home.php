@@ -12,7 +12,7 @@
             foreach ($data_page["newsong"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href=""><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php
@@ -33,7 +33,7 @@
             foreach ($data_page["mostview"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href=""><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php

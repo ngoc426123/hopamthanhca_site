@@ -18,11 +18,25 @@ if ( $page_meta["maintain_status"] != 0 ) {
     <meta property="og:description" content="<?php echo $page_meta["desc"]; ?>">
     <meta name="google" content="nositelinkssearchbox">
     <meta name="description" content="<?php echo $page_meta["desc"]; ?>">
-    <meta name="keywords" content="Website">
+    <meta name="keywords" content="<?php echo $page_meta["keywork"]; ?>">
     <meta name="robots" content="nofollow">
     <meta name="googlebot" content="nofollow">
     <link href="<?php echo base_url("tmp/images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
     <link href="<?php echo base_url("tmp/css/style.min.css"); ?>" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "<?php echo $page_meta["site_url"]; ?>",
+      "name": "<?php echo $page_meta["title"]; ?>",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+841673.996.947",
+        "contactType": "Customer service"
+      },
+      "logo": "<?php echo base_url("tmp/images/logo.svg"); ?>"
+    }
+    </script>
   </head>
   <body>
     <div class="page">
