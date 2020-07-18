@@ -1,6 +1,6 @@
 <?php
 if ( $page_meta["maintain_status"] != 0 ) {
-  $this->load->view("maintain");
+  $this->load->view("view_maintain");
   return false;
 }
 ?>
@@ -74,7 +74,7 @@ if ( $page_meta["maintain_status"] != 0 ) {
                       </ul>
                     </li>
                     <li><a href="<?php echo base_url("danh-sach-hop-am"); ?>">Hợp âm</a></li>
-                    <li><a href="<?php echo base_url("pdf"); ?>">PDF</a></li>
+                    <li><a href="<?php echo base_url("sheet-nhac"); ?>">Sheet nhạc</a></li>
                   </ul>
                 </div>
               </div>

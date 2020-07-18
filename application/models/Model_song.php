@@ -57,6 +57,11 @@ class Model_song extends CI_Model {
 	public function getlist($type = "new", $offset = 0, $limit = 5) {
 		$this->load->database();
 		switch ($type) {
+			case "pdf":
+				$this->db->select("song.id");
+				$this->db->from("song");
+				$this->db->order_by("song.title", "ASC");
+				break;
 			case "new":
 				$this->db->select("song.id");
 				$this->db->from("song");
@@ -110,7 +115,7 @@ class Model_song extends CI_Model {
 				# code...
 				break;
 		}
-		
+
 		$this->db->limit($limit, $offset);
 		$get = $this->db->get();
 		$song_id = $get->result_array();
@@ -145,8 +150,8 @@ class Model_song extends CI_Model {
 		$this->load->database();
 		$this->db->select("COUNT(song.id)");
 		$this->db->from("song");
-		$this->db->join("songcat", "song.id = songcat.id_song");
 		if ( $cat != 0 ) {
+			$this->db->join("songcat", "song.id = songcat.id_song");
 			$this->db->where([
 				"songcat.id_cat" => $cat,
 			]);

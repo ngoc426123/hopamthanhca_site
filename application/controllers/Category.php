@@ -72,7 +72,7 @@ class Category extends CI_Controller {
 			"listcat" => $this->model_cat->getlist($type),
 			"listsong" => $this->model_song->getlistoncat($infocat["id"], $page_start, $number_on_page),
 			"songrandom" => $this->model_song->getsongrandom(),
-			"pagination" => $arr_pagination,
+			"pagination" => isset($arr_pagination) ? $arr_pagination : [],
 		];
 		// META PAGE
 		$data["page_meta"] = [

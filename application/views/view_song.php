@@ -57,7 +57,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
                 <div class="col-12 col-lg-4">
                   <div class="song-info">
                     <ul>
-                      <li><span class="song-info__att">Tác giả :</span><span class="song-info__ats song-info--up"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></span></li>
+                      <li><span class="song-info__att">Tác giả :</span><span class="song-info__ats song-info--up"><?php echo (isset($data_page["song"]["cat"]["tac-gia"])) ? $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></li>
                       <li><span class="song-info__att">Người đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["author"]["displayname"] ?></span></li>
                       <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["date"] ?></span></li>
                       <li><span class="song-info__att">Lượt xem :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["luotxem"] ?></span></li>

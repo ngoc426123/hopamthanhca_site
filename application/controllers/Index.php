@@ -41,4 +41,16 @@ class Index extends CI_Controller {
 		$this->load->model(['model_song']);
 		echo json_encode($this->model_song->getlistAPI(), JSON_UNESCAPED_UNICODE);
 	}
+
+	public function loadmore() {
+		$data = json_decode(file_get_contents('php://input'),true);
+		$offset = $data["offset"];
+		$limit = $data["limit"];
+		$this->load->model(['model_song']);
+		$data = $this->model_song->getlist("new", $offset, $limit);
+		$ret["data"] = $data;
+		$ret["total"] = count($data);
+		$ret["more"] = (count($data) >= $limit) ? true : false;
+		echo json_encode($ret, JSON_UNESCAPED_UNICODE);
+	}
 }
