@@ -140,3 +140,74 @@ if(!function_exists("get_list_date")){
 		return $return;
 	}
 }
+
+if(!function_exists("pagination")){
+	function pagination($pagecurrent, $perpage, $total){
+		$max_node_on_web = 9;
+		$max_node_group = 3;
+		$max_node_mad = $max_node_group * 2 + 1;
+		$max_node_left = $max_node_mad;
+		$max_node_right = $total - $max_node_mad;
+		$number_pagination = ceil($total / $perpage);
+
+		if ( $number_pagination < $max_node_on_web ) {
+			for ($i=1; $i <= $number_pagination ; $i++) {
+				$active = ($i == $pagecurrent)?1:0;
+				$return[] = [
+					"type" => "node",
+					"number" => $i,
+					"link" => base_url("sheet-nhac?page={$i}"),
+					"active" => $active,
+				];
+			}
+		} else {
+			if ( $pagecurrent <= $max_node_left ) {
+				for ($i=1; $i < $max_node_left ; $i++) {
+					$active = ($i == $pagecurrent)?1:0;
+					$return[] = [
+						"type" => "node",
+						"number" => $i,
+						"link" => base_url("sheet-nhac?page={$i}"),
+						"active" => $active,
+					];
+				}
+				$return[] = [
+					"type" => "dot",
+				];
+				for ($i=($total - $max_node_group); $i < $total ; $i++) {
+					$active = ($i == $pagecurrent)?1:0;
+					$return[] = [
+						"type" => "node",
+						"number" => $i,
+						"link" => base_url("sheet-nhac?page={$i}"),
+						"active" => $active,
+					];
+				}
+			} else if ( $pagecurrent >= $max_node_right ) {
+				for ($i=1; $i <= $max_node_group; $i++) {
+					$active = ($i == $pagecurrent)?1:0;
+					$return[] = [
+						"type" => "node",
+						"number" => $i,
+						"link" => base_url("sheet-nhac?page={$i}"),
+						"active" => $active,
+					];
+				}
+				$return[] = [
+					"type" => "dot",
+				];
+				for ($i=$max_node_right + 1; $i <= $total ; $i++) {
+					$active = ($i == $pagecurrent)?1:0;
+					$return[] = [
+						"type" => "node",
+						"number" => $i,
+						"link" => base_url("sheet-nhac?page={$i}"),
+						"active" => $active,
+					];
+				}
+			}
+		}
+
+        return $return;
+	}
+}

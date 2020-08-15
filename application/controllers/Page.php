@@ -29,23 +29,15 @@ class Page extends CI_Controller {
 	public function pdf () {
 		$this->load->model(['model_options','model_song','model_cat']);
 		// PAGINATION
-		isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-		$number_on_page = 30;
-		$page_start = ($page - 1) * $number_on_page;
-		$count_on_page = $this->model_song->count();
-		$number_pagination = ceil($count_on_page / $number_on_page);
-		for ($i=1; $i <= $number_pagination ; $i++) {
-			$active = ($i == $page)?1:0;
-			$arr_pagination[] = [
-				"number" => $i,
-				"link" => base_url("sheet-nhac?page={$i}"),
-				"active" => $active,
-			];
-		}
+		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$perpage = 20;
+		$total = $this->model_song->count();
+		$pagination = pagination($page, $perpage, $total);
 		// DATA PAGE
+		$page_start = ($page - 1) * $perpage;
 		$data["data_page"] = [
-			"listsong" => $this->model_song->getlist("pdf", $page_start, $number_on_page),
-			"pagination" => isset($arr_pagination) ? $arr_pagination : [],
+			"listsong" => $this->model_song->getlist("pdf", $page_start, $perpage),
+			"pagination" => $pagination,
 		];
 		// META PAGE
 		$data["page_meta"] = [
@@ -86,6 +78,26 @@ class Page extends CI_Controller {
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
 		];
 		$data["page_view"] = "view_songmore";
+		$this->load->view("layout", $data);
+	}
+
+	public function about () {
+		$this->load->model(['model_options','model_cat']);
+		// META PAGE
+		$data["page_meta"] = [
+			"title" => "Hợp âm thánh ca",
+			"keywork" => "Giới thiệu về hợp âm thánh ca, về hợp âm thánh ca, hợp âm thánh ca có sheet.",
+			"desc" => "Website hợp âm dành riêng cho nhạc thánh ca hiện nay",
+			"site_url" => $this->model_options->get('site_url'),
+			"maintain_status" => $this->model_options->get('maintain_status'),
+			"maintain_title" => $this->model_options->get('maintain_title'),
+			"maintain_content" => $this->model_options->get('maintain_content'),
+			"maintain_background" => $this->model_options->get('maintain_background'),
+		];
+		$data["data_menu"] = [
+			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
+		];
+		$data["page_view"] = "view_about";
 		$this->load->view("layout", $data);
 	}
 }
