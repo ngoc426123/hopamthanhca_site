@@ -63,6 +63,7 @@ $route['danh-sach-hop-am'] = 'page/chord';
 $route['sheet-nhac']       = 'page/pdf';
 $route['bai-hat']          = 'page/song';
 $route['gioi-thieu']       = 'page/about';
+$route['tim-kiem']         = 'search';
 $route['bai-hat/(.+)']     = 'song/detail/$1';
 $route['updatelovesong']   = 'song/updatelove';
 $route['(.+)/(.+)']        = 'category/catingdetail/$1/$2';

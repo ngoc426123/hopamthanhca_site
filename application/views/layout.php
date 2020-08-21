@@ -83,13 +83,10 @@ if ( $page_meta["maintain_status"] != 0 ) {
         </div>
         <div class="header__search">
           <div class="wrapper">
-          <form action="search.html" method="get">
+          <form action="<?php echo base_url("tim-kiem"); ?>" method="get">
               <div class="header__search--title">Cùng tìm kiếm bài hát bạn thích nhất</div>
               <div class="header__search--form">
-                <input type="text" id="searchDesktop" autocomplete="off" placeholder="Nhập tên bài hát, từ khóa tìm kiếm..." data-search data-url="<?php echo base_url("api/search") ?>">
-                <div class="header__search--suggess">
-                  <ul data-suggess></ul>
-                </div>
+                <input type="text" name="query" id="searchDesktop" autocomplete="off" placeholder="Nhập tên bài hát, từ khóa tìm kiếm..." data-search data-url="<?php echo base_url("api/search") ?>" value="<?php echo isset($data_page["keywork"]) ? $data_page["keywork"] : "" ?>">
               </div>
               <div class="header__search--note">
                 <p>Tìm với tên bài hát : Ca vang tình yêu Chúa, Tình yêu Thiên Chúa</p>

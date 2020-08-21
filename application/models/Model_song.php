@@ -146,6 +146,23 @@ class Model_song extends CI_Model {
 		return $result;
 	}
 
+	public function getlistsearch($keywork) {
+		$this->db->select("song.id");
+		$this->db->from("song");
+		$this->db->like([
+			"song.title" => $keywork,
+		]);
+		$this->db->order_by("song.id", "DESC");
+		$get = $this->db->get();
+		$song_id = $get->result_array();
+		// GET SONG
+		$result = [];
+		foreach ($song_id as $value) {
+			$result[] = $this->get($value["id"]);
+		}
+		return $result;
+	}
+
 	public function count($cat = 0) {
 		$this->load->database();
 		$this->db->select("COUNT(song.id)");
@@ -171,7 +188,8 @@ class Model_song extends CI_Model {
 		// GET SONG
 		foreach ($songresult as $key => $value) {
 			$result["data"][] = [
-				"title" => $value["title"],
+				"value" => $value["title"],
+				"label" => $value["title"],
 				"permalink" => base_url("bai-hat/{$value["slug"]}")
 			];
 		}
