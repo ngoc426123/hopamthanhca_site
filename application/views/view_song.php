@@ -80,8 +80,8 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
                 </div>
                 <div class="col-12 col-lg-4">
                   <div class="song-pdf">
-                    <div class="song-pdf__file"><a href="<?php echo $pdf ?>" data-src="<?php echo $pdf ?>" data-fancybox target="_blank"><img src="<?php echo base_url("tmp/images/pdf.svg"); ?>" alt=""></a></div>
-                    <div class="song-pdf__note">(Click vào hình để xem cũng như tải file sheet nhạc)</div>
+                    <div class="song-pdf__file"><a href="<?php echo $pdf ?>" src="<?php echo $pdf ?>" downloaded target="_blank"><img src="<?php echo base_url("tmp/images/pdf.svg"); ?>" alt=""></a></div>
+                    <div class="song-pdf__note">(Click vào hình để xem hoặc tải file sheet nhạc)</div>
                     <div class="song-pdf__note">Xin cảm ơn tác giả, cũng là chủ của trang web <a href="http://www.thuvienamnhac.org/" terget="_blank">Thư viện âm nhạc</a>, tác giả <span>Đinh Công Huỳnh</span> đã cho phép trang web sử dụng file PDF từ trang.</div>
                   </div>
                 </div>
