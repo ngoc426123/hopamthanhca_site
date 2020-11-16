@@ -1,3 +1,22 @@
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org/",
+		"@type": "Product",
+		"name": "<?php echo $data_page["song"]["title"] ?>",
+		"image": ["<?php echo base_url("tmp/images/logo.svg"); ?>"],
+		"description": "<?php echo $data_page["song"]["excerpt"] ?>",
+		"mpn": "925872",
+		"brand": {
+			"@type": "Thing",
+			"name": "ACME"
+		},
+		"aggregateRating": {
+			"@type": "AggregateRating",
+			"ratingValue": "4.9",
+			"reviewCount": "<?php echo $data_page["song"]["meta"]["luotxem"] ?>"
+		}
+	}
+	</script>
 <?php
 $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"]["pdffile"] : base_url("tmp/default.pdf");
 ?>

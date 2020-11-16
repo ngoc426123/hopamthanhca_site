@@ -8,6 +8,7 @@ if ( $page_meta["maintain_status"] != 0 ) {
 <html>
   <head>
     <title><?php echo $page_meta["title"]; ?></title>
+    <meta name="google-site-verification" content="u_MBkWSe2AFG1aeQNi93_Y_jL4F7Cq31jGZACqK2SGs" />
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,20 +24,6 @@ if ( $page_meta["maintain_status"] != 0 ) {
     <meta name="googlebot" content="nofollow">
     <link href="<?php echo base_url("tmp/images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
     <link href="<?php echo base_url("tmp/css/style.min.css"); ?>" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-      "@context": "http://schema.org",
-      "@type": "Organization",
-      "url": "<?php echo $page_meta["site_url"]; ?>",
-      "name": "<?php echo $page_meta["title"]; ?>",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+841673.996.947",
-        "contactType": "Customer service"
-      },
-      "logo": "<?php echo base_url("tmp/images/logo.svg"); ?>"
-    }
-    </script>
   </head>
   <body>
     <div class="page">

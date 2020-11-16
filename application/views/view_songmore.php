@@ -17,7 +17,7 @@
                   <div class="item__att"><span class="fa-heart"><?php echo $value["meta"]["lovesong"] ?></span></div>
                 </div>
                 <div class="item__info">
-                  <div class="item__title"><a href=""><?php echo $value["title"] ?></a></div>
+                  <div class="item__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?></a></div>
                   <div class="item__desc"><?php echo $value["excerpt"] ?></div>
                 </div>
               </div>
