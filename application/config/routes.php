@@ -67,3 +67,4 @@ $route['tim-kiem']         = 'search';
 $route['bai-hat/(.+)']     = 'song/detail/$1';
 $route['updatelovesong']   = 'song/updatelove';
 $route['(.+)/(.+)']        = 'category/catingdetail/$1/$2';
+$route['sitemap.xml']      = 'sitemap';
