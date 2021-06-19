@@ -208,6 +208,16 @@ if(!function_exists("pagination")){
 			}
 		}
 
-        return $return;
+    return $return;
+	}
+}
+
+if(!function_exists("date4sitemap")){
+	function date4sitemap ($date) {
+		$day = substr($date, 0, 2);
+		$month = substr($date, 3, 2);
+		$year = substr($date, 6, 4);
+		$time = substr($date, -8);
+		return $year.'/'.$month.'/'.$day.' '.$time;
 	}
 }

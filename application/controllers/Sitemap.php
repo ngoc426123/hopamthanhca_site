@@ -13,13 +13,13 @@ class Sitemap extends CI_Controller {
 		$list_song = $this->model_song->getlist("new", 0, 999);
 
 		$sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
-		$sitemap = '<?xml-stylesheet type="text/xsl" href="'.$site_url.'/sitemap.xml"?>';
-		$sitemap .= '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+		$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		foreach ($list_song as $value) {
 			$url = $site_url .'/bai-hat/'. $value['slug'];
+			$date = date4sitemap($value['date']);
 			$sitemap .='<url>
 									<loc>'.$url.'</loc>
-									<lastmod>'.$value['date'].'</lastmod>
+									<lastmod>'.$date.'</lastmod>
 									<changefreq>monthly</changefreq>
 									<priority>0.8</priority>
 								</url>';
