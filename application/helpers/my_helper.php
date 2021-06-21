@@ -218,6 +218,6 @@ if(!function_exists("date4sitemap")){
 		$month = substr($date, 3, 2);
 		$year = substr($date, 6, 4);
 		$time = substr($date, -8);
-		return $year.'/'.$month.'/'.$day.' '.$time;
+		return $year.'-'.$month.'-'.$day;
 	}
 }

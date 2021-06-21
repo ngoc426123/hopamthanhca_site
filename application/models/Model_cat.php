@@ -34,20 +34,17 @@ class Model_cat extends CI_Model {
 		$this->load->database();
 
 		$this->db->select("*");
-		if ($type==null) {
-			$this->db->from("cat");
-		} else {
-			$this->db->from("type");
-			$this->db->join("cattype", "type.id = cattype.id_type");
-			$this->db->join("cat", "cat.id = cattype.id_cat");
+		$this->db->from("type");
+		$this->db->join("cattype", "type.id = cattype.id_type");
+		$this->db->join("cat", "cat.id = cattype.id_cat");
+		if ($type!=null) {
 			$this->db->where([
 				"type.type_slug" => $type,
 			]);
-			if ( $offset!=-1 ) {
-				$this->db->limit($limit, $offset);
-			}
 		}
-		
+		if ( $offset!=-1 ) {
+			$this->db->limit($limit, $offset);
+		}
 		$get = $this->db->get();
 		$result = $get->result_array();
 
