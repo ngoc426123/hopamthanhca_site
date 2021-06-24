@@ -184,13 +184,32 @@ class Model_song extends CI_Model {
 		$this->db->order_by("id", "DESC");
 		$get = $this->db->get();
 		$songresult = $get->result_array();
-		$result = [];
+
+		// CATEGORY
+		foreach ($songresult as $key => $value) {
+			$this->db->select('*');
+			$this->db->from('songcat');
+			$this->db->join("cattype", "songcat.id_cat = cattype.id_cat");
+			$this->db->join("cat", "cat.id = cattype.id_cat");
+			$this->db->join("type", "cattype.id_type = type.id");
+			$this->db->where([
+				"songcat.id_song" => $value["id"]
+			]);
+			$get = $this->db->get();
+			$cat = $get->result_array();
+			foreach ($cat as $key_cat => $item_cat) {
+				$songresult[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
+			}
+		}
+		
 		// GET SONG
+		$result = [];
 		foreach ($songresult as $key => $value) {
 			$result["data"][] = [
 				"value" => $value["title"],
 				"label" => $value["title"],
-				"permalink" => base_url("bai-hat/{$value["slug"]}")
+				"permalink" => base_url("bai-hat/{$value["slug"]}"),
+				"author" => $value["cat"]["tac-gia"][0]["cat_name"],
 			];
 		}
 		$result["count"] = $this->count();
