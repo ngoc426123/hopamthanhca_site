@@ -13,6 +13,11 @@ class Model_song extends CI_Model {
 		$get = $this->db->get();
 		$result = $get->row_array();
 
+		// PERMALINK
+		$this->load->model(["model_options"]);
+		$site_url = $this->model_options->get('site_url');
+		$result["permalink"] = $site_url."/".$result["slug"];
+
 		// AUTHOR
 		$this->db->select("id, email, dateregister, displayname");
 		$this->db->from("user");
@@ -46,6 +51,7 @@ class Model_song extends CI_Model {
 		$get = $this->db->get();
 		$cat = $get->result_array();
 		foreach ($cat as $key_cat => $item_cat) {
+			$item_cat["permalink"] = $site_url."/".$item_cat['type_slug']."/".$item_cat["cat_slug"];
 			$result["cat"][$item_cat['type_slug']][] = $item_cat;
 		}
 

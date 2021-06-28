@@ -1,22 +1,51 @@
 <script type="application/ld+json">
-	{
-		"@context": "http://schema.org/",
-		"@type": "Product",
-		"name": "<?php echo $data_page["song"]["title"] ?>",
-		"image": ["<?php echo base_url("tmp/images/logo.svg"); ?>"],
-		"description": "<?php echo $data_page["song"]["excerpt"] ?>",
-		"mpn": "925872",
-		"brand": {
-			"@type": "Thing",
-			"name": "ACME"
-		},
-		"aggregateRating": {
-			"@type": "AggregateRating",
-			"ratingValue": "4.9",
-			"reviewCount": "<?php echo $data_page["song"]["meta"]["luotxem"] ?>"
-		}
-	}
-	</script>
+{
+  "@context": "http://schema.org",
+  "@type": "MusicRecording",
+  "byArtist": [
+    {
+      "@context": "http://schema.org",
+      "@type": "MusicGroup",
+      "name": "<?php echo $data_page["song"]["author"]["displayname"] ?>",
+      "url": "<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" 
+    }
+  ],
+  "creator": {
+    "@type": "Person",
+    "name": "<?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>",
+    "url": "<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>"
+  },
+  "name": "<?php echo ucfirst($data_page["song"]["title"]) ?>",
+  "genre": "Indie",
+  "version": "1",
+  "image": "<?php echo base_url("tmp/images/logo.svg"); ?>",
+  "url": "<?php echo $data_page["song"]["permalink"] ?>",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "<?php echo $data_page["song"]["meta"]["luotxem"] != 0 ? $data_page["song"]["meta"]["luotxem"] : 1 ?>"
+  },
+  "description": "<?php echo $data_page["song"]["meta"]["seodes"] ?>",
+  "datePublished": "<?php echo $data_page["song"]["date"] ?>",
+  "interactionStatistic": [
+    {
+      "@type": "InteractionCounter",
+      "interactionType": "http://schema.org/LikeAction",
+      "userInteractionCount": "<?php echo $data_page["song"]["meta"]["lovesong"] ?>"
+    },
+    {
+      "@type": "InteractionCounter",
+      "interactionType": "http://schema.org/ListenAction",
+      "userInteractionCount": "<?php echo $data_page["song"]["meta"]["luotxem"] ?>"
+    },
+    {
+      "@type": "InteractionCounter",
+      "interactionType": "http://schema.org/CommentAction",
+      "userInteractionCount": "<?php echo $data_page["song"]["meta"]["luotxem"] ?>"
+    }
+  ]
+}
+</script>
 <?php
 $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"]["pdffile"] : base_url("tmp/default.pdf");
 ?>
@@ -76,7 +105,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
                 <div class="col-12 col-lg-4">
                   <div class="song-info">
                     <ul>
-                      <li><span class="song-info__att">Tác giả :</span><span class="song-info__ats song-info--up"><?php echo (isset($data_page["song"]["cat"]["tac-gia"])) ? $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></li>
+                      <li><span class="song-info__att">Tác giả :</span><span class="song-info__ats song-info--up"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></span></li>
                       <li><span class="song-info__att">Người đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["author"]["displayname"] ?></span></li>
                       <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["date"] ?></span></li>
                       <li><span class="song-info__att">Lượt xem :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["luotxem"] ?></span></li>

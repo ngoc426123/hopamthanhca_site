@@ -21,7 +21,7 @@ class Index extends CI_Controller {
 		];
 		// META PAGE
 		$data["page_meta"] = [
-			"title" => "Trang chủ - ".$this->model_options->get('title')." - Thánh ca có hợp âm theo chuẩn",
+			"title" => "Trang chủ - ".$this->model_options->get('title')." - Thư viện thánh ca hợp âm lớn nhất.",
 			"keywork" => $this->model_options->get('keywork'),
 			"desc" => $this->model_options->get('desc'),
 			"site_url" => $this->model_options->get('site_url'),

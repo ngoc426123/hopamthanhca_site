@@ -22,7 +22,7 @@ class Song extends CI_Controller {
 		$this->model_meta->update($song["id"], 'luotxem', $view);
 		// META PAGE
 		$data["page_meta"] = [
-			"title" => $data["data_page"]["song"]["meta"]["seotitle"]." - ".$data["data_page"]["song"]["cat"]["tac-gia"][0]["cat_name"]." - "."Hợp Âm Thánh Ca",
+			"title" => ucfirst($data["data_page"]["song"]["meta"]["seotitle"])." - ".$data["data_page"]["song"]["cat"]["tac-gia"][0]["cat_name"]." - "."Hợp Âm Thánh Ca",
 			"keywork" => $data["data_page"]["song"]["meta"]["seokeywork"],
 			"desc" => $data["data_page"]["song"]["meta"]["seodes"],
 			"site_url" => $this->model_options->get('site_url'),

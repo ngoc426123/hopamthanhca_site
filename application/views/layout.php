@@ -20,10 +20,25 @@ if ( $page_meta["maintain_status"] != 0 ) {
     <meta name="google" content="nositelinkssearchbox">
     <meta name="description" content="<?php echo $page_meta["desc"]; ?>">
     <meta name="keywords" content="<?php echo $page_meta["keywork"]; ?>">
-    <meta name="robots" content="nofollow">
-    <meta name="googlebot" content="nofollow">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     <link href="<?php echo base_url("tmp/images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
     <link href="<?php echo base_url("tmp/css/style.min.css"); ?>" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.hopamthanhca.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://hopamthanhca.com/tim-kiem?query={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
   </head>
   <body>
     <div class="page">

@@ -1,62 +1,62 @@
 <?php
 if(!function_exists("pr")){
-    function pr($arr) {
-        echo "<pre>";
-        print_r($arr);
-        echo "</pre>";
-    }
+	function pr($arr) {
+		echo "<pre>";
+		print_r($arr);
+		echo "</pre>";
+	}
 }
 
 if(!function_exists("cut_chor_text")){
-    function cut_chor_text($note){
-        $chor_compare="";
-        $chor_show="";
-        $text="";
-        for($i=0;$i<strlen($note);$i++){
-            $chor_compare=$chor_compare.$note[$i];
-            if($note[$i]=="]"){
-                break;
-            }
-        }
-        $count=strlen($chor_compare);
-        $chor_show=substr($chor_compare,1,$count-2);
-        for($i=0;$i<strlen($note);$i++){
-            if($i>=$count){
-                $text=$text.$note[$i];
-            }
-        }
-        $chor_show=ucfirst($chor_show);
-        $result=array(
-            'chor_compare'  => $chor_compare,
-            'chor_show' => $chor_show,
-            'text'  => $text,
-        );
-        return $result;
-    }
+	function cut_chor_text($note){
+		$chor_compare="";
+		$chor_show="";
+		$text="";
+		for($i=0;$i<strlen($note);$i++){
+			$chor_compare=$chor_compare.$note[$i];
+			if($note[$i]=="]"){
+				break;
+			}
+		}
+		$count=strlen($chor_compare);
+		$chor_show=substr($chor_compare,1,$count-2);
+		for($i=0;$i<strlen($note);$i++){
+			if($i>=$count){
+				$text=$text.$note[$i];
+			}
+		}
+		$chor_show=ucfirst($chor_show);
+		$result=array(
+			'chor_compare'  => $chor_compare,
+			'chor_show' => $chor_show,
+			'text'  => $text,
+		);
+		return $result;
+	}
 }
 
 if(!function_exists("convent_song")){
-    function convent_song($song){
-        $result="";
-        $song=str_replace("["," [",$song);
-        $song=explode(' ',$song);
-        foreach ($song as $rs){
-            if(substr($rs,0,1)=="["){
-                $c=cut_chor_text($rs);
-                $rs=str_replace($c["chor_compare"],"<span class='chordOC'><span class='chordPer'>[</span><span class='chord'>".$c["chor_show"]."</span><span class='chordPer'>]</span></span>", $rs);
-                $result=$result.$rs." ";
-            }
-            else{
-                $result=$result.$rs." ";
-            }
-        }
-        return $result;
-    }
+	function convent_song($song){
+		$result="";
+		$song=str_replace("["," [",$song);
+		$song=explode(' ',$song);
+		foreach ($song as $rs){
+			if(substr($rs,0,1)=="["){
+				$c=cut_chor_text($rs);
+				$rs=str_replace($c["chor_compare"],"<span class='chordOC'><span class='chordPer'>[</span><span class='chord'>".$c["chor_show"]."</span><span class='chordPer'>]</span></span>", $rs);
+				$result=$result.$rs." ";
+			}
+			else{
+				$result=$result.$rs." ";
+			}
+		}
+		return $result;
+	}
 }
 
 if(!function_exists("get_date_now")){
 	function get_date_now(){
-        return date('d/m/yy h:m:s');
+    return date('d/m/yy h:m:s');
 	}
 }
 
@@ -142,70 +142,84 @@ if(!function_exists("get_list_date")){
 }
 
 if(!function_exists("pagination")){
-	function pagination($pagecurrent, $perpage, $total){
-		$max_node_on_web = 9;
-		$max_node_group = 3;
-		$max_node_mad = $max_node_group * 2 + 1;
-		$max_node_left = $max_node_mad;
-		$max_node_right = $total - $max_node_mad;
+	function pagination($pagecurrent, $perpage, $total, $link, $prefix){
 		$number_pagination = ceil($total / $perpage);
+		$max_node = 3;
+		$max_node_left = $max_node;
+		$max_node_left_edge = $max_node_left * 2 - 1;
 
-		if ( $number_pagination < $max_node_on_web ) {
-			for ($i=1; $i <= $number_pagination ; $i++) {
-				$active = ($i == $pagecurrent)?1:0;
+		$max_node_right = $number_pagination - $max_node + 1;
+		$max_node_right_edge = $number_pagination - ( $max_node * 2 ) + 1;
+
+		// JUST <= 1
+		if ( $number_pagination <= 1 ) {
+			return [];
+		}
+
+		// JUST < $max_node
+		if ( $number_pagination <= $max_node ) {
+			$max_node_left = $number_pagination;
+			for ( $i = 1 ; $i <= $max_node_left ; $i++) {
+				$active = $i == $pagecurrent ? 1: 0;
 				$return[] = [
 					"type" => "node",
 					"number" => $i,
-					"link" => base_url("sheet-nhac?page={$i}"),
+					"link" => base_url("{$link}?{$prefix}={$i}"),
 					"active" => $active,
 				];
 			}
-		} else {
-			if ( $pagecurrent <= $max_node_left ) {
-				for ($i=1; $i < $max_node_left ; $i++) {
-					$active = ($i == $pagecurrent)?1:0;
-					$return[] = [
-						"type" => "node",
-						"number" => $i,
-						"link" => base_url("sheet-nhac?page={$i}"),
-						"active" => $active,
-					];
-				}
+			return $return;
+		}
+
+		// LEFT
+		if ( $max_node_left <= $pagecurrent && $pagecurrent < $max_node_left_edge ) {
+			$max_node_left = $pagecurrent + 1; ;
+		}
+		for ( $i = 1 ; $i <= $max_node_left ; $i++) {
+			$active = $i == $pagecurrent ? 1: 0;
+			$return[] = [
+				"type" => "node",
+				"number" => $i,
+				"link" => base_url("{$link}?{$prefix}={$i}"),
+				"active" => $active,
+			];
+		}
+
+		// MID
+		if ( $max_node_left_edge <= $pagecurrent && $pagecurrent <= $max_node_right_edge ) {
+			$return[] = [
+				"type" => "dot",
+			];
+			for ( $i = ($pagecurrent - 1) ; $i <= ($pagecurrent +1) ; $i++) {
+				$active = $i == $pagecurrent ? 1: 0;
 				$return[] = [
-					"type" => "dot",
+					"type" => "node",
+					"number" => $i,
+					"link" => base_url("{$link}?{$prefix}={$i}"),
+					"active" => $active,
 				];
-				for ($i=($total - $max_node_group); $i < $total ; $i++) {
-					$active = ($i == $pagecurrent)?1:0;
-					$return[] = [
-						"type" => "node",
-						"number" => $i,
-						"link" => base_url("sheet-nhac?page={$i}"),
-						"active" => $active,
-					];
-				}
-			} else if ( $pagecurrent >= $max_node_right ) {
-				for ($i=1; $i <= $max_node_group; $i++) {
-					$active = ($i == $pagecurrent)?1:0;
-					$return[] = [
-						"type" => "node",
-						"number" => $i,
-						"link" => base_url("sheet-nhac?page={$i}"),
-						"active" => $active,
-					];
-				}
-				$return[] = [
-					"type" => "dot",
-				];
-				for ($i=$max_node_right + 1; $i <= $total ; $i++) {
-					$active = ($i == $pagecurrent)?1:0;
-					$return[] = [
-						"type" => "node",
-						"number" => $i,
-						"link" => base_url("sheet-nhac?page={$i}"),
-						"active" => $active,
-					];
-				}
 			}
+			$return[] = [
+				"type" => "dot",
+			];
+		} else {
+			$return[] = [
+				"type" => "dot",
+			];
+		}
+		
+		// RIGHT
+		if ( $max_node_right_edge < $pagecurrent && $pagecurrent <= $max_node_right ) {
+			$max_node_right = $pagecurrent - 1;
+		}
+		for ($i = $max_node_right; $i <= $number_pagination; $i++) { 
+			$active = $i == $pagecurrent ? 1: 0;
+			$return[] = [
+				"type" => "node",
+				"number" => $i,
+				"link" => base_url("{$link}?{$prefix}={$i}"),
+				"active" => $active,
+			];
 		}
 
     return $return;

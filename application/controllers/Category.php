@@ -10,25 +10,17 @@ class Category extends CI_Controller {
 		$this->load->model(['model_options', 'model_cat']);
 		$info_type = $this->model_cat->gettype($type);
 		// PAGINATION
-		isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-		$number_on_page = 20;
-		$page_start = ($page - 1) * $number_on_page;
-		$count_on_page = $this->model_cat->count($info_type["type_slug"]);
-		$number_pagination = ceil($count_on_page / $number_on_page);
-		for ($i=1; $i <= $number_pagination ; $i++) {
-			$active = ($i == $page)?1:0;
-			$arr_pagination[] = [
-				"number" => $i,
-				"link" => base_url("{$info_type["type_slug"]}?page={$i}"),
-				"active" => $active,
-			];
-		}
+		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$perpage = 20;
+		$page_start = ($page - 1) * $perpage;
+		$total = $this->model_cat->count($info_type["type_slug"]);
+		$pagination = pagination($page, $perpage, $total, $info_type["type_slug"], "page");
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $info_type["type_name"],
 			"page_desc" => $info_type["desc"],
-			"listcat" => ($type == "bang-chu-cai") ? $this->model_cat->getlist($type) : $this->model_cat->getlist($type, $page_start, $number_on_page),
-			"pagination" => ($type == "bang-chu-cai") ? "" : $arr_pagination,
+			"listcat" => ($type == "bang-chu-cai") ? $this->model_cat->getlist($type) : $this->model_cat->getlist($type, $page_start, $perpage),
+			"pagination" => $pagination,
 		];
 		// META PAGE
 		$data["page_meta"] = [
@@ -52,27 +44,19 @@ class Category extends CI_Controller {
 		$this->load->model(['model_options', 'model_cat', 'model_song']);
 		$infocat = $this->model_cat->get($cat);
 		// PAGINATION
-		isset($_GET["page"]) ? $page = $_GET["page"] : $page = 1;
-		$number_on_page = 10;
-		$page_start = ($page - 1) * $number_on_page;
-		$count_on_page = $this->model_song->count($infocat["id"]);
-		$number_pagination = ceil($count_on_page / $number_on_page);
-		for ($i=1; $i <= $number_pagination ; $i++) {
-			$active = ($i == $page)?1:0;
-			$arr_pagination[] = [
-				"number" => $i,
-				"link" => base_url("{$infocat["type_slug"]}/{$infocat["cat_slug"]}?page={$i}"),
-				"active" => $active,
-			];
-		}
+		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$perpage = 10;
+		$total = $this->model_cat->countcat($infocat["id"]);
+		$page_start = ($page - 1) * $perpage;
+		$pagination = pagination($page, $perpage, $total, $infocat["type_slug"]."/".$infocat["cat_slug"], "page");
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $infocat["cat_name"],
 			"page_desc" => $infocat["desc"],
 			"listcat" => $this->model_cat->getlist($type),
-			"listsong" => $this->model_song->getlistoncat($infocat["id"], $page_start, $number_on_page),
+			"listsong" => $this->model_song->getlistoncat($infocat["id"], $page_start, $perpage),
 			"songrandom" => $this->model_song->getsongrandom(),
-			"pagination" => isset($arr_pagination) ? $arr_pagination : [],
+			"pagination" => $pagination,
 		];
 		// META PAGE
 		$data["page_meta"] = [

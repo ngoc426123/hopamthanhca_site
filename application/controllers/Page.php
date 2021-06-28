@@ -32,7 +32,7 @@ class Page extends CI_Controller {
 		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		$perpage = 20;
 		$total = $this->model_song->count();
-		$pagination = pagination($page, $perpage, $total);
+		$pagination = pagination($page, $perpage, $total, "sheet-nhac", "page");
 		// DATA PAGE
 		$page_start = ($page - 1) * $perpage;
 		$data["data_page"] = [

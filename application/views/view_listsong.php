@@ -30,9 +30,15 @@
               <ul>
                 <?php
                 foreach ($data_page["pagination"] as $value) {
+                  if ( $value["type"] == "node" ) {
                 ?>
                   <li class="<?php echo ($value['active']===1)?'active':'' ?>"><a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a></li>
                 <?php
+                  } else {
+                ?>
+                  <li>...</li>
+                <?php
+                  }
                 }
                 ?>
               </ul>
