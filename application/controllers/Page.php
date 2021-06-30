@@ -18,6 +18,7 @@ class Page extends CI_Controller {
 			"maintain_title" => $this->model_options->get('maintain_title'),
 			"maintain_content" => $this->model_options->get('maintain_content'),
 			"maintain_background" => $this->model_options->get('maintain_background'),
+			"canonical" => base_url("danh-sach-hop-am"),
 		];
 		$data["data_menu"] = [
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
@@ -49,6 +50,7 @@ class Page extends CI_Controller {
 			"maintain_title" => $this->model_options->get('maintain_title'),
 			"maintain_content" => $this->model_options->get('maintain_content'),
 			"maintain_background" => $this->model_options->get('maintain_background'),
+			"canonical" => base_url("sheet-nhac"),
 		];
 		$data["data_menu"] = [
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
@@ -73,6 +75,7 @@ class Page extends CI_Controller {
 			"maintain_title" => $this->model_options->get('maintain_title'),
 			"maintain_content" => $this->model_options->get('maintain_content'),
 			"maintain_background" => $this->model_options->get('maintain_background'),
+			"canonical" => base_url("bai-hat"),
 		];
 		$data["data_menu"] = [
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
@@ -93,6 +96,7 @@ class Page extends CI_Controller {
 			"maintain_title" => $this->model_options->get('maintain_title'),
 			"maintain_content" => $this->model_options->get('maintain_content'),
 			"maintain_background" => $this->model_options->get('maintain_background'),
+			"canonical" => base_url("gioi-thieu"),
 		];
 		$data["data_menu"] = [
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),

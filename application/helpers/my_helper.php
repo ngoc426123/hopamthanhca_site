@@ -235,3 +235,10 @@ if(!function_exists("date4sitemap")){
 		return $year.'-'.$month.'-'.$day;
 	}
 }
+
+if(!function_exists("is_home")){
+	function is_home() {
+		$CI =& get_instance();
+		return (!$CI->uri->segment(1))? TRUE: FALSE;
+	}
+}

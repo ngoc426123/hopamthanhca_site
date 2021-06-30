@@ -22,23 +22,32 @@ if ( $page_meta["maintain_status"] != 0 ) {
     <meta name="keywords" content="<?php echo $page_meta["keywork"]; ?>">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="<?php echo $page_meta["canonical"] ?>">
+    <link rel="shortcut icon" href="<?php echo base_url("tmp/images/favicon.ico"); ?>"/>
+    <link rel="image_src" href="<?php echo base_url("tmp/images/1.jpg"); ?>">
     <link href="<?php echo base_url("tmp/images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
     <link href="<?php echo base_url("tmp/css/style.min.css"); ?>" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://www.hopamthanhca.com/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://hopamthanhca.com/tim-kiem?query={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
+    <?php 
+    if ( is_home() ) {
+    ?>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.hopamthanhca.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://hopamthanhca.com/tim-kiem?query={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
+      </script>
+    <?php
     }
-    </script>
+    ?>
   </head>
   <body>
     <div class="page">
