@@ -157,7 +157,7 @@ if(!function_exists("pagination")){
 		}
 
 		// JUST < $max_node
-		if ( $number_pagination <= $max_node ) {
+		if ( $number_pagination <= 9 ) {
 			$max_node_left = $number_pagination;
 			for ( $i = 1 ; $i <= $max_node_left ; $i++) {
 				$active = $i == $pagecurrent ? 1: 0;
