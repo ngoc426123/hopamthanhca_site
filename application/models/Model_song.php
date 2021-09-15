@@ -211,9 +211,12 @@ class Model_song extends CI_Model {
 		// GET SONG
 		$result = [];
 		foreach ($songresult as $key => $value) {
+			$song_excerpt = $value["excerpt"];
+			$song_excerpt = preg_replace("/(\!|\?|\:|\;|\(|\))/", "", $song_excerpt);
 			$result["data"][] = [
 				"value" => $value["title"],
 				"label" => $value["title"],
+				"excerpt" => $song_excerpt,
 				"permalink" => base_url("bai-hat/{$value["slug"]}"),
 				"author" => $value["cat"]["tac-gia"][0]["cat_name"],
 			];

@@ -20,6 +20,10 @@
                   <div class="item__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?></a></div>
                   <div class="item__desc"><?php echo $value["excerpt"] ?></div>
                 </div>
+                <div class="item__attribute">
+                  <div class="item__attitem"><span>Tác giả</span><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></div>
+                  <div class="item__attitem"><span>Chuyên mục</span><span><?php echo $value["cat"]["chuyen-muc"][0]["cat_name"] ?></span></div>
+                </div>
               </div>
             </div>
           <?php
