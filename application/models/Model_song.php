@@ -212,7 +212,7 @@ class Model_song extends CI_Model {
 		$result = [];
 		foreach ($songresult as $key => $value) {
 			$song_excerpt = $value["excerpt"];
-			$song_excerpt = preg_replace("/(\!|\?|\:|\;|\(|\))/", "", $song_excerpt);
+			$song_excerpt = preg_replace("/(\!|\?|\:|\;|\(|\)|\,|\.)/", "", $song_excerpt);
 			$result["data"][] = [
 				"value" => $value["title"],
 				"label" => $value["title"],

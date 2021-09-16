@@ -78,7 +78,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
             <input class="song-tools__input font_ipt" value="16px">
             <button class="song-tools__btn" id="fontUp">+</button>
           </div>
-          <div class="song-tools__group">
+          <div class="song-tools__group d-none d-xl-block">
             <label for="chiacot">
               <input class="song-tools__checkbox" type="checkbox" id="chiacot" checked>
               <div class="song-tools__text">Chia cột</div>
@@ -138,7 +138,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-xl-8">
+          <div class="col-12 col-xl-8 song-content__slipt">
             <div class="song-content song-content__lahubalahu"><?php echo convent_song($data_page["song"]["content"]); ?></div>
           </div>
           <div class="col-12 col-xl-4">
