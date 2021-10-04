@@ -66,11 +66,13 @@ class Model_song extends CI_Model {
 			case "pdf":
 				$this->db->select("song.id");
 				$this->db->from("song");
+				$this->db->where("song.status", "publish");
 				$this->db->order_by("song.title", "ASC");
 				break;
 			case "new":
 				$this->db->select("song.id");
 				$this->db->from("song");
+				$this->db->where("song.status", "publish");
 				$this->db->order_by("song.id", "DESC");
 				break;
 			case "mostview":
@@ -79,6 +81,7 @@ class Model_song extends CI_Model {
 				$this->db->join("songmeta", "song.id = songmeta.id_song");
 				$this->db->where([
 					"key" => "luotxem",
+					"song.status" => "publish"
 				]);
 				$this->db->order_by("st", "DESC");
 				break;
@@ -88,6 +91,7 @@ class Model_song extends CI_Model {
 				$this->db->join("songmeta", "song.id = songmeta.id_song");
 				$this->db->where([
 					"key" => "lovesong",
+					"song.status" => "publish"
 				]);
 				$this->db->order_by("st", "DESC");
 				break;
@@ -98,6 +102,7 @@ class Model_song extends CI_Model {
 				$this->db->join("songmeta", "song.id = songmeta.id_song");
 				$this->db->where([
 					"key" => "luotxem",
+					"song.status" => "publish"
 				]);
 				$this->db->where_in("CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER)", $list_day["day"]);
 				$this->db->where_in("CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER)", $list_day["month"]);
@@ -111,6 +116,7 @@ class Model_song extends CI_Model {
 				$this->db->join("songmeta", "song.id = songmeta.id_song");
 				$this->db->where([
 					"key" => "luotxem",
+					"song.status" => "publish"
 				]);
 				$this->db->where_in("CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER)", $list_day["day"]);
 				$this->db->or_where_in("CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER)", $list_day["month"]);
