@@ -15,6 +15,17 @@ class Category extends CI_Controller {
 		$page_start = ($page - 1) * $perpage;
 		$total = $this->model_cat->count($info_type["type_slug"]);
 		$pagination = pagination($page, $perpage, $total, $info_type["type_slug"], "page");
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => mb_ucfirst($info_type["type_name"]),
+				"link" => base_url($info_type["type_slug"]),
+			],
+		];
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $info_type["type_name"],
@@ -50,6 +61,21 @@ class Category extends CI_Controller {
 		$total = $this->model_cat->countcat($infocat["id"]);
 		$page_start = ($page - 1) * $perpage;
 		$pagination = pagination($page, $perpage, $total, $infocat["type_slug"]."/".$infocat["cat_slug"], "page");
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => mb_ucfirst($infocat["type_name"]),
+				"link" => base_url($infocat["type_slug"]),
+			],
+			[
+				"title" => mb_ucfirst($infocat["cat_name"]),
+				"link" => base_url($infocat["type_slug"]."/".$infocat["cat_slug"]),
+			],
+		];
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $infocat["cat_name"],

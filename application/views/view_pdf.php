@@ -1,5 +1,16 @@
 <div class="main-content">
   <div class="wrapper">
+    <div class="breadcrumb">
+      <ul>
+      <?php
+        foreach($breadcrumb as $key => $value) {
+        ?>
+          <li><a href="<?php echo $value["link"] ?>"><?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?><span><?php echo $value["title"] ?></span></a></li>
+        <?php
+        }
+      ?>
+      </ul>
+    </div>
     <div class="box padding">
       <div class="box-title">
         <h1><?php echo $page_meta["title"]; ?></h1><small><?php echo $page_meta["desc"]; ?></small>

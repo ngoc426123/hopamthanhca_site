@@ -8,6 +8,17 @@ class Page extends CI_Controller {
 
 	public function chord () {
 		$this->load->model(['model_options','model_cat']);
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "Hợp âm",
+				"link" => base_url('danh-sach-hop-am'),
+			],
+		];
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Danh sách hợp âm - Tổng hợp hợp âm thường dùng, dễ sử dụng",
@@ -29,6 +40,17 @@ class Page extends CI_Controller {
 
 	public function pdf () {
 		$this->load->model(['model_options','model_song','model_cat']);
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "Sheet nhạc",
+				"link" => base_url('sheet-nhac'),
+			],
+		];
 		// PAGINATION
 		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		$perpage = 20;
@@ -61,6 +83,17 @@ class Page extends CI_Controller {
 
 	public function song () {
 		$this->load->model(['model_options','model_song','model_cat']);
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "Bài hát",
+				"link" => base_url('bai-hat'),
+			],
+		];
 		// DATA PAGE
 		$data["data_page"] = [
 			"listsong" => $this->model_song->getlist("new", 0, 16),
@@ -86,6 +119,17 @@ class Page extends CI_Controller {
 
 	public function about () {
 		$this->load->model(['model_options','model_cat']);
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "Giới thiệu",
+				"link" => base_url('gioi-thieu'),
+			],
+		];
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Hợp âm thánh ca",

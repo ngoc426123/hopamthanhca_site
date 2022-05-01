@@ -17,6 +17,17 @@ class Song extends CI_Controller {
 				"chuyen-muc" => $this->model_song->getother($song["id"], $song["cat"]["chuyen-muc"][0]["id_cat"]),
 			]
 		];
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => mb_ucfirst($song["title"]),
+				"link" => $song["permalink"],
+			]
+		];
 		// UPDATE VIEW
 		$view = $song["meta"]["luotxem"] + 1;
 		$this->model_meta->update($song["id"], 'luotxem', $view);
