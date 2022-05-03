@@ -257,3 +257,26 @@ if (!function_exists('mb_ucfirst')) {
 		return $str;
 	}
 }
+
+if (!function_exists('breadcrumb')) {
+	function breadcrumb($data) {
+?>
+		<div class="breadcrumb">
+      <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+      <?php
+        foreach($data as $key => $value) {
+        ?>
+          <li itemprop="name">
+						<a href="<?php echo $value["link"] ?>" itemprop="url">
+							<?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?>
+							<span><?php echo $value["title"] ?></span>
+						</a>
+					</li>
+        <?php
+        }
+      ?>
+      </ul>
+    </div>
+<?php
+	}
+}

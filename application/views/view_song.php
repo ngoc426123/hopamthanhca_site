@@ -51,17 +51,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "") ? $data_page["song"]["meta"
 ?>
 <div class="main-content">
   <div class="wrapper">
-    <div class="breadcrumb">
-      <ul>
-      <?php
-        foreach($breadcrumb as $key => $value) {
-        ?>
-          <li><a href="<?php echo $value["link"] ?>"><?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?><span><?php echo $value["title"] ?></span></a></li>
-        <?php
-        }
-      ?>
-      </ul>
-    </div>
+    <?php breadcrumb($breadcrumb) ?>
     <div class="box padding detail">
       <div class="box-title">
         <h1><?php echo $data_page["song"]["title"] ?></h1>

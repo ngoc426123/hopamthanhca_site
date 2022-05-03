@@ -1,16 +1,6 @@
 <div class="main-content">
   <div class="wrapper">
-    <div class="breadcrumb">
-      <ul>
-      <?php
-        foreach($breadcrumb as $key => $value) {
-        ?>
-          <li><a href="<?php echo $value["link"] ?>"><?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?><span><?php echo $value["title"] ?></span></a></li>
-        <?php
-        }
-      ?>
-      </ul>
-    </div>
+    <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
       <div class="box-title">
         <h1>Từ khóa : <?php echo $data_page["keywork"]; ?></h1>

@@ -1,16 +1,6 @@
 <div class="main-content">
   <div class="wrapper">
-    <div class="breadcrumb">
-      <ul>
-      <?php
-        foreach($breadcrumb as $key => $value) {
-        ?>
-          <li><a href="<?php echo $value["link"] ?>"><?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?><span><?php echo $value["title"] ?></span></a></li>
-        <?php
-        }
-      ?>
-      </ul>
-    </div>
+    <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
       <div class="box-title">
         <h1>Danh sách bài hát</h1><small>Bài hát được tổng hợp toàn bộ ở đây để người dùng dễ dàng tìm kiếm hoặc muốn xem được toàn bộ bài hát của trang web</small>
