@@ -262,15 +262,16 @@ if (!function_exists('breadcrumb')) {
 	function breadcrumb($data) {
 ?>
 		<div class="breadcrumb">
-      <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+      <ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
       <?php
         foreach($data as $key => $value) {
         ?>
-          <li itemprop="name">
-						<a href="<?php echo $value["link"] ?>" itemprop="url">
+          <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+						<a itemprop="item" href="<?php echo $value["link"] ?>">
 							<?php echo ($key === 0) ? '<i class="fa fa-home"></i>' : ''; ?>
-							<span><?php echo $value["title"] ?></span>
+							<span itemprop="name"><?php echo $value["title"] ?></span>
 						</a>
+						<meta itemprop="position" content="1">
 					</li>
         <?php
         }
