@@ -20,6 +20,17 @@ class Search extends CI_Controller {
 			"maintain_background" => $this->model_options->get('maintain_background'),
 			"canonical" => base_url('tim-kiem'),
 		];
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "tìm kiếm",
+				"link" => base_url(''),
+			],
+		];
 		$data["data_menu"] = [
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
 		];
