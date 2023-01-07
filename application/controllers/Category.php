@@ -89,7 +89,7 @@ class Category extends CI_Controller {
 		$data["page_meta"] = [
 			"title" => $infocat["meta"]["seotitle"],
 			"keywork" => $infocat["meta"]["seokeywork"],
-			"desc" => $infocat["meta"]["seodes"],
+			"desc" => isset($infocat["meta"]["seodes"]) ? $infocat["meta"]["seodes"] : "",
 			"site_url" => $this->model_options->get('site_url'),
 			"maintain_status" => $this->model_options->get('maintain_status'),
 			"maintain_title" => $this->model_options->get('maintain_title'),
