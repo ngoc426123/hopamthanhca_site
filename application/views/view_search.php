@@ -11,7 +11,14 @@
           foreach ($data_page["listsong"] as $key => $value) {
           ?>
             <div class="song">
-              <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?> <span><?php echo (isset($value["cat"]["tac-gia"])) ? $value["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></a></div>
+              <div class="song__title">
+                <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                  <?php echo $value["title"] ?>
+                  <span>
+                    <?php echo (isset($value["cat"]["tac-gia"])) ? $value["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?>
+                  </span>
+                </a>
+              </div>
               <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               <div class="song__info">
                 <div class="song__date"><?php echo $value["date"] ?></div>

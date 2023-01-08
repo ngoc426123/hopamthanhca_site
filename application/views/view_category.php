@@ -15,7 +15,8 @@
               <div class="item">
                 <div class="item__sp"><?php echo $value["type_name"] ?></div>
                 <div class="item__title"><?php echo $value["cat_name"] ?></div>
-                <div class="item__count"><?php echo $value["count"] ?> bài</div><a class="item__link" href="<?php echo $value["permalink"] ?>"></a>
+                <div class="item__count"><?php echo $value["count"] ?> bài</div>
+                <a class="item__link" href="<?php echo $value["permalink"] ?>"></a>
               </div>
             </li>
           <?php
@@ -32,7 +33,11 @@
             foreach ($data_page["pagination"] as $value) {
               if ( $value["type"] == "node" ) {
             ?>
-              <li class="<?php echo ($value['active']===1)?'active':'' ?>"><a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a></li>
+              <li class="<?php echo ($value['active']===1)?'active':'' ?>">
+                <a class="page-link" href="<?php echo $value['link'] ?>" title="<?php echo $value['number'] ?>">
+                  <?php echo $value['number'] ?>
+                </a>
+              </li>
             <?php
               } else {
             ?>

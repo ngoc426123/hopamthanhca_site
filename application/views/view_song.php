@@ -58,7 +58,9 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
       <div class="box-heading">
         <div class="box-title">
           <h1><?php echo $data_page["song"]["title"] ?></h1> - 
-          <a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></a>
+          <a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" title="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>">
+            <?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>
+          </a>
         </div>
         <div class="song-share">
           <ul>
@@ -111,13 +113,13 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
                 <div class="col-12 col-lg-4">
                   <div class="song-info">
                     <ul>
-                      <li><span class="song-info__att">Tác giả :</span><a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" class="song-info__ats song-info--up"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></a></li>
+                      <li><span class="song-info__att">Tác giả :</span><a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" class="song-info__ats song-info--up" title="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></a></li>
                       <li><span class="song-info__att">Người đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["author"]["displayname"] ?></span></li>
                       <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["date"] ?></span></li>
                       <li><span class="song-info__att">Lượt xem :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["luotxem"] ?></span></li>
                       <li><span class="song-info__att">Tone chính :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["hopamchinh"] ?></span></li>
-                      <li><span class="song-info__att">Điệu bài hát :</span><a href="<?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["permalink"] ?>" class="song-info__ats"><?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["cat_name"] ?></a></li>
-                      <li><span class="song-info__att">Chuyên mục :</span><a href="<?php echo $data_page["song"]["cat"]["chuyen-muc"][0]["permalink"] ?>" class="song-info__ats song-info--up"><?php echo (isset($data_page["song"]["cat"]["chuyen-muc"])) ? $data_page["song"]["cat"]["chuyen-muc"][0]["cat_name"] : "Chưa rõ chuyên mục" ?></a></li>
+                      <li><span class="song-info__att">Điệu bài hát :</span><a href="<?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["permalink"] ?>" class="song-info__ats" title="<?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["cat_name"] ?>"><?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["cat_name"] ?></a></li>
+                      <li><span class="song-info__att">Chuyên mục :</span><a href="<?php echo $data_page["song"]["cat"]["chuyen-muc"][0]["permalink"] ?>" class="song-info__ats song-info--up" title="<?php echo (isset($data_page["song"]["cat"]["chuyen-muc"])) ? $data_page["song"]["cat"]["chuyen-muc"][0]["cat_name"] : "Chưa rõ chuyên mục" ?>"><?php echo (isset($data_page["song"]["cat"]["chuyen-muc"])) ? $data_page["song"]["cat"]["chuyen-muc"][0]["cat_name"] : "Chưa rõ chuyên mục" ?></a></li>
                     </ul>
                   </div>
                 </div>
@@ -165,7 +167,14 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
             foreach ($data_page["songother"]["tac-gia"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title">
+                  <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                    <?php echo $value["title"] ?>
+                    <span>
+                      <?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?>
+                    </span>
+                  </a>
+                </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php
@@ -186,7 +195,14 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
             foreach ($data_page["songother"]["chuyen-muc"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title">
+                  <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                    <?php echo $value["title"] ?>
+                    <span>
+                      <?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?>
+                    </span>
+                  </a>
+                </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php

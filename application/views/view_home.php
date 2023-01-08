@@ -12,7 +12,12 @@
             foreach ($data_page["newsong"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title">
+                  <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?>">
+                    <?php echo $value["title"] ?>
+                    <span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span>
+                  </a>
+                </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php
@@ -33,7 +38,12 @@
             foreach ($data_page["mostview"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></div>
+                <div class="song__title">
+                  <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?>">
+                    <?php echo $value["title"] ?>
+                    <span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span>
+                  </a>
+                </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
               </div>
             <?php
@@ -55,7 +65,11 @@
             <?php 
             foreach ($data_page["tacgia"] as $key => $value) {
             ?>
-              <li><a href="<?php echo $value["permalink"] ?>"><span><?php echo $value["cat_name"] ?></span></a></li>
+              <li>
+                <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
+                  <span><?php echo $value["cat_name"] ?></span>
+                </a>
+              </li>
             <?php
             }
             ?>
@@ -74,7 +88,11 @@
             <?php 
             foreach ($data_page["chuyenmuc"] as $key => $value) {
             ?>
-              <li><a href="<?php echo $value["permalink"] ?>"><span><?php echo $value["cat_name"] ?></span></a></li>
+              <li>
+                <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
+                  <span><?php echo $value["cat_name"] ?></span>
+                </a>
+              </li>
             <?php
             }
             ?>
@@ -100,7 +118,11 @@
                 <li>
                   <div class="num"><?php echo $index ?>.</div>
                   <div class="tend">
-                    <h3><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?></a></h3>
+                    <h3>
+                      <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                        <?php echo $value["title"] ?>
+                      </a>
+                    </h3>
                   </div>
                   <div class="df">
                     <div class="att"><span class="fa-eye"><?php echo $value["meta"]["luotxem"] ?></span></div>
@@ -130,7 +152,11 @@
                 <li>
                   <div class="num"><?php echo $index ?>.</div>
                   <div class="tend">
-                    <h3><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?></a></h3>
+                    <h3>
+                      <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                        <?php echo $value["title"] ?>
+                      </a>
+                    </h3>
                   </div>
                   <div class="df">
                     <div class="att"><span class="fa-eye"><?php echo $value["meta"]["luotxem"] ?></span></div>
@@ -160,7 +186,11 @@
                 <li>
                   <div class="num"><?php echo $index ?>.</div>
                   <div class="tend">
-                    <h3><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?></a></h3>
+                    <h3>
+                      <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                        <?php echo $value["title"] ?>
+                      </a>
+                    </h3>
                   </div>
                   <div class="df">
                     <div class="att"><span class="fa-eye"><?php echo $value["meta"]["luotxem"] ?></span></div>
@@ -186,7 +216,7 @@
             <div class="songhome">
               <div class="songhome__wrap">
                 <div class="songhome__title">
-                  <h3><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?> <span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></h3>
+                  <h3><a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>"><?php echo $value["title"] ?> <span><?php echo $value["cat"]["tac-gia"][0]["cat_name"] ?></span></a></h3>
                 </div>
                 <div class="songhome__info"><?php echo $value["date"] ?></div>
                 <div class="songhome__df">

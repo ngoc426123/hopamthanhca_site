@@ -63,29 +63,30 @@ if ( $page_meta["maintain_status"] != 0 ) {
                 <div class="header__menuOverlay"></div>
                 <div class="header__menuDropdown">
                   <ul>
-                    <li><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
-                    <li><a href="<?php echo base_url("gioi-thieu"); ?>">Giới thiệu</a></li>
-                    <li><a href="<?php echo base_url("bai-hat"); ?>">Bài hát</a></li>
+                    <li><a href="<?php echo base_url(); ?>" title="Trang chủ">Trang chủ</a></li>
+                    <li><a href="<?php echo base_url("gioi-thieu"); ?>" title="Giới thiệu">Giới thiệu</a></li>
+                    <li><a href="<?php echo base_url("bai-hat"); ?>" title="Bài hát">Bài hát</a></li>
                     <li><a href=""><span>Danh mục</span></a>
                       <ul>
-                        <li><a href="<?php echo base_url("bang-chu-cai"); ?>">Bảng chữ cái</a></li>
-                        <li><a href="<?php echo base_url("chuyen-muc"); ?>">Chuyên mục</a></li>
-                        <li><a href="<?php echo base_url("tac-gia"); ?>">Tác giả</a></li>
+                        <li><a href="<?php echo base_url("bang-chu-cai"); ?>" title="Bảng chữ cái">Bảng chữ cái</a></li>
+                        <li><a href="<?php echo base_url("chuyen-muc"); ?>" title="Chuyên mục">Chuyên mục</a></li>
+                        <li><a href="<?php echo base_url("tac-gia"); ?>" title="Tác giả">Tác giả</a></li>
                       </ul>
                     </li>
-                    <li class="noPos"><a href="<?php echo base_url("dieu-bai-hat"); ?>"> <span>Điệu nhạc</span></a>
+                    <li class="noPos">
+                      <a href="<?php echo base_url("dieu-bai-hat"); ?>" title="Điệu nhạc"> <span>Điệu nhạc</span></a>
                       <ul class="menuMega">
                       <?php
                       foreach ($data_menu["dieu-bai-hat"] as $key => $value) {
                       ?>
-                        <li><a href="<?php echo $value["permalink"]; ?>"> <span><?php echo $value["cat_name"]; ?></span></a></li>
+                        <li><a href="<?php echo $value["permalink"]; ?>" title="<?php echo $value["cat_name"]; ?>"> <span><?php echo $value["cat_name"]; ?></span></a></li>
                       <?php
                       }
                       ?>
                       </ul>
                     </li>
-                    <li><a href="<?php echo base_url("danh-sach-hop-am"); ?>">Hợp âm</a></li>
-                    <li><a href="<?php echo base_url("sheet-nhac"); ?>">Sheet nhạc</a></li>
+                    <li><a href="<?php echo base_url("danh-sach-hop-am"); ?>" title="Hợp âm">Hợp âm</a></li>
+                    <li><a href="<?php echo base_url("sheet-nhac"); ?>" title="Sheet nhạc">Sheet nhạc</a></li>
                   </ul>
                 </div>
               </div>

@@ -13,7 +13,12 @@
             foreach ($data_page["listsong"] as $key => $value) {
             ?>
               <div class="song">
-                <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?> <span><?php echo (isset($value["cat"]["tac-gia"])) ? $value["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></a></div>
+                <div class="song__title">
+                  <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>">
+                    <?php echo $value["title"] ?>
+                    <span><?php echo (isset($value["cat"]["tac-gia"])) ? $value["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span>
+                  </a>
+                </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
                 <div class="song__info">
                   <div class="song__date"><?php echo $value["date"] ?></div>
@@ -57,7 +62,13 @@
             <?php
             foreach ($data_page["listcat"] as $key => $value) {
             ?>
-              <li><a href="<?php echo $value["permalink"] ?>"><span><?php echo $value["cat_name"] ?> (<?php echo $value["count"] ?>)</span></a></li>
+              <li>
+                <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
+                  <span>
+                    <?php echo $value["cat_name"] ?> (<?php echo $value["count"] ?>)
+                  </span>
+                </a>
+              </li>
             <?php
             }
             ?>
@@ -69,7 +80,14 @@
             <div class="songhome">
               <div class="songhome__wrap">
                 <div class="songhome__title">
-                  <h3><a href="<?php echo $data_page["songrandom"]["permalink"] ?>"><?php echo $data_page["songrandom"]["title"] ?> <span><?php echo (isset($data_page["songrandom"]["cat"]["tac-gia"])) ? $data_page["songrandom"]["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></a></h3>
+                  <h3>
+                    <a href="<?php echo $data_page["songrandom"]["permalink"] ?>" title="<?php echo $data_page["songrandom"]["title"] ?>">
+                      <?php echo $data_page["songrandom"]["title"] ?>
+                      <span>
+                        <?php echo (isset($data_page["songrandom"]["cat"]["tac-gia"])) ? $data_page["songrandom"]["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?>
+                      </span>
+                    </a>
+                  </h3>
                 </div>
                 <div class="songhome__info"><?php echo $data_page["songrandom"]["date"] ?></div>
                 <div class="songhome__df">
