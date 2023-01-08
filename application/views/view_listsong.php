@@ -4,8 +4,10 @@
     <div class="row">
       <div class="col-12 col-lg-8">
         <div class="box padding">
-          <div class="box-title">
-            <h1><?php echo $data_page["page_title"]; ?></h1><small><?php echo $data_page["page_desc"]; ?></small>
+          <div class="box-heading">
+            <div class="box-title">
+              <h1><?php echo $data_page["page_title"]; ?></h1><small><?php echo $data_page["page_desc"]; ?></small>
+            </div>
           </div>
           <div class="box-content">
             <div class="list-song">

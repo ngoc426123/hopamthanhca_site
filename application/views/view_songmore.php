@@ -2,8 +2,10 @@
   <div class="wrapper">
     <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
-      <div class="box-title">
-        <h1>Danh sách bài hát</h1><small>Bài hát được tổng hợp toàn bộ ở đây để người dùng dễ dàng tìm kiếm hoặc muốn xem được toàn bộ bài hát của trang web</small>
+      <div class="box-heading">
+        <div class="box-title">
+          <h1>Danh sách bài hát</h1><small>Bài hát được tổng hợp toàn bộ ở đây để người dùng dễ dàng tìm kiếm hoặc muốn xem được toàn bộ bài hát của trang web</small>
+        </div>
       </div>
       <div class="box-content">
         <div class="list-song">

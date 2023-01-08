@@ -2,8 +2,10 @@
   <div class="wrapper">
     <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
-      <div class="box-title">
-        <h1><?php echo $data_page["page_title"]; ?></h1><small><?php echo $data_page["page_desc"]; ?></small>
+      <div class="box-heading">
+        <div class="box-title">
+          <h1><?php echo $data_page["page_title"]; ?></h1><small><?php echo $data_page["page_desc"]; ?></small>
+        </div>
       </div>
       <div class="box-content">
         <div class="category-list-cat">

@@ -3,8 +3,10 @@
     <div class="row justify-content-center">
       <div class="col-lg-6"> 
         <div class="box padding"> 
-          <div class="box-title"> 
-            <h3>Bài hát mới nhất</h3>
+          <div class="box-heading"> 
+            <div class="box-title">
+              <h3>Bài hát mới nhất</h3>
+            </div>
           </div>
           <div class="box-content">
             <div class="list-song">
@@ -29,8 +31,10 @@
       </div>
       <div class="col-lg-6"> 
         <div class="box padding"> 
-          <div class="box-title"> 
-            <h3>Bài hát xem nhiều nhất</h3>
+          <div class="box-heading">
+            <div class="box-title"> 
+              <h3>Bài hát xem nhiều nhất</h3>
+            </div>
           </div>
           <div class="box-content">
             <div class="list-song">
@@ -56,8 +60,10 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <div class="box-title">
-          <h3>Các tác giả</h3>
+        <div class="box-heading">
+          <div class="box-title">
+            <h3>Các tác giả</h3>
+          </div>
         </div>
         <div class="box">
           <div class="list-category">
@@ -79,8 +85,10 @@
         </div>
       </div>
       <div class="col-12">
-        <div class="box-title">
-          <h3>Danh mục phụng vụ</h3>
+        <div class="box-heading">
+          <div class="box-title">
+            <h3>Danh mục phụng vụ</h3>
+          </div>
         </div>
         <div class="box">
           <div class="list-category">
@@ -104,8 +112,10 @@
     </div>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="box-title">
-          <h3>Xem nhiều trong tuần</h3>
+        <div class="box-heading">
+          <div class="box-title">
+            <h3>Xem nhiều trong tuần</h3>
+          </div>
         </div>
         <div class="box padding">
           <div class="box-content">
@@ -138,8 +148,10 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-4">
-        <div class="box-title">
-          <h3>Xem nhiều trong tháng</h3>
+        <div class="box-heading">
+          <div class="box-title">
+            <h3>Xem nhiều trong tháng</h3>
+          </div>
         </div>
         <div class="box padding">
           <div class="box-content">
@@ -172,8 +184,10 @@
         </div>
       </div>
       <div class="col-12 col-md-12 col-lg-4">
-        <div class="box-title">
-          <h3>Yêu thích nhất trang</h3>
+        <div class="box-heading">
+          <div class="box-title">
+            <h3>Yêu thích nhất trang</h3>
+          </div>
         </div>
         <div class="box padding">
           <div class="box-content">

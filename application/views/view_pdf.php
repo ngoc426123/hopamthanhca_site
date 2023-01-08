@@ -2,8 +2,10 @@
   <div class="wrapper">
     <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
-      <div class="box-title">
-        <h1><?php echo $page_meta["title"]; ?></h1><small><?php echo $page_meta["desc"]; ?></small>
+      <div class="box-heading">
+        <div class="box-title">
+          <h1><?php echo $page_meta["title"]; ?></h1><small><?php echo $page_meta["desc"]; ?></small>
+        </div>
       </div>
       <div class="box-content">
         <div class="list-song pdf">

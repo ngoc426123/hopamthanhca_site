@@ -157,8 +157,10 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
     </div>
     <div class="row justify-content-center song-other">
       <div class="col-lg-6">
-        <div class="box-title"> 
-          <h3>Cùng tác giả <?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></h3>
+        <div class="box-heading">
+          <div class="box-title"> 
+            <h3>Cùng tác giả <?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></h3>
+          </div>
         </div>
         <div class="box padding">
           <div class="box-content">
@@ -185,8 +187,10 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
         </div>
       </div>
       <div class="col-lg-6"> 
-        <div class="box-title"> 
-          <h3>Cùng chuyên mục <?php echo $data_page["song"]["cat"]["chuyen-muc"][0]["cat_name"] ?></h3>
+        <div class="box-heading">
+          <div class="box-title"> 
+            <h3>Cùng chuyên mục <?php echo $data_page["song"]["cat"]["chuyen-muc"][0]["cat_name"] ?></h3>
+          </div>
         </div>
         <div class="box padding"> 
           <div class="box-content">
