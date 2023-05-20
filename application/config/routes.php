@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -53,18 +53,19 @@ $route['default_controller']   = 'index';
 $route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['api/search']       = 'index/searchAPI';
-$route['api/loadmore']     = 'index/loadmore';
-$route['bang-chu-cai']     = 'category/cating/bang-chu-cai';
-$route['tac-gia']          = 'category/cating/tac-gia';
-$route['chuyen-muc']       = 'category/cating/chuyen-muc';
-$route['dieu-bai-hat']     = 'category/cating/dieu-bai-hat';
-$route['danh-sach-hop-am'] = 'page/chord';
-$route['sheet-nhac']       = 'page/pdf';
-$route['bai-hat']          = 'page/song';
-$route['gioi-thieu']       = 'page/about';
-$route['tim-kiem']         = 'search';
-$route['bai-hat/(.+)']     = 'song/detail/$1';
-$route['updatelovesong']   = 'song/updatelove';
-$route['(.+)/(.+)']        = 'category/catingdetail/$1/$2';
-$route['sitemap.xml']      = 'sitemap';
+$route['api/search']         = 'index/searchAPI';
+$route['api/loadmore']       = 'index/loadmore';
+$route['bang-chu-cai']       = 'category/cating/bang-chu-cai';
+$route['tac-gia']            = 'category/cating/tac-gia';
+$route['chuyen-muc']         = 'category/cating/chuyen-muc';
+$route['dieu-bai-hat']       = 'category/cating/dieu-bai-hat';
+$route['danh-sach-hop-am']   = 'page/chord';
+$route['sheet-nhac']         = 'page/pdf';
+$route['bai-hat']            = 'page/song';
+$route['gioi-thieu']         = 'page/about';
+$route['thanh-ca-hang-tuan'] = 'page/holysongsweekly';
+$route['tim-kiem']           = 'search';
+$route['bai-hat/(.+)']       = 'song/detail/$1';
+$route['updatelovesong']     = 'song/updatelove';
+$route['(.+)/(.+)']          = 'category/catingdetail/$1/$2';
+$route['sitemap.xml']        = 'sitemap';

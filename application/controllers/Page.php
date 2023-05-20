@@ -8,6 +8,7 @@ class Page extends CI_Controller {
 
 	public function chord () {
 		$this->load->model(['model_options','model_cat']);
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -19,6 +20,7 @@ class Page extends CI_Controller {
 				"link" => base_url('danh-sach-hop-am'),
 			],
 		];
+
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Danh sách hợp âm - Tổng hợp hợp âm thường dùng, dễ sử dụng",
@@ -40,6 +42,7 @@ class Page extends CI_Controller {
 
 	public function pdf () {
 		$this->load->model(['model_options','model_song','model_cat']);
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -51,17 +54,20 @@ class Page extends CI_Controller {
 				"link" => base_url('sheet-nhac'),
 			],
 		];
+
 		// PAGINATION
 		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
 		$perpage = 20;
 		$total = $this->model_song->count();
 		$pagination = pagination($page, $perpage, $total, "sheet-nhac", "page");
+
 		// DATA PAGE
 		$page_start = ($page - 1) * $perpage;
 		$data["data_page"] = [
 			"listsong" => $this->model_song->getlist("pdf", $page_start, $perpage),
 			"pagination" => $pagination,
 		];
+
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Sheet nhạc - file pdf nhạc thánh ca.",
@@ -83,6 +89,7 @@ class Page extends CI_Controller {
 
 	public function song () {
 		$this->load->model(['model_options','model_song','model_cat']);
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -94,10 +101,12 @@ class Page extends CI_Controller {
 				"link" => base_url('bai-hat'),
 			],
 		];
+	
 		// DATA PAGE
 		$data["data_page"] = [
 			"listsong" => $this->model_song->getlist("new", 0, 16),
 		];
+	
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Danh sách bài hát - tổng hợp bài hát.",
@@ -119,6 +128,7 @@ class Page extends CI_Controller {
 
 	public function about () {
 		$this->load->model(['model_options','model_cat']);
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -146,6 +156,38 @@ class Page extends CI_Controller {
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
 		];
 		$data["page_view"] = "view_about";
+		$this->load->view("layout", $data);
+	}
+
+	public function holysongsweekly () {
+		$this->load->model(['model_options']);
+
+		// BREADCRUMB
+		$data["breadcrumb"] = [
+			[
+				"title" => "Trang chủ",
+				"link" => base_url(),
+			],
+			[
+				"title" => "Thánh ca hàng tuần",
+				"link" => base_url('thanh-ca-hang-tuan'),
+			],
+		];
+
+		// META PAGE
+		$data["page_meta"] = [
+			"title" => "Hợp âm thánh ca",
+			"keywork" => "Soạn bài hát thánh ca hàng tuần theo từng chủ đề, từng tuần phụng vụ, quanh năm A, B, C, các lễ đặc biệt.",
+			"desc" => "Website hợp âm dành riêng cho nhạc thánh ca hiện nay",
+			"site_url" => $this->model_options->get('site_url'),
+			"maintain_status" => $this->model_options->get('maintain_status'),
+			"maintain_title" => $this->model_options->get('maintain_title'),
+			"maintain_content" => $this->model_options->get('maintain_content'),
+			"maintain_background" => $this->model_options->get('maintain_background'),
+			"canonical" => base_url("thanh-ca-hang-tuan"),
+		];
+
+		$data["page_view"] = "view_holysongsweekly";
 		$this->load->view("layout", $data);
 	}
 }
