@@ -48,6 +48,17 @@ if ( $page_meta["maintain_status"] != 0 ) {
     <?php
     }
     ?>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZRP510794"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EZRP510794');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482"
+     crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="page">
@@ -107,6 +118,23 @@ if ( $page_meta["maintain_status"] != 0 ) {
         </div>
       </header>
       <?php $this->load->view($page_view); ?>
+      <div class="wrapper">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482"
+      crossorigin="anonymous"></script>
+        <!-- Ads2 -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-6075640192892482"
+            data-ad-slot="6508241366"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <?php
+      $this->load->model(['model_options']);
+      ?>
       <footer class="footer">
         <div class="footer__main">
           <div class="wrapper">
@@ -114,9 +142,9 @@ if ( $page_meta["maintain_status"] != 0 ) {
               <div class="footer__logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url("tmp/images/logo.svg"); ?>" alt="logo"></a></div>
               <div class="footer__social">
                 <ul>
-                  <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                  <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="<?php echo $this->model_options->get("social_facebook") ?>"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="<?php echo $this->model_options->get("social_youtube") ?>"><i class="fab fa-youtube"></i></a></li>
+                  <li><a href="<?php echo $this->model_options->get("social_twitter") ?>"><i class="fab fa-twitter"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -124,9 +152,9 @@ if ( $page_meta["maintain_status"] != 0 ) {
               <div class="footer__title">Hợp âm thánh ca</div>
               <div class="footer__infor">
                 <ul>
-                  <li><a href="tel:0373996947"> <strong>[T]: </strong>037.399.6947</a></li>
-                  <li><a href="mailto:minhngoc.ith@gmail.com"><strong>[E]: </strong>minhngoc.ith@gmail.com</a></li>
-                  <li><a href="#"><strong>[W]: </strong>hopamthanhca.com</a></li>
+                  <li><a href="tel:<?php echo str_replace('.', '', $this->model_options->get("phonenumber")) ?>"> <strong>[T]: </strong><?php echo $this->model_options->get("phonenumber") ?></a></li>
+                  <li><a href="mailto:<?php echo $this->model_options->get("email") ?>"><strong>[E]: </strong><?php echo $this->model_options->get("email") ?></a></li>
+                  <li><a href="<?php echo base_url() ?>"><strong>[W]: </strong><?php echo base_url() ?></a></li>
                   <li><a href="#"><strong>[@] </strong>Copyright 2020 by Hợp âm thánh ca</a></li>
                 </ul>
               </div>
