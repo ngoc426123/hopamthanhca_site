@@ -63,6 +63,12 @@ class Model_song extends CI_Model {
 	public function getlist($type = "new", $offset = 0, $limit = 5) {
 		$this->load->database();
 		switch ($type) {
+			case "all":
+				$this->db->select("*");
+				$this->db->from("song");
+				$this->db->where("song.status", "publish");
+				$this->db->order_by("song.id", "DESC");
+				break;
 			case "pdf":
 				$this->db->select("song.id");
 				$this->db->from("song");
@@ -128,7 +134,8 @@ class Model_song extends CI_Model {
 				break;
 		}
 
-		$this->db->limit($limit, $offset);
+		if ($offset !== -1 && $limit !== -1)
+			$this->db->limit($limit, $offset);
 		$get = $this->db->get();
 		$song_id = $get->result_array();
 		// GET SONG

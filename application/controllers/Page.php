@@ -142,7 +142,7 @@ class Page extends CI_Controller {
 		];
 		// META PAGE
 		$data["page_meta"] = [
-			"title" => "Hợp âm thánh ca",
+			"title" => "Lời Giới thiệu - Hợp âm thánh ca",
 			"keywork" => "Giới thiệu về hợp âm thánh ca, về hợp âm thánh ca, hợp âm thánh ca có sheet.",
 			"desc" => "Website hợp âm dành riêng cho nhạc thánh ca hiện nay",
 			"site_url" => $this->model_options->get('site_url'),
@@ -156,38 +156,6 @@ class Page extends CI_Controller {
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
 		];
 		$data["page_view"] = "view_about";
-		$this->load->view("layout", $data);
-	}
-
-	public function holysongsweekly () {
-		$this->load->model(['model_options']);
-
-		// BREADCRUMB
-		$data["breadcrumb"] = [
-			[
-				"title" => "Trang chủ",
-				"link" => base_url(),
-			],
-			[
-				"title" => "Thánh ca hàng tuần",
-				"link" => base_url('thanh-ca-hang-tuan'),
-			],
-		];
-
-		// META PAGE
-		$data["page_meta"] = [
-			"title" => "Hợp âm thánh ca",
-			"keywork" => "Soạn bài hát thánh ca hàng tuần theo từng chủ đề, từng tuần phụng vụ, quanh năm A, B, C, các lễ đặc biệt.",
-			"desc" => "Website hợp âm dành riêng cho nhạc thánh ca hiện nay",
-			"site_url" => $this->model_options->get('site_url'),
-			"maintain_status" => $this->model_options->get('maintain_status'),
-			"maintain_title" => $this->model_options->get('maintain_title'),
-			"maintain_content" => $this->model_options->get('maintain_content'),
-			"maintain_background" => $this->model_options->get('maintain_background'),
-			"canonical" => base_url("thanh-ca-hang-tuan"),
-		];
-
-		$data["page_view"] = "view_holysongsweekly";
 		$this->load->view("layout", $data);
 	}
 }
