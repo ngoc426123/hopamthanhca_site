@@ -1,4 +1,3 @@
-
 <div class="main-content">
   <div class="wrapper">
     <?php breadcrumb($breadcrumb) ?>

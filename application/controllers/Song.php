@@ -29,7 +29,7 @@ class Song extends CI_Controller {
 			]
 		];
 		// UPDATE VIEW
-		$view = $song["meta"]["luotxem"] + 1;
+		$view = $song["meta"]["luotxem"] + (check_IP_ban_list($_SERVER['REMOTE_ADDR']) ? 0 : 1);
 		$this->model_meta->update($song["id"], 'luotxem', $view);
 		// META PAGE
 		$data["page_meta"] = [
@@ -44,7 +44,7 @@ class Song extends CI_Controller {
 			"canonical" => $song["permalink"],
 		];
 		$data["data_menu"] = [
-			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
+			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat", -1, 0),
 		];
 		$data["page_view"] = "view_song";
 		$this->load->view("layout", $data);

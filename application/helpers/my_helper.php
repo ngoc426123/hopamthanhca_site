@@ -7,50 +7,22 @@ if(!function_exists("pr")){
 	}
 }
 
-if(!function_exists("cut_chor_text")){
-	function cut_chor_text($note){
-		$chor_compare="";
-		$chor_show="";
-		$text="";
-		for($i=0;$i<strlen($note);$i++){
-			$chor_compare=$chor_compare.$note[$i];
-			if($note[$i]=="]"){
-				break;
-			}
-		}
-		$count=strlen($chor_compare);
-		$chor_show=substr($chor_compare,1,$count-2);
-		for($i=0;$i<strlen($note);$i++){
-			if($i>=$count){
-				$text=$text.$note[$i];
-			}
-		}
-		$chor_show=ucfirst($chor_show);
-		$result=array(
-			'chor_compare'  => $chor_compare,
-			'chor_show' => $chor_show,
-			'text'  => $text,
-		);
-		return $result;
-	}
-}
-
 if(!function_exists("convent_song")){
 	function convent_song($song){
-		$result="";
-		$song=str_replace("["," [",$song);
-		$song=explode(' ',$song);
-		foreach ($song as $rs){
-			if(substr($rs,0,1)=="["){
-				$c=cut_chor_text($rs);
-				$rs=str_replace($c["chor_compare"],"<span class='chordOC'><span class='chordPer'>[</span><span class='chord'>".$c["chor_show"]."</span><span class='chordPer'>]</span></span>", $rs);
-				$result=$result.$rs." ";
-			}
-			else{
-				$result=$result.$rs." ";
-			}
-		}
-		return $result;
+		$partten = "/(\[\w+(|\#)(|\w+)(|\/\w+)\])/";
+		$parttenChord = "/\[|\]/";
+		$song = preg_replace_callback($partten, function ($chord) use($partten, $parttenChord) {
+			return preg_replace_callback($partten, function ($text) use($parttenChord) {
+				$chord = preg_replace($parttenChord, '', $text[0]);
+				return "<span class='chordOC'>
+					<span class='chordPer'>[</span>
+					<span class='chord'>{$chord}</span>
+					<span class='chordPer'>]</span>
+				</span>";
+			}, $chord[0]);
+		}, $song);
+
+		return $song;
 	}
 }
 
@@ -260,7 +232,7 @@ if (!function_exists('mb_ucfirst')) {
 
 if (!function_exists('breadcrumb')) {
 	function breadcrumb($data) {
-?>
+	?>
 		<div class="breadcrumb">
       <ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
       <?php
@@ -278,6 +250,37 @@ if (!function_exists('breadcrumb')) {
       ?>
       </ul>
     </div>
-<?php
+	<?php
+	}
+}
+
+if (!function_exists('check_IP_ban_list')) {
+	function check_IP_ban_list($ipCheck) {
+		$check = false;
+		$json = file_get_contents("https://developers.google.com/search/apis/ipranges/googlebot.json");
+		$obj = json_decode($json, true);
+
+		foreach ($obj["prefixes"] as $key => $value) {
+			foreach($value as $item) {
+				if (preg_match("/({$ipCheck})/", $item) == 1) {
+					$check = true;
+					break;
+				}
+			}
+		}
+
+		return $check;
+	}
+}
+
+if (!function_exists('IP_writer')) {
+	function IP_writer($server) {
+		$line = "";
+		$myfile = fopen("ip_list.txt", "w") or die("Unable to open file!");
+		foreach ($server as $key => $value) {
+			$line .= "{$key} => {$value}.\n";
+		}
+		fwrite($myfile, $line);
+		fclose($myfile);
 	}
 }

@@ -3,6 +3,8 @@ if ( $page_meta["maintain_status"] != 0 ) {
   $this->load->view("view_maintain");
   return false;
 }
+
+// pr($page_meta);
 ?>
 <!DOCTYPE html>
 <html>

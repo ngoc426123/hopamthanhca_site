@@ -220,6 +220,20 @@
         </div>
       </div>
     </div>
+    <div class="wrapper">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482"
+      crossorigin="anonymous"></script>
+      <!-- Quảng cáo 1 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-6075640192892482"
+          data-ad-slot="6979810812"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
     <div class="row">
     <?php
     foreach ($data_page["nextsong"] as $key => $value) {
