@@ -62,13 +62,8 @@ class Model_song extends CI_Model {
 
 	public function getlist($type = "new", $offset = 0, $limit = 5) {
 		$this->load->database();
+
 		switch ($type) {
-			case "all":
-				$this->db->select("*");
-				$this->db->from("song");
-				$this->db->where("song.status", "publish");
-				$this->db->order_by("song.id", "DESC");
-				break;
 			case "pdf":
 				$this->db->select("song.id");
 				$this->db->from("song");
@@ -198,21 +193,39 @@ class Model_song extends CI_Model {
 
 	public function getlistAPI() {
 		$this->load->database();
+		$this->load->driver('cache', ['adapter' => 'apc', 'backup' => 'file']);
+
+		if ($this->cache->get('allsong')) {
+			return $this->cache->get('allsong');
+		}
+
 		$this->db->select("*");
 		$this->db->from("song");
 		$this->db->order_by("id", "DESC");
 		$get = $this->db->get();
 		$songresult = $get->result_array();
 
-		// CATEGORY
-		foreach ($songresult as $key => $value) {
+		foreach ($songresult as $key => $item) {
+			$id_song = $item['id'];
+
+			// META
+			$this->db->select("key, value");
+			$this->db->from("songmeta");
+			$this->db->where([ "id_song" => $id_song ]);
+			$get = $this->db->get();
+			$meta_result = $get->result_array();
+			foreach ($meta_result as $item_meta) {
+				$songresult[$key]["meta"][$item_meta['key']] = $item_meta['value'];
+			}
+
+			// CATEGORY
 			$this->db->select('*');
 			$this->db->from('songcat');
 			$this->db->join("cattype", "songcat.id_cat = cattype.id_cat");
 			$this->db->join("cat", "cat.id = cattype.id_cat");
 			$this->db->join("type", "cattype.id_type = type.id");
 			$this->db->where([
-				"songcat.id_song" => $value["id"]
+				"songcat.id_song" => $id_song
 			]);
 			$get = $this->db->get();
 			$cat = $get->result_array();
@@ -220,22 +233,9 @@ class Model_song extends CI_Model {
 				$songresult[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
 			}
 		}
-		
-		// GET SONG
-		$result = [];
-		foreach ($songresult as $key => $value) {
-			$song_excerpt = $value["excerpt"];
-			$song_excerpt = preg_replace("/(\!|\?|\:|\;|\(|\)|\,|\.)/", "", $song_excerpt);
-			$result["data"][] = [
-				"value" => $value["title"],
-				"label" => $value["title"],
-				"excerpt" => $song_excerpt,
-				"permalink" => base_url("bai-hat/{$value["slug"]}"),
-				"author" => $value["cat"]["tac-gia"][0]["cat_name"],
-			];
-		}
-		$result["count"] = $this->count();
-		return $result;
+
+		$this->cache->save('allsong', $songresult, 86400);
+		return $songresult;
 	}
 
 	public function getsongrandom() {

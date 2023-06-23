@@ -51,7 +51,7 @@ class Weekly extends CI_Controller {
 
     // DATA
     $data["weekly"] = $this->model_weekly->get($slug);
-    $data["list_song"] = $this->model_song->getlist("all", -1, -1);
+    $data["list_song"] = $this->model_song->getlistAPI();
     $data["phan_hat"] = $this->model_cat->getlist("phan-hat");
 
 		// BREADCRUMB

@@ -179,5 +179,8 @@ if ( $page_meta["maintain_status"] != 0 ) {
       </footer>
     </div>
   </body>
+  <script type="text/javascript">
+    const BASE_URL = '<?php echo base_url() ?>';
+  </script>
   <script src="<?php echo base_url("tmp/js/app.min.js"); ?>" type="text/javascript"></script>
 </html>
