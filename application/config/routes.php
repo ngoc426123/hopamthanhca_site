@@ -53,6 +53,7 @@ $route['default_controller']      = 'index';
 $route['404_override']            = '';
 $route['translate_uri_dashes']    = FALSE;
 
+$route['clearCache']              = 'cache/clearCache';
 $route['api/search']              = 'index/searchAPI';
 $route['api/loadmore']            = 'index/loadmore';
 $route['bang-chu-cai']            = 'category/cating/bang-chu-cai';
