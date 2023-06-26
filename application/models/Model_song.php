@@ -203,9 +203,9 @@ class Model_song extends CI_Model {
 		$this->db->from("song");
 		$this->db->order_by("id", "DESC");
 		$get = $this->db->get();
-		$songresult = $get->result_array();
+		$song_result = $get->result_array();
 
-		foreach ($songresult as $key => $item) {
+		foreach ($song_result as $key => $item) {
 			$id_song = $item['id'];
 
 			// META
@@ -215,7 +215,7 @@ class Model_song extends CI_Model {
 			$get = $this->db->get();
 			$meta_result = $get->result_array();
 			foreach ($meta_result as $item_meta) {
-				$songresult[$key]["meta"][$item_meta['key']] = $item_meta['value'];
+				$song_result[$key]["meta"][$item_meta['key']] = $item_meta['value'];
 			}
 
 			// CATEGORY
@@ -230,12 +230,24 @@ class Model_song extends CI_Model {
 			$get = $this->db->get();
 			$cat = $get->result_array();
 			foreach ($cat as $key_cat => $item_cat) {
-				$songresult[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
+				$song_result[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
 			}
 		}
 
-		$this->cache->save('allsong', $songresult, 86400);
-		return $songresult;
+		$this->db->select("*");
+		$this->db->from("options");
+		$this->db->where([
+			"key" => "cache_unit",
+		]);
+		$this->db->or_where([
+			"key" => "cache_value",
+		]);
+		$get = $this->db->get();
+		$result_cache = $get->result_array();
+		$timeCache = get_cache_time($result_cache[0]["value"], $result_cache[1]["value"]);
+		$this->cache->save('allsong', $song_result, $timeCache);
+
+		return $song_result;
 	}
 
 	public function getsongrandom() {
