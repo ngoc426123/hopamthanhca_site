@@ -77,9 +77,13 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
       <div class="box-content">
         <div class="song-tools">
           <div class="song-tools__group">
-            <button class="song-tools__btn" id="chordDown">b</button>
+            <button class="song-tools__btn" id="chordDown">
+              <img src="<?php echo base_url("tmp/images/flat.svg"); ?>" alt="flat music">
+            </button>
             <input class="song-tools__input chord_ipt" value="<?php echo $data_page["song"]["meta"]["hopamchinh"] ?>">
-            <button class="song-tools__btn" id="chordUp">#</button>
+            <button class="song-tools__btn" id="chordUp">
+              <img src="<?php echo base_url("tmp/images/sharp.svg"); ?>" alt="sharp music">
+            </button>
           </div>
           <div class="song-tools__group">
             <button class="song-tools__btn" id="fontDown">-</button>
