@@ -257,7 +257,7 @@ if (!function_exists('breadcrumb')) {
 if (!function_exists('check_IP_ban_list')) {
 	function check_IP_ban_list($ipCheck) {
 		$check = false;
-		$json = file_get_contents("https://developers.google.com/search/apis/ipranges/googlebot.json");
+		$json = file_get_contents("googlebot.json");
 		$obj = json_decode($json, true);
 
 		foreach ($obj["prefixes"] as $key => $value) {
