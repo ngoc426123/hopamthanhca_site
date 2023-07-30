@@ -199,7 +199,7 @@ class Model_song extends CI_Model {
 			return $this->cache->get('allsong');
 		}
 
-		$this->db->select("*");
+		$this->db->select("id, title, excerpt, slug");
 		$this->db->from("song");
 		$this->db->order_by("id", "DESC");
 		$get = $this->db->get();
@@ -211,7 +211,10 @@ class Model_song extends CI_Model {
 			// META
 			$this->db->select("key, value");
 			$this->db->from("songmeta");
-			$this->db->where([ "id_song" => $id_song ]);
+			$this->db->where([
+				"id_song" => $id_song,
+				"key" => "pdffile",
+			]);
 			$get = $this->db->get();
 			$meta_result = $get->result_array();
 			foreach ($meta_result as $item_meta) {
@@ -219,13 +222,14 @@ class Model_song extends CI_Model {
 			}
 
 			// CATEGORY
-			$this->db->select('*');
+			$this->db->select('type.type_slug, cat.cat_name');
 			$this->db->from('songcat');
 			$this->db->join("cattype", "songcat.id_cat = cattype.id_cat");
 			$this->db->join("cat", "cat.id = cattype.id_cat");
 			$this->db->join("type", "cattype.id_type = type.id");
 			$this->db->where([
-				"songcat.id_song" => $id_song
+				"songcat.id_song" => $id_song,
+				"type.type_slug" => "tac-gia",
 			]);
 			$get = $this->db->get();
 			$cat = $get->result_array();

@@ -2,23 +2,6 @@
   <div class="wrapper">
     <?php breadcrumb($breadcrumb) ?>
     <div class="box padding">
-      <div class="box-content">
-        <div class="holy-songs-weekly">
-          <div class="holy-songs-weekly__content">
-            <p>TÍNH NĂNG CHUẨN BỊ RA MẮT</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<?php die(); ?>
-
-<div class="main-content">
-  <div class="wrapper">
-    <?php breadcrumb($breadcrumb) ?>
-    <div class="box padding">
       <div class="box-title">
         <h1>Thánh ca hàng tuần</h1>
         <small>Soạn bài hát thánh lễ các mùa phụng vụ, các lễ riêng, lễ đặc biệt.</small>
