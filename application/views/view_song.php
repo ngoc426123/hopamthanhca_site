@@ -58,9 +58,13 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
       <div class="box-heading">
         <div class="box-title">
           <h1><?php echo $data_page["song"]["title"] ?></h1> - 
-          <a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" title="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>">
-            <?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>
-          </a>
+          <p>
+          <?php foreach ($data_page["song"]["cat"]["tac-gia"] as $value) { ?>
+            <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
+              <?php echo $value["cat_name"] ?>
+            </a>
+          <?php } ?>
+          </p>
         </div>
         <div class="song-share">
           <ul>
@@ -117,7 +121,16 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
                 <div class="col-12 col-lg-4">
                   <div class="song-info">
                     <ul>
-                      <li><span class="song-info__att">Tác giả :</span><a href="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["permalink"] ?>" class="song-info__ats song-info--up" title="<?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?>"><?php echo $data_page["song"]["cat"]["tac-gia"][0]["cat_name"] ?></a></li>
+                      <li>
+                        <span class="song-info__att">Tác giả :</span>
+                        <p>
+                        <?php foreach ($data_page["song"]["cat"]["tac-gia"] as $value) { ?>
+                          <a href="<?php echo $value["permalink"] ?>" class="song-info__ats song-info--up" title="<?php echo $value["cat_name"] ?>" >
+                            <?php echo $value["cat_name"] ?>
+                          </a>
+                        <?php } ?>
+                        </p>
+                      </li>
                       <li><span class="song-info__att">Người đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["author"]["displayname"] ?></span></li>
                       <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["date"] ?></span></li>
                       <li><span class="song-info__att">Lượt xem :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["luotxem"] ?></span></li>
