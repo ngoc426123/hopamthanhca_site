@@ -14,6 +14,7 @@ if(!function_exists("convent_song")){
 		$song = preg_replace_callback($partten, function ($chord) use($partten, $parttenChord) {
 			return preg_replace_callback($partten, function ($text) use($parttenChord) {
 				$chord = preg_replace($parttenChord, '', $text[0]);
+				$chord = ucfirst($chord);
 				return "<span class='chordOC'>
 					<span class='chordPer'>[</span>
 					<span class='chord'>{$chord}</span>
