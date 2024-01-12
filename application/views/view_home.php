@@ -1,5 +1,31 @@
 <div class="main-content">
   <div class="wrapper">
+    <div class="box spring">
+      <div class="box-title padding">
+        <h3>Chúa Là Mùa Xuân</h3>
+        <span>Danh sách bài hát thánh ca về mùa xuân, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
+      </div>
+      <div class="box-content">
+        <div class="list-song">
+          <?php foreach ($data_page["xuan"] as $key => $value) { ?>
+            <div class="song">
+              <div class="song__title"><?php echo $value["title"] ?></div>
+              <div class="song__author">
+                <?php foreach ($value["cat"]["tac-gia"] as $val) { ?>
+                  <?php echo $val["cat_name"] ?>
+                <?php } ?>
+              </div>
+              <div class="song__desc"><?php echo $value["excerpt"] ?></div>
+              <a class="song__link" href="<?php echo $value["permalink"] ?>" title="<?php echo $value["title"] ?>"></a>
+            </div>
+          <?php } ?>
+          <div class="song more">
+            <div class="song__text-more">
+              Xem<br/> nhiều hơn</div><a class="song__link" href="<?php echo base_url("/chuyen-muc/xuan") ?>"></a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-lg-6"> 
         <div class="box padding"> 
