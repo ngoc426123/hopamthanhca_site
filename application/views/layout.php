@@ -1,5 +1,8 @@
 <?php
-if ( $page_meta["maintain_status"] != 0 ) {
+$cookieAdminLogin = get_cookie('hatc_admin_login');
+$isMaintain = $page_meta["maintain_status"] == 1 && !$cookieAdminLogin;
+
+if ( $isMaintain ) {
   $this->load->view("view_maintain");
   return false;
 }
