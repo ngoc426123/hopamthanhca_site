@@ -14,6 +14,7 @@ class Sitemap extends CI_Controller {
 		$list_cat = $this->model_cat->getlist(null, 0, 999);
 		$sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
 		$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
 		foreach ($list_song as $value) {
 			$url = $site_url .'/bai-hat/'. $value['slug'];
 			$date = date4sitemap($value['date']);
@@ -24,6 +25,7 @@ class Sitemap extends CI_Controller {
 									<priority>0.8</priority>
 								</url>';
 		}
+
 		foreach ($list_cat as $value) {
 			$url = $site_url .'/'.$value['type_slug'].'/'. $value['cat_slug'];
 			$date = '2018-06-18';

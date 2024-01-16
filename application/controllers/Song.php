@@ -28,9 +28,11 @@ class Song extends CI_Controller {
 				"link" => $song["permalink"],
 			]
 		];
+
 		// UPDATE VIEW
 		$view = $song["meta"]["luotxem"] + (check_IP_ban_list($_SERVER['REMOTE_ADDR']) ? 0 : 1);
 		$this->model_meta->update($song["id"], 'luotxem', $view);
+
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => ucfirst($data["data_page"]["song"]["meta"]["seotitle"])." - ".$data["data_page"]["song"]["cat"]["tac-gia"][0]["cat_name"]." - "."Hợp Âm Thánh Ca",
@@ -47,14 +49,15 @@ class Song extends CI_Controller {
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat", -1, 0),
 		];
 		$data["page_view"] = "view_song";
+
 		$this->load->view("layout", $data);
 	}
 
 	public function updatelove() {
 		// UPDATE
 		$this->load->model(['model_meta']);
-		$love = $_POST["love"];
-		$id = $_POST["id"];
+		$love = $this->inout->post('love');
+		$id = $this->inout->post('id');
 		$love++;
 		$this->model_meta->update($id, 'lovesong', $love);
 		// GET

@@ -56,7 +56,8 @@ class Page extends CI_Controller {
 		];
 
 		// PAGINATION
-		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$getPage = $this->input->get('page');
+		$page = $getPage ?? 1;
 		$perpage = 20;
 		$total = $this->model_song->count();
 		$pagination = pagination($page, $perpage, $total, "sheet-nhac", "page");
@@ -81,7 +82,7 @@ class Page extends CI_Controller {
 			"canonical" => base_url("sheet-nhac"),
 		];
 		$data["data_menu"] = [
-			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
+			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat", -1, 0),
 		];
 		$data["page_view"] = "view_pdf";
 		$this->load->view("layout", $data);
@@ -120,9 +121,10 @@ class Page extends CI_Controller {
 			"canonical" => base_url("bai-hat"),
 		];
 		$data["data_menu"] = [
-			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
+			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat", -1, 0),
 		];
 		$data["page_view"] = "view_songmore";
+
 		$this->load->view("layout", $data);
 	}
 

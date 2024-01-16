@@ -10,11 +10,13 @@ class Category extends CI_Controller {
 		$this->load->model(['model_options', 'model_cat']);
 		$info_type = $this->model_cat->gettype($type);
 		// PAGINATION
-		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$getPage = $this->input->get('page');
+		$page = $getPage ?? 1;
 		$perpage = 20;
 		$page_start = ($page - 1) * $perpage;
 		$total = $this->model_cat->count($info_type["type_slug"]);
 		$pagination = pagination($page, $perpage, $total, $info_type["type_slug"], "page");
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -26,6 +28,7 @@ class Category extends CI_Controller {
 				"link" => base_url($info_type["type_slug"]),
 			],
 		];
+
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $info_type["type_name"],
@@ -33,6 +36,7 @@ class Category extends CI_Controller {
 			"listcat" => ($type == "bang-chu-cai") ? $this->model_cat->getlist($type) : $this->model_cat->getlist($type, $page_start, $perpage),
 			"pagination" => $pagination,
 		];
+
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => "Bài hát theo {$info_type["type_name"]} - Hợp âm thánh ca",
@@ -49,18 +53,22 @@ class Category extends CI_Controller {
 			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
 		];
 		$data["page_view"] = ($type == "bang-chu-cai") ? "view_category_alphabet" : "view_category";
+
 		$this->load->view("layout", $data);
 	}
 
 	public function catingdetail($type, $cat) {
 		$this->load->model(['model_options', 'model_cat', 'model_song']);
 		$infocat = $this->model_cat->get($cat);
+
 		// PAGINATION
-		$page = isset($_GET["page"]) ? $_GET["page"] : 1;
+		$getPage = $this->input->get('page');
+		$page = $getPage ?? 1;
 		$perpage = 10;
 		$total = $this->model_cat->countcat($infocat["id"]);
 		$page_start = ($page - 1) * $perpage;
 		$pagination = pagination($page, $perpage, $total, $infocat["type_slug"]."/".$infocat["cat_slug"], "page");
+
 		// BREADCRUMB
 		$data["breadcrumb"] = [
 			[
@@ -76,6 +84,7 @@ class Category extends CI_Controller {
 				"link" => base_url($infocat["type_slug"]."/".$infocat["cat_slug"]),
 			],
 		];
+
 		// DATA PAGE
 		$data["data_page"] = [
 			"page_title" => $infocat["cat_name"],
@@ -85,6 +94,7 @@ class Category extends CI_Controller {
 			"songrandom" => $this->model_song->getsongrandom(),
 			"pagination" => $pagination,
 		];
+
 		// META PAGE
 		$data["page_meta"] = [
 			"title" => $infocat["meta"]["seotitle"],
@@ -98,9 +108,10 @@ class Category extends CI_Controller {
 			"canonical" => base_url($infocat["type_slug"]."/".$infocat["cat_slug"]),
 		];
 		$data["data_menu"] = [
-			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat",-1,0),
+			"dieu-bai-hat" => $this->model_cat->getlist("dieu-bai-hat", -1, 0),
 		];
 		$data["page_view"] = "view_listsong";
+
 		$this->load->view("layout", $data);
 	}
 }
