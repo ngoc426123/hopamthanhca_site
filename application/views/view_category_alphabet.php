@@ -13,7 +13,9 @@
           foreach ($data_page["listcat"] as $key => $value) {
           ?>
             <li>
-              <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>"><span><?php echo $value["cat_name"] ?></span></a>
+              <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
+                <span><?php echo $value["cat_name"] ?></span>
+              </a>
             </li>
           <?php
           }

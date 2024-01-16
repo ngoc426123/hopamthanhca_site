@@ -14,9 +14,22 @@
           $pdf = ($value["meta"]["pdffile"] != "") ? $value["meta"]["pdffile"] : base_url("tmp/default.pdf");
         ?>
           <div class="song">
-            <div class="song__title"><a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?><span><?php echo (isset($value["cat"]["tac-gia"])) ? $value["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?></span></a></div>
+            <div class="song__title">
+              <a href="<?php echo $value["permalink"] ?>"><?php echo $value["title"] ?>
+                <span>
+                  <?php
+                    echo isset($value["cat"]["tac-gia"])
+                      ? $value["cat"]["tac-gia"][0]["cat_name"]
+                      : "Chưa rõ tác giả" ?>
+                </span>
+              </a>
+            </div>
             <div class="song__desc"><?php echo $value["excerpt"] ?></div>
-            <div class="song__downloadsheet"><a href="<?php echo $pdf ?>" download><img src="<?php echo base_url("tmp/images/pdf.svg") ?>" alt=""></a></div>
+            <div class="song__downloadsheet">
+              <a href="<?php echo $pdf ?>" download>
+                <img src="<?php echo base_url("tmp/images/pdf.svg") ?>" alt="" />
+              </a>
+            </div>
           </div>
         <?php
         }
@@ -31,7 +44,9 @@
             foreach ($data_page["pagination"] as $value) {
               if ( $value["type"] == "node" ) {
             ?>
-              <li class="<?php echo ($value['active']===1)?'active':'' ?>"><a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a></li>
+              <li class="<?php echo ($value['active']===1)?'active':'' ?>">
+                <a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a>
+              </li>
             <?php
               } else {
             ?>

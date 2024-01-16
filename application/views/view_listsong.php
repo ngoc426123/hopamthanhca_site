@@ -40,7 +40,9 @@
                 foreach ($data_page["pagination"] as $value) {
                   if ( $value["type"] == "node" ) {
                 ?>
-                  <li class="<?php echo ($value['active']===1)?'active':'' ?>"><a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a></li>
+                  <li class="<?php echo ($value['active']===1)?'active':'' ?>">
+                    <a class="page-link" href="<?php echo $value['link'] ?>"><?php echo $value['number'] ?></a>
+                  </li>
                 <?php
                   } else {
                 ?>
@@ -86,7 +88,11 @@
                     <a href="<?php echo $data_page["songrandom"]["permalink"] ?>" title="<?php echo $data_page["songrandom"]["title"] ?>">
                       <?php echo $data_page["songrandom"]["title"] ?>
                       <span>
-                        <?php echo (isset($data_page["songrandom"]["cat"]["tac-gia"])) ? $data_page["songrandom"]["cat"]["tac-gia"][0]["cat_name"] : "Chưa rõ tác giả" ?>
+                        <?php
+                          echo isset($data_page["songrandom"]["cat"]["tac-gia"]) 
+                            ? $data_page["songrandom"]["cat"]["tac-gia"][0]["cat_name"] 
+                            : "Chưa rõ tác giả"
+                        ?>
                       </span>
                     </a>
                   </h3>

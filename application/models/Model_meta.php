@@ -10,7 +10,9 @@ class Model_meta extends CI_Model {
 			"id_song" => $id,
 			"key"     => $key
 		]);
+
 		$get = $this->db->get();
+
 		return $get->row_array()["value"];
 	}
 
@@ -22,6 +24,7 @@ class Model_meta extends CI_Model {
 		$array_update = [
 			"value"  => $value,
 		];
+
 		$this->load->database();
 		$this->db->set($array_update);
 		$this->db->where($array_condition);

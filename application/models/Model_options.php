@@ -9,7 +9,9 @@ class Model_options extends CI_Model {
 		$this->db->where([
 			"key" => $key,
 		]);
+
 		$get = $this->db->get();
+
 		return $get->row_array()["value"];
-    }
+  }
 }

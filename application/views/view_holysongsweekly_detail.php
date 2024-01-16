@@ -1,5 +1,5 @@
 <?php
-$content = unserialize($weekly["content"]);
+  $content = unserialize($weekly["content"]);
 ?>
 <div class="main-content">
   <div class="wrapper">
@@ -31,8 +31,12 @@ $content = unserialize($weekly["content"]);
                     <li>
                       <div class="holy-songs-weekly__phase-song">
                         <div class="holy-songs-weekly__phase-song-detail">
-                          <a href="<?php echo base_url("bai-hat/{$songFilter["slug"]}") ?>"><?php echo ucfirst($songFilter["title"]) ?> - <?php echo $songFilter["cat"]["tac-gia"][0]["cat_name"] ?></a>
-                          <a href="<?php echo $songFilter["meta"]["pdffile"] ?>"><img src="<?php echo base_url("tmp/images/pdf.svg") ?>" alt=""></a>
+                          <a href="<?php echo base_url("bai-hat/{$songFilter["slug"]}") ?>">
+                            <?php echo ucfirst($songFilter["title"]) ?> - <?php echo $songFilter["cat"]["tac-gia"][0]["cat_name"] ?>
+                          </a>
+                          <a href="<?php echo $songFilter["meta"]["pdffile"] ?>">
+                            <img src="<?php echo base_url("tmp/images/pdf.svg") ?>" alt="">
+                          </a>
                         </div>
                         <div class="holy-songs-weekly__phase-song-desc"><?php echo mb_substr($songFilter["excerpt"], 0, 40) ?></div>
                       </div>

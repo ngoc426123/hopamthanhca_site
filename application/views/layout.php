@@ -94,7 +94,11 @@ if ( $isMaintain ) {
                       <?php
                       foreach ($data_menu["dieu-bai-hat"] as $key => $value) {
                       ?>
-                        <li><a href="<?php echo $value["permalink"]; ?>" title="<?php echo $value["cat_name"]; ?>"> <span><?php echo $value["cat_name"]; ?></span></a></li>
+                        <li>
+                          <a href="<?php echo $value["permalink"]; ?>" title="<?php echo $value["cat_name"]; ?>">
+                            <span><?php echo $value["cat_name"]; ?></span>
+                          </a>
+                        </li>
                       <?php
                       }
                       ?>
@@ -112,7 +116,17 @@ if ( $isMaintain ) {
           <div class="wrapper">
             <div class="header__search--title">Cùng tìm kiếm bài hát bạn thích nhất</div>
             <div class="header__search--form">
-              <input type="text" name="query" id="searchDesktop" autocomplete="off" placeholder="Nhập tên bài hát, từ khóa tìm kiếm..." data-search data-action="<?php echo base_url("tim-kiem") ?>" data-url="<?php echo base_url("api/search") ?>" value="<?php echo isset($data_page["keywork"]) ? $data_page["keywork"] : "" ?>">
+              <input
+                type="text"
+                name="query"
+                id="searchDesktop"
+                autocomplete="off"
+                placeholder="Nhập tên bài hát, từ khóa tìm kiếm..."
+                data-search
+                data-action="<?php echo base_url("tim-kiem") ?>"
+                data-url="<?php echo base_url("api/search") ?>"
+                value="<?php echo isset($data_page["keywork"]) ? $data_page["keywork"] : "" ?>"
+              >
             </div>
             <div class="header__search--note">
               <p>Tìm với tên bài hát: Ca vang tình yêu Chúa, Tình yêu Thiên Chúa</p>
@@ -124,17 +138,16 @@ if ( $isMaintain ) {
       </header>
       <?php $this->load->view($page_view); ?>
       <div class="wrapper">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482"
-      crossorigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482" crossorigin="anonymous"></script>
         <!-- Ads2 -->
         <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-6075640192892482"
-            data-ad-slot="6508241366"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+          style="display:block"
+          data-ad-client="ca-pub-6075640192892482"
+          data-ad-slot="6508241366"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
         <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
       <?php
@@ -157,10 +170,25 @@ if ( $isMaintain ) {
               <div class="footer__title">Hợp âm thánh ca</div>
               <div class="footer__infor">
                 <ul>
-                  <li><a href="tel:<?php echo str_replace('.', '', $this->model_options->get("phonenumber")) ?>"> <strong>[T]: </strong><?php echo $this->model_options->get("phonenumber") ?></a></li>
-                  <li><a href="mailto:<?php echo $this->model_options->get("email") ?>"><strong>[E]: </strong><?php echo $this->model_options->get("email") ?></a></li>
-                  <li><a href="<?php echo base_url() ?>"><strong>[W]: </strong><?php echo base_url() ?></a></li>
-                  <li><a href="#"><strong>[@] </strong>Copyright 2020 by Hợp âm thánh ca</a></li>
+                  <li>
+                    <a href="tel:<?php echo str_replace('.', '', $this->model_options->get("phonenumber")) ?>">
+                      <strong>[T]: </strong>
+                      <?php echo $this->model_options->get("phonenumber") ?>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:<?php echo $this->model_options->get("email") ?>">
+                      <strong>[E]: </strong>
+                      <?php echo $this->model_options->get("email") ?>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url() ?>">
+                      <strong>[W]: </strong><?php echo base_url() ?>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"><strong>[@] </strong>Copyright 2020 by Hợp âm thánh ca</a></li>
                 </ul>
               </div>
             </div>

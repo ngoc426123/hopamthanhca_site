@@ -9,6 +9,7 @@ class Model_weekly extends CI_Model {
 		$this->db->where([
 			"slug" => $slug
 		]);
+
 		$get = $this->db->get();
 		$result = $get->row_array();
 		$id = $result["id"];
@@ -19,8 +20,10 @@ class Model_weekly extends CI_Model {
 		$this->db->where([
 			"id_weekly" => $id
 		]);
+
 		$get = $this->db->get();
 		$meta_result = $get->result_array();
+
 		foreach ($meta_result as $key_meta => $item_meta) {
 			$result["meta"][$item_meta['key']] = $item_meta['value'];
 		}
@@ -33,11 +36,14 @@ class Model_weekly extends CI_Model {
 		$this->db->where([
 			"weeklycat.id_weekly" => $id
 		]);
+
 		$get = $this->db->get();
 		$cat = $get->result_array();
+
 		foreach ($cat as $key_cat => $item_cat) {
 			$result["cat"][$item_cat['type_slug']][] = $item_cat['id_cat'];
 		}
+
 		return $result;
   }
 
@@ -46,10 +52,13 @@ class Model_weekly extends CI_Model {
 		$this->db->select("*");
 		$this->db->from("weekly");
 		$this->db->order_by("id", "DESC");
+
 		if ($offset !== -1 && $limit !== -1)
 			$this->db->limit($limit, $offset);
+
 		$get = $this->db->get();
 		$weekly_result = $get->result_array();
+
 		foreach ($weekly_result as $key => $item) {
 			$id_weekly = $item['id'];
 			// META
@@ -58,8 +67,10 @@ class Model_weekly extends CI_Model {
 			$this->db->where([
 				"id_weekly" => $id_weekly
 			]);
+
 			$get = $this->db->get();
 			$meta_result = $get->result_array();
+
 			foreach ($meta_result as $key_meta => $item_meta) {
 				$weekly_result[$key]["meta"][$item_meta['key']] = $item_meta['value'];
 			}
@@ -73,12 +84,15 @@ class Model_weekly extends CI_Model {
 			$this->db->where([
 				"weeklycat.id_weekly" => $id_weekly
 			]);
+
 			$get = $this->db->get();
 			$cat = $get->result_array();
+
 			foreach ($cat as $key_cat => $item_cat) {
 				$weekly_result[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
 			}
 		}
+
 		return $weekly_result;
 	}
 
@@ -91,8 +105,10 @@ class Model_weekly extends CI_Model {
 			"weeklycat.id_cat" => $cat_id,
 		]);
 		$this->db->order_by("weekly.id", "ASC");
+
 		if ($offset !== -1 && $limit !== -1)
 			$this->db->limit($limit, $offset);
+
 		$get = $this->db->get();
 		$weekly_result = $get->result_array();
 
@@ -107,6 +123,7 @@ class Model_weekly extends CI_Model {
 			]);
 			$get = $this->db->get();
 			$meta_result = $get->result_array();
+
 			foreach ($meta_result as $key_meta => $item_meta) {
 				$weekly_result[$key]["meta"][$item_meta['key']] = $item_meta['value'];
 			}
@@ -122,10 +139,12 @@ class Model_weekly extends CI_Model {
 			]);
 			$get = $this->db->get();
 			$cat = $get->result_array();
+
 			foreach ($cat as $key_cat => $item_cat) {
 				$weekly_result[$key]["cat"][$item_cat['type_slug']][] = $item_cat;
 			}
 		}
+
 		return $weekly_result;
 	}
 
@@ -133,6 +152,7 @@ class Model_weekly extends CI_Model {
 		$this->load->database();
 		$this->db->select("COUNT(weekly.id)");
 		$this->db->from("weekly");
+
 		if ( $cat_id != 0 ) {
 			$this->db->join("weeklycat", "weeklycat.id_weekly = weekly.id");
 			$this->db->join("cat", "cat.id = weeklycat.id_cat");
@@ -140,6 +160,7 @@ class Model_weekly extends CI_Model {
 				"cat.id" => $cat_id,
 			]);
 		}
+
 		$get = $this->db->get();
 
 		return $get->row_array()['COUNT(weekly.id)'];
