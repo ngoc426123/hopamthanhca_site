@@ -17,8 +17,8 @@ class Index extends CI_Controller {
 			"mostlove" => $this->model_song->getlist("mostlove", 0, 10),
 			"nextsong" => $this->model_song->getlist("new", 10, 10),
 			"xuan" => $this->model_song->getlistoncat(60, 0, 11),
-			"tacgia" => $this->model_cat->getlist("tac-gia", 0, 27),
-			"chuyenmuc" => $this->model_cat->getlist("chuyen-muc", 0, 23),
+			"tacgia" => $this->model_cat->getlist("tac-gia", 0, 30),
+			"chuyenmuc" => $this->model_cat->getlist("chuyen-muc", 0, 30),
 		];
 		// META PAGE
 		$data["page_meta"] = [
