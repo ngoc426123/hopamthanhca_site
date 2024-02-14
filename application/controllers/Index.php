@@ -16,7 +16,7 @@ class Index extends CI_Controller {
 			"mostmonth" => $this->model_song->getlist("mostmonth", 0, 10),
 			"mostlove" => $this->model_song->getlist("mostlove", 0, 10),
 			"nextsong" => $this->model_song->getlist("new", 10, 10),
-			"xuan" => $this->model_song->getlistoncat(60, 0, 11),
+			"mua-chay" => $this->model_song->getlistoncat(50, 0, 11),
 			"tacgia" => $this->model_cat->getlist("tac-gia", 0, 27),
 			"chuyenmuc" => $this->model_cat->getlist("chuyen-muc", 0, 23),
 		];
