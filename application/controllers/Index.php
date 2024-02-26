@@ -18,7 +18,80 @@ class Index extends CI_Controller {
 			"nextsong" => $this->model_song->getlist("new", 10, 10),
 			"mua-chay" => $this->model_song->getlistoncat(50, 0, 11),
 			"tacgia" => $this->model_cat->getlist("tac-gia", 0, 27),
-			"chuyenmuc" => $this->model_cat->getlist("chuyen-muc", 0, 23),
+			"chuyenmuc" => [
+				[
+					"name" => "Mùa thường niên",
+					"img" => base_url("tmp/images/_0011_thuongnien.jpg"),
+					"link" => base_url("/chuyen-muc/mua-thuong-nien"),
+					"class" => "--muathuongnien",
+				],
+				[
+					"name" => "Mùa chay",
+					"img" => base_url("tmp/images/_0010_muachay.jpg"),
+					"link" => base_url("/chuyen-muc/mua-chay"),
+					"class" => "--muachay",
+				],
+				[
+					"name" => "Mùa phục sinh",
+					"img" => base_url("tmp/images/_0009_muaphucsinh.jpg"),
+					"link" => base_url("/chuyen-muc/mua-phuc-sinh"),
+					"class" => "--muaphucsinh",
+				],
+				[
+					"name" => "Mùa vọng",
+					"img" => base_url("tmp/images/_0008_muavong.jpg"),
+					"link" => base_url("/chuyen-muc/mua-vong"),
+					"class" => "--muavong",
+				],
+				[
+					"name" => "Mùa giáng sinh",
+					"img" => base_url("tmp/images/_0007_muagiangsinh.jpg"),
+					"link" => base_url("/chuyen-muc/mua-giang-sinh"),
+					"class" => "--muagiangsinh",
+				],
+				[
+					"name" => "Đức Mẹ Maria",
+					"img" => base_url("tmp/images/_0006_ducme.jpg"),
+					"link" => base_url("/chuyen-muc/duc-me"),
+					"class" => "--ducme",
+				],
+				[
+					"name" => "Hôn phối",
+					"img" => base_url("tmp/images/_0005_honphoi.jpg"),
+					"link" => base_url("/chuyen-muc/hon-phoi"),
+					"class" => "--honphoi",
+				],
+				[
+					"name" => "Tận hiến",
+					"img" => base_url("tmp/images/_0004_tanhien.jpg"),
+					"link" => base_url("/chuyen-muc/tan-hien"),
+					"class" => "--tanhien",
+				],
+				[
+					"name" => "Lòng thương xót",
+					"img" => base_url("tmp/images/_0003_longthuongxot.jpg"),
+					"link" => base_url("/chuyen-muc/long-thuong-xot-chua"),
+					"class" => "--longthuongxot",
+				],
+				[
+					"name" => "Các Thánh TĐVN",
+					"img" => base_url("tmp/images/_0002_cacthanhTDVN.jpg"),
+					"link" => base_url("/chuyen-muc/cac-thanh-tu-dao-viet-nam"),
+					"class" => "--tudaovietnam",
+				],
+				[
+					"name" => "Cầu hồn",
+					"img" => base_url("tmp/images/_0001_cauhon.jpg"),
+					"link" => base_url("/chuyen-muc/cau-hon"),
+					"class" => "--cauhon",
+				],
+				[
+					"name" => "Xem thêm",
+					"img" => base_url("tmp/images/_0000_xemthem.jpg"),
+					"link" => base_url("/chuyen-muc"),
+					"class" => "--xemthem",
+				],
+			],
 		];
 		// META PAGE
 		$data["page_meta"] = [

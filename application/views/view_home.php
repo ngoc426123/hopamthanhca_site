@@ -80,6 +80,26 @@
     </div>
     <div class="row">
       <div class="col-12">
+        <div class="slide-category">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <?php foreach ($data_page["chuyenmuc"] as $key => $value) { ?>
+              <div class="swiper-slide">
+                <div class="category-home <?php echo $value["class"] ?>">
+                  <a href="<?php echo $value["link"] ?>" title="<?php echo $value["name"] ?>">
+                    <img src="<?php echo $value["img"] ?>" alt="<?php echo $value["name"] ?>">
+                    <span><?php echo $value["name"] ?></span>
+                  </a>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+          </div>
+          <button class="slide-category-arrow --prev"></button>
+          <button class="slide-category-arrow --next"></button>
+        </div>
+      </div>
+      <div class="col-12">
         <div class="box-heading">
           <div class="box-title">
             <h3>Các tác giả</h3>
@@ -96,27 +116,6 @@
               </li>
               <?php } ?>
               <li><a href="<?php echo base_url("tac-gia"); ?>">Xem nhiều hơn...</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="box-heading">
-          <div class="box-title">
-            <h3>Danh mục phụng vụ</h3>
-          </div>
-        </div>
-        <div class="box">
-          <div class="list-category">
-            <ul>
-              <?php foreach ($data_page["chuyenmuc"] as $key => $value) { ?>
-              <li>
-                <a href="<?php echo $value["permalink"] ?>" title="<?php echo $value["cat_name"] ?>">
-                  <span><?php echo $value["cat_name"] ?></span>
-                </a>
-              </li>
-              <?php } ?>
-              <li><a href="<?php echo base_url("chuyen-muc"); ?>">Xem nhiều hơn...</a></li>
             </ul>
           </div>
         </div>
