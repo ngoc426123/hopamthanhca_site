@@ -1,13 +1,13 @@
 <div class="main-content">
   <div class="wrapper">
-    <div class="box season lent">
+    <div class="box season easter">
       <div class="box-title padding">
-        <h3>Mùa Chay - Tâm tình xám hối</h3>
-        <span>Danh sách bài hát thánh ca về mùa chay, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
+        <h3>Chúa Giêsu Phục Sinh cho mọi người</h3>
+        <span>Danh sách bài hát thánh ca về mùa phục sinh, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
       </div>
       <div class="box-content">
         <div class="list-song">
-          <?php foreach ($data_page["mua-chay"] as $key => $value) { ?>
+          <?php foreach ($data_page["mua-phuc-sinh"] as $key => $value) { ?>
             <div class="song">
               <div class="song__title"><?php echo $value["title"] ?></div>
               <div class="song__author">
