@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- TITLE TAG -->
+    <?php $this->renderSection('page_title'); ?>
+    <!-- META TAG -->
+    <?php $this->renderSection('meta_tag'); ?>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta property="og:image" content="<?php echo base_url("images/logo.svg"); ?>">
+    <meta property="og:type" content="website">
+    <meta name="google-site-verification" content="u_MBkWSe2AFG1aeQNi93_Y_jL4F7Cq31jGZACqK2SGs" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="nositelinkssearchbox">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <!-- LINK TAG -->
+    <?php $this->renderSection('link_tag'); ?>
+    <link rel="shortcut icon" href="<?php echo base_url("images/favicon.ico"); ?>"/>
+    <link rel="image_src" href="<?php echo base_url("images/1.jpg"); ?>">
+    <link href="<?php echo base_url("images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
+    <!-- ASSETS -->
+    <link href="<?php echo base_url("css/style.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("css/customs.css"); ?>" rel="stylesheet">
+    <!-- SCHEMA -->
+    <?php $this->renderSection('schema'); ?>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-EZRP510794"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EZRP510794');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+    <div class="page">
+      <?php echo $this->include('Modules/header'); ?>
+      <div class="main-page" data-main-page>
+        <div class="comp-wrapper">
+          <?php $this->renderSection('main_page'); ?>
+          <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6075640192892482" crossorigin="anonymous"></script> -->
+          <!-- Ads2 -->
+          <!-- <ins
+            class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-6075640192892482"
+            data-ad-slot="6508241366"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          >
+          </ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script> -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const BASE_URL = '<?php echo base_url() ?>';
+  </script>
+  <script src="<?php echo base_url("js/app.min.js"); ?>" type="text/javascript"></script>
+</html>
