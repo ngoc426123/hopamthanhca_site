@@ -44,7 +44,7 @@
         foreach ($season as $value) {
           echo view_cell('SongItemSeasonCell', [
             'title'       => $value['title'],
-            'author'      => $value['meta']['author'],
+            'author'      => $value['cat']['author'],
             'excerpt'     => $value['excerpt'],
             'permalink'   => base_url('bai-hat/'.$value['slug']),
           ]);
@@ -67,7 +67,7 @@
           foreach ($newest as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
-              'author'      => $value['meta']['author'],
+              'author'      => $value['cat']['author'],
               'excerpt'     => $value['excerpt'],
               'permalink'   => base_url('bai-hat/'.$value['slug']),
             ]);
@@ -86,7 +86,7 @@
           foreach ($mostview as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
-              'author'      => $value['meta']['author'],
+              'author'      => $value['cat']['author'],
               'excerpt'     => $value['excerpt'],
               'permalink'   => base_url('bai-hat/'.$value['slug']),
             ]);
@@ -100,8 +100,8 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <?php
-          foreach ($chuyenmuc as $value) {
-            echo view_cell('HomeCatBannerCell', [
+          foreach ($cat as $value) {
+            echo view_cell('CatBannerCell', [
               'title' => $value['name'],
               'img'   => base_url($value['img']),
               'link'  => base_url($value['link']),
@@ -171,6 +171,54 @@
           ?>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="comp-box --transparent">
+    <div class="comp-box__title">
+      <h2 class="comp-box__title-text">Các tác giả</h2>
+    </div>
+    <div class="comp-box__content">
+      <div class="comp-slide-author" data-slide-author>
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <?php
+              foreach ($author as $value) {
+                echo view_cell('AuthorBannerCell', [
+                  'name'  => $value['name'],
+                  'img'   => base_url($value['img']),
+                  'link'  => base_url($value['link']),
+                ]);
+              }
+            ?>
+            <div class="swiper-slide">
+              <div class="comp-author-banner">
+                <a href="<?= esc('tac-gia') ?>" title="Nhiều Hơn">
+                  <img src="images/tac-gia/_014_nhieuhon.jpg" alt="Nhiều Hơn"/>
+                  <span>Nhiều Hơn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="comp-slide-design__arrow --prev" data-slide-prev></button>
+        <button class="comp-slide-design__arrow --next" data-slide-next></button>
+      </div>
+    </div>
+  </div>
+  <div class="comp-list-song-home">
+    <div class="row">
+      <?php
+        foreach ($songhome as $value) {
+          echo view_cell('SongHomeCell', [
+            'title'     => $value['title'],
+            'dater'     => $value['date'],
+            'author'    => $value['cat']['author'],
+            'viewer'    => $value['meta']['luotxem'],
+            'lover'     => $value['meta']['lovesong'],
+            'permalink' => base_url('bai-hat/'.$value['slug']),
+          ]);
+        }
+      ?>
     </div>
   </div>
 <?php $this->endSection() ?>

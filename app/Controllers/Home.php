@@ -9,146 +9,21 @@ use App\Models\Songmeta;
 class Home extends BaseController {
 	public function index(): string {
 		$data = [
-			'newest' 			=> $this::getNewSong(),
-			'mostview' 		=> $this::getMostView(),
-			'mostweek' 		=> $this::getMostWeek(),
-			'mostmonth' 	=> $this::getMostMonth(),
-			'mostlove' 		=> $this::getMostLove(),
-			'season' 			=> $this::getSeason(),
-			'chuyenmuc' 	=> [
-				[
-					'name' 	=> 'Mùa thường niên',
-					'img' 	=> 'images/chuyen-muc/_0011_thuongnien.jpg',
-					'link' 	=> '/chuyen-muc/mua-thuong-nien',
-					'class' => '--muathuongnien',
-				],
-				[
-					'name' 	=> 'Mùa chay',
-					'img' 	=> 'images/chuyen-muc/_0010_muachay.jpg',
-					'link' 	=> '/chuyen-muc/mua-chay',
-					'class' => '--muachay',
-				],
-				[
-					'name' 	=> 'Mùa phục sinh',
-					'img' 	=> 'images/chuyen-muc/_0009_muaphucsinh.jpg',
-					'link' 	=> '/chuyen-muc/mua-phuc-sinh',
-					'class' => '--muaphucsinh',
-				],
-				[
-					'name' 	=> 'Mùa vọng',
-					'img' 	=> 'images/chuyen-muc/_0008_muavong.jpg',
-					'link' 	=> '/chuyen-muc/mua-vong',
-					'class' => '--muavong',
-				],
-				[
-					'name' 	=> 'Mùa giáng sinh',
-					'img' 	=> 'images/chuyen-muc/_0007_muagiangsinh.jpg',
-					'link' 	=> '/chuyen-muc/mua-giang-sinh',
-					'class' => '--muagiangsinh',
-				],
-				[
-					'name' 	=> 'Đức Mẹ Maria',
-					'img' 	=> 'images/chuyen-muc/_0006_ducme.jpg',
-					'link' 	=> '/chuyen-muc/duc-me',
-					'class' => '--ducme',
-				],
-				[
-					'name' 	=> 'Hôn phối',
-					'img' 	=> 'images/chuyen-muc/_0005_honphoi.jpg',
-					'link' 	=> '/chuyen-muc/hon-phoi',
-					'class' => '--honphoi',
-				],
-				[
-					'name' 	=> 'Tận hiến',
-					'img' 	=> 'images/chuyen-muc/_0004_tanhien.jpg',
-					'link' 	=> '/chuyen-muc/tan-hien',
-					'class' => '--tanhien',
-				],
-				[
-					'name' 	=> 'Lòng thương xót',
-					'img' 	=> 'images/chuyen-muc/_0003_longthuongxot.jpg',
-					'link' 	=> '/chuyen-muc/long-thuong-xot-chua',
-					'class' => '--longthuongxot',
-				],
-				[
-					'name' 	=> 'Các Thánh TĐVN',
-					'img' 	=> 'images/chuyen-muc/_0002_cacthanhTDVN.jpg',
-					'link' 	=> '/chuyen-muc/cac-thanh-tu-dao-viet-nam',
-					'class' => '--tudaovietnam',
-				],
-				[
-					'name' 	=> 'Cầu hồn',
-					'img' 	=> 'images/chuyen-muc/_0001_cauhon.jpg',
-					'link' 	=> '/chuyen-muc/cau-hon',
-					'class' => '--cauhon',
-				],
-				[
-					'name' 	=> 'Xem thêm',
-					'img' 	=> 'images/chuyen-muc/_0000_xemthem.jpg',
-					'link' 	=> '/chuyen-muc',
-					'class' => '--xemthem',
-				],
-			],
+			'newest' 		=> $this::getNewSong(),
+			'mostview' 	=> $this::getMostView(),
+			'mostweek' 	=> $this::getMostWeek(),
+			'mostmonth' => $this::getMostMonth(),
+			'mostlove' 	=> $this::getMostLove(),
+			'season' 		=> $this::getSeason(),
+			'cat' 			=> $this::getCat(),
+			'author' 		=> $this::getAuthor(),
+			'songhome'	=> $this::getSongHome()
 		];
+
 		return view('HomePage', $data);
 	}
 
-	public static function getNewSong() {
-		$songModel = new Song();
-		$songCatModel = new Songcat();
-		$songList = $songModel
-			->select('id, title, slug, excerpt')
-			->where('status', 'publish')
-			->orderBy('id', 'DESC')
-			->limit(10, 0)
-			->findAll();
-
-		foreach ($songList as $key => $songValue) {
-			$catData = $songCatModel
-				->join('cat', 'cat.id = songcat.id_cat')
-				->join('cattype', 'cattype.id_cat = songcat.id_cat')
-				->join('type', 'type.id = cattype.id_type')
-				->where('songcat.id_song', $songValue['id'])
-				->where('type.type_slug', 'tac-gia')
-				->findAll();
-
-			$songList[$key]['meta'] = [
-				'author' => $catData[0]['cat_name'],
-			];
-		};
-
-		return $songList;
-	}
-
-	public static function getMostView() {
-		$songModel = new Song();
-		$songCatModel = new Songcat();
-		$songList = $songModel
-			->select('song.id, song.title, song.slug, song.excerpt, CONVERT(songmeta.value, SIGNED INTEGER) as st')
-			->join('songmeta', 'songmeta.id_song = song.id')
-			->where('song.status', 'publish')
-			->orderBy('st', 'DESC')
-			->limit(10, 0)
-			->findAll();
-
-		foreach ($songList as $key => $songValue) {
-			$catData = $songCatModel
-				->join('cat', 'cat.id = songcat.id_cat')
-				->join('cattype', 'cattype.id_cat = songcat.id_cat')
-				->join('type', 'type.id = cattype.id_type')
-				->where('songcat.id_song', $songValue['id'])
-				->where('type.type_slug', 'tac-gia')
-				->findAll();
-
-			$songList[$key]['meta'] = [
-				'author' => $catData[0]['cat_name'],
-			];
-		};
-
-		return $songList;
-	}
-
-	public static function getSeason() {
+	private static function getSeason() {
 		$songModel = new Song();
 		$songCatModel = new Songcat();
 		$songList = $songModel
@@ -159,25 +34,169 @@ class Home extends BaseController {
 			->orderBy('title', 'RANDOM')
 			->limit(11, 0)
 			->findAll();
+		$songIDs = array_map(fn($item) => $item['id'], $songList);
+		$catData = $songCatModel
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->whereIn('songcat.id_song', $songIDs)
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
 
 		foreach ($songList as $key => $songValue) {
-			$catData = $songCatModel
-				->join('cat', 'cat.id = songcat.id_cat')
-				->join('cattype', 'cattype.id_cat = songcat.id_cat')
-				->join('type', 'type.id = cattype.id_type')
-				->where('songcat.id_song', $songValue['id'])
-				->where('type.type_slug', 'tac-gia')
-				->findAll();
+			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
 
-			$songList[$key]['meta'] = [
-				'author' => $catData[0]['cat_name'],
-			];
+			foreach ($arrayCat as $val) {
+				$songList[$key]['cat'] = [
+					'author' => $val['cat_name'],
+				];
+			}
 		};
 
 		return $songList;
 	}
 
-	public static function getMostWeek() {
+	private static function getNewSong() {
+		$songModel = new Song();
+		$songCatModel = new Songcat();
+		$songList = $songModel
+			->select('id, title, slug, excerpt')
+			->where('status', 'publish')
+			->orderBy('id', 'DESC')
+			->limit(10, 0)
+			->findAll();
+		$songIDs = array_map(fn($item) => $item['id'], $songList);
+		$catData = $songCatModel
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->whereIn('songcat.id_song', $songIDs)
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
+
+		foreach ($songList as $key => $songValue) {
+			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+
+			foreach ($arrayCat as $val) {
+				$songList[$key]['cat'] = [
+					'author' => $val['cat_name'],
+				];
+			}
+		};
+
+		return $songList;
+	}
+
+	private static function getMostView() {
+		$songModel = new Song();
+		$songCatModel = new Songcat();
+		$songList = $songModel
+			->select('song.id, song.title, song.slug, song.excerpt, CONVERT(songmeta.value, SIGNED INTEGER) as st')
+			->join('songmeta', 'songmeta.id_song = song.id')
+			->where('song.status', 'publish')
+			->orderBy('st', 'DESC')
+			->limit(10, 0)
+			->findAll();
+		$songIDs = array_map(fn($item) => $item['id'], $songList);
+		$catData = $songCatModel
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->whereIn('songcat.id_song', $songIDs)
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
+
+		foreach ($songList as $key => $songValue) {
+			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+
+			foreach ($arrayCat as $val) {
+				$songList[$key]['cat'] = [
+					'author' => $val['cat_name'],
+				];
+			}
+		};
+
+		return $songList;
+	}
+
+	private static function getCat() {
+		return [
+			[
+				'name' 	=> 'Mùa thường niên',
+				'img' 	=> 'images/chuyen-muc/_0011_thuongnien.jpg',
+				'link' 	=> '/chuyen-muc/mua-thuong-nien',
+				'class' => '--muathuongnien',
+			],
+			[
+				'name' 	=> 'Mùa chay',
+				'img' 	=> 'images/chuyen-muc/_0010_muachay.jpg',
+				'link' 	=> '/chuyen-muc/mua-chay',
+				'class' => '--muachay',
+			],
+			[
+				'name' 	=> 'Mùa phục sinh',
+				'img' 	=> 'images/chuyen-muc/_0009_muaphucsinh.jpg',
+				'link' 	=> '/chuyen-muc/mua-phuc-sinh',
+				'class' => '--muaphucsinh',
+			],
+			[
+				'name' 	=> 'Mùa vọng',
+				'img' 	=> 'images/chuyen-muc/_0008_muavong.jpg',
+				'link' 	=> '/chuyen-muc/mua-vong',
+				'class' => '--muavong',
+			],
+			[
+				'name' 	=> 'Mùa giáng sinh',
+				'img' 	=> 'images/chuyen-muc/_0007_muagiangsinh.jpg',
+				'link' 	=> '/chuyen-muc/mua-giang-sinh',
+				'class' => '--muagiangsinh',
+			],
+			[
+				'name' 	=> 'Đức Mẹ Maria',
+				'img' 	=> 'images/chuyen-muc/_0006_ducme.jpg',
+				'link' 	=> '/chuyen-muc/duc-me',
+				'class' => '--ducme',
+			],
+			[
+				'name' 	=> 'Hôn phối',
+				'img' 	=> 'images/chuyen-muc/_0005_honphoi.jpg',
+				'link' 	=> '/chuyen-muc/hon-phoi',
+				'class' => '--honphoi',
+			],
+			[
+				'name' 	=> 'Tận hiến',
+				'img' 	=> 'images/chuyen-muc/_0004_tanhien.jpg',
+				'link' 	=> '/chuyen-muc/tan-hien',
+				'class' => '--tanhien',
+			],
+			[
+				'name' 	=> 'Lòng thương xót',
+				'img' 	=> 'images/chuyen-muc/_0003_longthuongxot.jpg',
+				'link' 	=> '/chuyen-muc/long-thuong-xot-chua',
+				'class' => '--longthuongxot',
+			],
+			[
+				'name' 	=> 'Các Thánh TĐVN',
+				'img' 	=> 'images/chuyen-muc/_0002_cacthanhTDVN.jpg',
+				'link' 	=> '/chuyen-muc/cac-thanh-tu-dao-viet-nam',
+				'class' => '--tudaovietnam',
+			],
+			[
+				'name' 	=> 'Cầu hồn',
+				'img' 	=> 'images/chuyen-muc/_0001_cauhon.jpg',
+				'link' 	=> '/chuyen-muc/cau-hon',
+				'class' => '--cauhon',
+			],
+			[
+				'name' 	=> 'Xem thêm',
+				'img' 	=> 'images/chuyen-muc/_0000_xemthem.jpg',
+				'link' 	=> '/chuyen-muc',
+				'class' => '--xemthem',
+			],
+		];
+	}
+
+	private static function getMostWeek() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
 		$listDay = get_list_date("week");
@@ -195,9 +214,9 @@ class Home extends BaseController {
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
 		$songMeta = $songMetaModel
-				->whereIn('id_song', $songIDs)
-				->WhereIn('key', ['luotxem', 'lovesong'])
-				->findAll();
+			->whereIn('id_song', $songIDs)
+			->WhereIn('key', ['luotxem', 'lovesong'])
+			->findAll();
 
 		foreach ($songList as $key => $value) {
 			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $value['id']);
@@ -210,7 +229,7 @@ class Home extends BaseController {
 		return $songList;
 	}
 
-	public static function getMostMonth() {
+	private static function getMostMonth() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
 		$listDay = get_list_date("week");
@@ -227,9 +246,9 @@ class Home extends BaseController {
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
 		$songMeta = $songMetaModel
-				->whereIn('id_song', $songIDs)
-				->WhereIn('key', ['luotxem', 'lovesong'])
-				->findAll();
+			->whereIn('id_song', $songIDs)
+			->WhereIn('key', ['luotxem', 'lovesong'])
+			->findAll();
 
 		foreach ($songList as $key => $value) {
 			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $value['id']);
@@ -242,7 +261,7 @@ class Home extends BaseController {
 		return $songList;
 	}
 
-	public static function getMostLove() {
+	private static function getMostLove() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
 		$songList = $songModel
@@ -257,9 +276,9 @@ class Home extends BaseController {
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
 		$songMeta = $songMetaModel
-				->whereIn('id_song', $songIDs)
-				->WhereIn('key', ['luotxem', 'lovesong'])
-				->findAll();
+			->whereIn('id_song', $songIDs)
+			->WhereIn('key', ['luotxem', 'lovesong'])
+			->findAll();
 
 		foreach ($songList as $key => $value) {
 			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $value['id']);
@@ -268,6 +287,115 @@ class Home extends BaseController {
 				$songList[$key]['meta'][$val['key']] = $val['value'];
 			}
 		}
+
+		return $songList;
+	}
+
+	private static function getAuthor() {
+		return [
+			[
+				'name' 	=> 'Ân Đức',
+				'img' 	=> 'images/tac-gia/_001_anduc.jpg',
+				'link' 	=> '/tac-gia/an-duc',
+			],
+			[
+				'name' 	=> 'Cao Huy Hoàng',
+				'img' 	=> 'images/tac-gia/_002_caohuyhoang.jpg',
+				'link' 	=> '/tac-gia/cao-huy-hoang',
+			],
+			[
+				'name' 	=> 'Cung Trầm',
+				'img' 	=> 'images/tac-gia/_003_cungtram.jpg',
+				'link' 	=> '/tac-gia/cung-tram',
+			],
+			[
+				'name' 	=> 'Đinh Công Huỳnh',
+				'img' 	=> 'images/tac-gia/_004_dinhconghuynh.jpg',
+				'link' 	=> '/tac-gia/dinh-cong-huynh',
+			],
+			[
+				'name' 	=> 'Huỳnh Minh Kỳ',
+				'img' 	=> 'images/tac-gia/_005_huynhminhky.jpg',
+				'link' 	=> '/tac-gia/huynh-minh-ky',
+			],
+			[
+				'name' 	=> 'Đỗ Vỹ Hạ',
+				'img' 	=> 'images/tac-gia/_006_dovyha.jpg',
+				'link' 	=> '/tac-gia/do-vy-ha',
+			],
+			[
+				'name' 	=> 'Giang Ân',
+				'img' 	=> 'images/tac-gia/_007_giangan.jpg',
+				'link' 	=> '/tac-gia/giang-an',
+			],
+			[
+				'name' 	=> 'Giang Tâm',
+				'img' 	=> 'images/tac-gia/_008_giangtam.jpg',
+				'link' 	=> '/tac-gia/giang-tam',
+			],
+			[
+				'name' 	=> 'Kim Long',
+				'img' 	=> 'images/tac-gia/_009_kimlong.jpg',
+				'link' 	=> '/tac-gia/kim-long',
+			],
+			[
+				'name' 	=> 'Mi Trầm',
+				'img' 	=> 'images/tac-gia/_010_mitram.jpg',
+				'link' 	=> '/tac-gia/mi-tram',
+			],
+			[
+				'name' 	=> 'Nguyễn Duy',
+				'img' 	=> 'images/tac-gia/_011_nguyenduy.jpg',
+				'link' 	=> '/tac-gia/nguyen-duy',
+			],
+			[
+				'name' 	=> 'Nguyễn Mộng Huỳnh',
+				'img' 	=> 'images/tac-gia/_012_nguyenmonghuynh.jpg',
+				'link' 	=> '/tac-gia/nguyen-mong-huynh',
+			],
+			[
+				'name' 	=> 'Vũ Đình Ân',
+				'img' 	=> 'images/tac-gia/_013_vudinhan.jpg',
+				'link' 	=> '/tac-gia/vu-dinh-an',
+			],
+		];
+	}
+
+	private static function getSongHome() {
+		$songModel = new Song();
+		$songCatModel = new Songcat();
+		$songMetaModel = new Songmeta();
+		$songList = $songModel
+			->select('id, title, slug, date')
+			->where('status', 'publish')
+			->orderBy('id', 'DESC')
+			->limit(12, 10)
+			->findAll();
+		$songIDs = array_map(fn($item) => $item['id'], $songList);
+		$catData = $songCatModel
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->whereIn('songcat.id_song', $songIDs)
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
+		$songMeta = $songMetaModel
+			->whereIn('id_song', $songIDs)
+			->WhereIn('key', ['luotxem', 'lovesong'])
+			->findAll();
+
+		foreach ($songList as $key => $songValue) {
+			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
+
+			foreach ($arrayCat as $val) {
+				$songList[$key]['cat'] = [ 'author' => $val['cat_name'] ];
+			}
+
+			foreach ($arrayMeta as $val) {
+				$songList[$key]['meta'][$val['key']] = $val['value'];
+			}
+		};
 
 		return $songList;
 	}

@@ -4,9 +4,8 @@ namespace App\Cells;
 
 use CodeIgniter\View\Cells\Cell;
 
-class HomeCatBannerCell extends Cell {
-  public $title;
+class AuthorBannerCell extends Cell {
+  public $name;
 	public $img;
 	public $link;
-	public $class;
 }
