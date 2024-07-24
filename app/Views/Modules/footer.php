@@ -1,40 +1,100 @@
+<?php
+use App\Models\Options;
+
+class Footer {
+  public static function getOptions() {
+    $optionsResult = [];
+    $optionsModel = new Options();
+    $optionsQuery = $optionsModel
+      ->whereIn('key', ['social_facebook', 'social_youtube', 'social_twitter', 'phonenumber', 'email'])
+      ->findAll();
+
+    foreach ($optionsQuery as $value) {
+      if ($value['key'] != 'id') {
+        $optionsResult[$value['key']] = $value['value'];
+      }
+    }
+
+    return $optionsResult;
+  }
+}
+
+$footerClass = new Footer();
+$options = $footerClass::getOptions();
+?>
+
 <footer class="footer">
-  <div class="footer__main">
-    <div class="wrapper">
-      <div class="footer__right">
-        <div class="footer__logo"><a href="<?php echo base_url(); ?>"><img src="<?php echo base_url("tmp/images/logo.svg"); ?>" alt="logo"></a></div>
-        <div class="footer__social">
-          <ul>
-            <li><a href="<?php echo $this->model_options->get("social_facebook") ?>"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="<?php echo $this->model_options->get("social_youtube") ?>"><i class="fab fa-youtube"></i></a></li>
-            <li><a href="<?php echo $this->model_options->get("social_twitter") ?>"><i class="fab fa-twitter"></i></a></li>
-          </ul>
-        </div>
+  <div class="footer__social">
+    <div class="comp-wrapper">
+      <div class="footer__social-text">Kết nối với chúng tôi tại đây: </div>
+      <div class="footer__social-list">
+        <ul>
+          <li><a href="<?= $options['social_facebook'] ?>"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="<?= $options['social_youtube'] ?>"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="<?= $options['social_twitter'] ?>"><i class="fab fa-twitter"></i></a></li>
+        </ul>
       </div>
-      <div class="footer__contact">
-        <div class="footer__title">Hợp âm thánh ca</div>
-        <div class="footer__infor">
-          <ul>
-            <li><a href="tel:<?php echo str_replace('.', '', $this->model_options->get("phonenumber")) ?>"> <strong>[T]: </strong><?php echo $this->model_options->get("phonenumber") ?></a></li>
-            <li><a href="mailto:<?php echo $this->model_options->get("email") ?>"><strong>[E]: </strong><?php echo $this->model_options->get("email") ?></a></li>
-            <li><a href="<?php echo base_url() ?>"><strong>[W]: </strong><?php echo base_url() ?></a></li>
-            <li><a href="#"><strong>[@] </strong>Copyright 2020 by Hợp âm thánh ca</a></li>
-          </ul>
+    </div>
+  </div>
+  <div class="footer__main">
+    <div class="comp-wrapper">
+      <div class="footer__grid">
+        <div class="footer__col-1 footer__col-order-logo">
+          <div class="footer__logo"><a href="<?= base_url() ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
+          </div>
+        </div>
+        <div class="footer__col-2 footer__col-order-contact">
+          <div class="footer__contact">
+            <div class="footer__contact-title">Liên hệ với chúng tôi</div>
+            <div class="footer__contact-info">
+              <?php $phoneNumber = str_replace('.', '', $options['phonenumber']) ?>
+              <ul>
+                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= $options['phonenumber'] ?></a></li>
+                <li><a href="mailto:<?= $options['email'] ?>"><strong>EMAIL: </strong><?= $options['email'] ?></a></li>
+                <li><a href="<?= base_url() ?>"><strong>SITE: </strong>hopamthanhca.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer__col-3 footer__col-order-nav">
+          <div class="footer__navigation">
+            <ul> 
+              <li><a href="<?= base_url() ?>" title=" Trang chủ"><span> Trang chủ</span></a></li>
+              <li><a href="<?= base_url('gioi-thieu') ?>" title="Giới thiệu"><span>Giới thiệu</span></a></li>
+              <li><a href="<?= base_url('bai-hat') ?>" title="Bài hát"><span>Bài hát</span></a></li>
+              <li><a href="<?= base_url('hop-am') ?>" title="Hợp âm"><span>Hợp âm</span></a></li>
+              <li><a href="<?= base_url('thanh-ca-hang-tuan') ?>" title="Thánh ca hàng tuần"><span>Thánh ca hàng tuần</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__col-3 footer__col-order-nav">
+          <div class="footer__navigation">
+            <ul> 
+              <li><a href="<?= base_url('chuyen-muc/mua-thuong-nien') ?>" title="Mùa thường niên"><span>Mùa thường niên</span></a></li>
+              <li><a href="<?= base_url('chuyen-muc/mua-chay') ?>" title="Mùa chay"><span>Mùa chay</span></a></li>
+              <li><a href="<?= base_url('chuyen-muc/mua-phuc-sinh') ?>" title="Mùa phục sinh"><span>Mùa phục sinh</span></a></li>
+              <li><a href="<?= base_url('chuyen-muc/mua-vong') ?>" title="Mùa vọng"><span>Mùa vọng</span></a></li>
+              <li><a href="<?= base_url('chuyen-muc/mua-giang-sinh') ?>" title="Mùa giáng sinh"><span>Mùa giáng sinh</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer__col-3 footer__col-order-nav">
+          <div class="footer__navigation">
+            <ul> 
+              <li><a href="<?= base_url('tac-gia/kim-long') ?>" title="Kim Long"><span>Kim Long</span></a></li>
+              <li><a href="<?= base_url('tac-gia/nguyen-duy') ?>" title="Nguyễn Duy"><span>Nguyễn Duy</span></a></li>
+              <li><a href="<?= base_url('tac-gia/dinh-cong-huynh') ?>" title="Đinh Công Huỳnh"><span>Đinh Công Huỳnh</span></a></li>
+              <li><a href="<?= base_url('tac-gia/giang-tam') ?>" title="Giang Tâm"><span>Giang Tâm</span></a></li>
+              <li><a href="<?= base_url('tac-gia/-mi-tram') ?>" title="Mi Trầm"><span>Mi Trầm</span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div class="footer__bottom">
-    <div class="wrapper">
-      <div class="footer__navigation">
-        <ul>
-          <li> <a href="<?php echo base_url(); ?>">Trang chủ</a></li>
-          <li> <a href="<?php echo base_url("gioi-thieu"); ?>">Giới thiệu</a></li>
-          <li> <a href="<?php echo base_url("bai-hat"); ?>">Bài hát</a></li>
-          <li> <a href="<?php echo base_url("danh-sach-hop-am"); ?>">Hợp âm</a></li>
-          <li><a href="<?php echo base_url("thanh-ca-hang-tuan"); ?>">Thánh ca hàng tuần</a></li>
-        </ul>
-      </div>
+    <div class="comp-wrapper">
+      <div class="footer__copyright">Copyright 2020 by Hợp âm thánh ca</div>
     </div>
   </div>
 </footer>

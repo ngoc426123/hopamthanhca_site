@@ -3,19 +3,25 @@ use App\Models\Cat;
 use App\Models\Type;
 use App\Models\Cattype;
 
-$catModel = new Cat();
-$typeModel = new Type();
-$cattypeModel = new Cattype();
-$typeDieuBaiHat = $typeModel->where('type_slug', 'dieu-bai-hat')->find();
-$idTypeDieuBaihat = $typeDieuBaiHat[0]['id'];
-$listIdDieuBaiHat = $cattypeModel->where('id_type', $idTypeDieuBaihat)->findAll();
-$listDieuBaiHat = [];
+class Header {
+  public static function getCat() {
+    $catModel = new Cat();
+    $typeModel = new Type();
+    $cattypeModel = new Cattype();
+    $typeDieuBaiHat = $typeModel->where('type_slug', 'dieu-bai-hat')->find();
+    $idTypeDieuBaihat = $typeDieuBaiHat[0]['id'];
+    $listIdDieuBaiHat = $cattypeModel->where('id_type', $idTypeDieuBaihat)->findAll();
+    $listDieuBaiHat = [];
 
-foreach ($listIdDieuBaiHat as $value) {
-  $listDieuBaiHat[] = $value['id_cat'];
+    foreach ($listIdDieuBaiHat as $value) {
+      $listDieuBaiHat[] = $value['id_cat'];
+    }
+    
+    return $catModel->whereIn('id', $listDieuBaiHat)->findAll();
+  }
 }
 
-$DieuBaiHat = $catModel->whereIn('id', $listDieuBaiHat)->findAll();
+$headerClass = new Header();
 ?>
 
 <header class="header">
@@ -23,8 +29,8 @@ $DieuBaiHat = $catModel->whereIn('id', $listDieuBaiHat)->findAll();
     <div class="comp-wrapper">
       <div class="header__left">
         <div class="header__logo">
-          <a href="<?php echo base_url(); ?>" title="Hợp Âm Thánh Ca">
-            <img src="<?php echo base_url("images/logo.svg"); ?>" alt="logo">
+          <a href="<?= base_url(); ?>" title="Hợp Âm Thánh Ca">
+            <img src="<?= base_url("images/logo.svg"); ?>" alt="logo">
           </a>
       </div>
       </div>
@@ -35,29 +41,29 @@ $DieuBaiHat = $catModel->whereIn('id', $listDieuBaiHat)->findAll();
           <div class="header__menuDropdown"data-menumobile-dropdown>
           <span class="header__menuBoxover" data-menumobile-boxover></span>
             <ul>
-              <li><a href="<?php echo base_url(); ?>" title="Trang chủ">Trang chủ</a></li>
-              <li><a href="<?php echo base_url('gioi-thieu'); ?>" title="Giới thiệu">Giới thiệu</a></li>
+              <li><a href="<?= base_url(); ?>" title="Trang chủ">Trang chủ</a></li>
+              <li><a href="<?= base_url('gioi-thieu'); ?>" title="Giới thiệu">Giới thiệu</a></li>
               <li><a href=""><span>Danh mục</span></a>
                 <ul>
-                  <li><a href="<?php echo base_url('bang-chu-cai'); ?>" title="Bảng chữ cái">Bảng chữ cái</a></li>
-                  <li><a href="<?php echo base_url('chuyen-muc'); ?>" title="Chuyên mục">Chuyên mục</a></li>
-                  <li><a href="<?php echo base_url('tac-gia'); ?>" title="Tác giả">Tác giả</a></li>
+                  <li><a href="<?= base_url('bang-chu-cai'); ?>" title="Bảng chữ cái">Bảng chữ cái</a></li>
+                  <li><a href="<?= base_url('chuyen-muc'); ?>" title="Chuyên mục">Chuyên mục</a></li>
+                  <li><a href="<?= base_url('tac-gia'); ?>" title="Tác giả">Tác giả</a></li>
                 </ul>
               </li>
               <li class="noPos">
-                <a href="<?php echo base_url('dieu-bai-hat'); ?>" title="Điệu nhạc"> <span>Điệu nhạc</span></a>
+                <a href="<?= base_url('dieu-bai-hat'); ?>" title="Điệu nhạc"> <span>Điệu nhạc</span></a>
                 <ul class="menuMega">
-                <?php foreach ($DieuBaiHat as $value) { ?>
+                <?php foreach ($headerClass::getCat() as $value) { ?>
                   <li>
-                    <a href="<?php echo base_url('dieu-bai-hat/' . $value['cat_slug']); ?>" title="<?php echo $value['cat_name']; ?>">
-                      <span><?php echo $value['cat_name']; ?></span>
+                    <a href="<?= base_url('dieu-bai-hat/' . $value['cat_slug']); ?>" title="<?= $value['cat_name']; ?>">
+                      <span><?= $value['cat_name']; ?></span>
                     </a>
                   </li>
                 <?php } ?>
                 </ul>
               </li>
-              <li><a href="<?php echo base_url("thanh-ca-hang-tuan"); ?>" title="Hợp âm">Thánh ca hàng tuần</a></li>
-              <li><a href="<?php echo base_url("sheet-nhac"); ?>" title="Sheet nhạc">Sheet nhạc</a></li>
+              <li><a href="<?= base_url("thanh-ca-hang-tuan"); ?>" title="Hợp âm">Thánh ca hàng tuần</a></li>
+              <li><a href="<?= base_url("sheet-nhac"); ?>" title="Sheet nhạc">Sheet nhạc</a></li>
             </ul>
           </div>
         </div>
@@ -75,7 +81,7 @@ $DieuBaiHat = $catModel->whereIn('id', $listDieuBaiHat)->findAll();
           autocomplete="off"
           placeholder="Nhập tên bài hát, từ khóa tìm kiếm..."
           data-search-input
-          data-url="<?php echo base_url("api/search") ?>"
+          data-url="<?= base_url("api/search") ?>"
           value=""
         >
         <div class="header__search--suggess">
