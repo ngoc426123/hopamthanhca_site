@@ -815,3 +815,2378 @@ in APPPATH\Views\Modules\footer.php on line 6.
 14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
 15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:22:27 --> TypeError: CodeIgniter\Database\BaseBuilder::select(): Argument #2 ($escape) must be of type ?bool, string given, called in D:\xampp\htdocs\hopamthanhca-site\system\Model.php on line 930
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 397.
+ 1 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->select('id', 'title', 'slug', 'excerpt')
+ 2 APPPATH\Controllers\Home.php(13): CodeIgniter\Model->__call('select', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 06:25:26 --> mysqli_sql_exception: Column 'id' in field list is ambiguous in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `id`, `t...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `t...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `t...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `t...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-07-24 06:25:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:25:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:25:26 --> [Caused by] mysqli_sql_exception: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `id` DESC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 06:25:35 --> mysqli_sql_exception: Column 'id' in field list is ambiguous in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `id`, `t...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `t...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `t...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `t...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2024-07-24 06:25:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:25:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:25:35 --> [Caused by] mysqli_sql_exception: Column 'id' in field list is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `id`, `title`, `slug`, `excerpt`
+FROM `song`
+JOIN `songmeta` ON `song`.`id` = `songmeta`.`id_song`
+ORDER BY `song`.`id` DESC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(15): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:29:51 --> Error: Call to undefined function App\Controllers\pr()
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:32:09 --> ErrorException: Undefined array key 0
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 19.
+ 1 APPPATH\Controllers\Home.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 19)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 06:35:03 --> ErrorException: Undefined array key "key"
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 24.
+ 1 APPPATH\Controllers\Home.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "key"', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 24)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:08:56 --> mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(610): CodeIgniter\Model->doFind(false, NULL)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:08:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = :id:
+AND `type_slug` = :type_slug:', [...], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:08:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = \'42\'
+AND `type_slug` = \'tac-gia\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = \'42\'
+AND `type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = :id:
+AND `type_slug` = :type_slug:', [...], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:08:56 --> [Caused by] mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = \'42\'
+AND `type_slug` = \'tac-gia\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = \'42\'
+AND `type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = \'42\'
+AND `type_slug` = \'tac-gia\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `id` = :id:
+AND `type_slug` = :type_slug:', [...], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:09:18 --> mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(610): CodeIgniter\Model->doFind(false, NULL)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:09:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:09:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:09:18 --> [Caused by] mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:10:11 --> mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(610): CodeIgniter\Model->doFind(false, NULL)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:10:11 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 2 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 4 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:10:11 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 4 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 6 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:10:11 --> [Caused by] mysqli_sql_exception: Table 'hopamthanhca.cat_type' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = \'42\'
+AND `type`.`type_slug` = \'tac-gia\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `cat`
+JOIN `cat_type` ON `cat`.`id` = `cat_type`.`id_cat`
+JOIN `type` ON `cat_type`.`id` = `type`.`id`
+WHERE `cat`.`id` = :cat.id:
+AND `type`.`type_slug` = :type.type_slug:', [...], false)
+ 5 SYSTEMPATH\Model.php(213): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(610): CodeIgniter\Model->doFind(false, null)
+ 7 APPPATH\Controllers\Home.php(39): CodeIgniter\BaseModel->find()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:12:35 --> ErrorException: Undefined array key 0
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 42.
+ 1 APPPATH\Controllers\Home.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 42)
+ 2 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:13:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 33.
+ 1 APPPATH\Controllers\Home.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 33)
+ 2 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:22:10 --> mysqli_sql_exception: Unknown column 'songcat.idsong' in 'where clause' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:22:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songcat.idsong' in 'where clause'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:22:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songcat.idsong' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:22:10 --> [Caused by] mysqli_sql_exception: Unknown column 'songcat.idsong' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id_cat` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:22:43 --> mysqli_sql_exception: Unknown column 'songcat.idsong' in 'where clause' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:22:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songcat.idsong' in 'where clause'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:22:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songcat.idsong' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:22:43 --> [Caused by] mysqli_sql_exception: Unknown column 'songcat.idsong' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = \'3265\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`idsong` = :songcat.idsong:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(33): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:23:01 --> ErrorException: Undefined array key "id_cat"
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 32.
+ 1 APPPATH\Controllers\Home.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_cat"', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 32)
+ 2 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:23:29 --> mysqli_sql_exception: Unknown column 'type.slug' in 'where clause' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(34): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:23:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type.slug' in 'where clause'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = :songcat.id_song:
+AND `type`.`slug` = :type.slug:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(34): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:23:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'type.slug' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = \'3265\'
+AND `type`.`slug` = \'tac-gia\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = \'3265\'
+AND `type`.`slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = :songcat.id_song:
+AND `type`.`slug` = :type.slug:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(34): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:23:29 --> [Caused by] mysqli_sql_exception: Unknown column 'type.slug' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = \'3265\'
+AND `type`.`slug` = \'tac-gia\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = \'3265\'
+AND `type`.`slug` = \'tac-gia\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = \'3265\'
+AND `type`.`slug` = \'tac-gia\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `songcat`
+JOIN `cattype` ON `cattype`.`id_cat` = `songcat`.`id_cat`
+JOIN `type` ON `type`.`id` = `cattype`.`id_type`
+WHERE `songcat`.`id_song` = :songcat.id_song:
+AND `type`.`slug` = :type.slug:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(34): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(13): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:27:17 --> ErrorException: Undefined variable $name
+[Method: GET, Route: /]
+in APPPATH\Views\HomePage.php on line 48.
+ 1 APPPATH\Views\HomePage.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+ 5 APPPATH\Controllers\Home.php(14): view('HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:28:36 --> ErrorException: Undefined variable $name
+[Method: GET, Route: /]
+in APPPATH\Views\HomePage.php on line 48.
+ 1 APPPATH\Views\HomePage.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+ 5 APPPATH\Controllers\Home.php(14): view('HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:30:38 --> ErrorException: Undefined variable $name
+[Method: GET, Route: /]
+in APPPATH\Views\HomePage.php on line 48.
+ 1 APPPATH\Views\HomePage.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+ 5 APPPATH\Controllers\Home.php(14): view('HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:31:57 --> ErrorException: Undefined variable $name
+[Method: GET, Route: /]
+in APPPATH\Views\HomePage.php on line 48.
+ 1 APPPATH\Views\HomePage.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $name', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php', 48)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+ 5 APPPATH\Controllers\Home.php(14): view('HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 07:51:24 --> mysqli_sql_exception: Unknown column 'song.value' in 'order clause' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(27): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(12): App\Controllers\Home::getNewSong()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 07:51:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'song.value' in 'order clause'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = :songmeta.key:
+ORDER BY `song`.`value` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(27): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(12): App\Controllers\Home::getNewSong()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:51:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'song.value' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = \'luotxem\'
+ORDER BY `song`.`value` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = \'luotxem\'
+ORDER BY `song`.`value` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = :songmeta.key:
+ORDER BY `song`.`value` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(27): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(12): App\Controllers\Home::getNewSong()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 07:51:24 --> [Caused by] mysqli_sql_exception: Unknown column 'song.value' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = \'luotxem\'
+ORDER BY `song`.`value` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = \'luotxem\'
+ORDER BY `song`.`value` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = \'luotxem\'
+ORDER BY `song`.`value` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `songmeta`.`key` = :songmeta.key:
+ORDER BY `song`.`value` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(27): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(12): App\Controllers\Home::getNewSong()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 08:07:24 --> TypeError: CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, int given, called in D:\xampp\htdocs\hopamthanhca-site\system\Model.php on line 930
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1449.
+ 1 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->orderBy(12, 'RANDOM')
+ 2 APPPATH\Controllers\Home.php(80): CodeIgniter\Model->__call('orderBy', [...])
+ 3 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getSeason()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 08:07:36 --> TypeError: CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, int given, called in D:\xampp\htdocs\hopamthanhca-site\system\Model.php on line 930
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1449.
+ 1 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->orderBy(12, 'RANDOM')
+ 2 APPPATH\Controllers\Home.php(80): CodeIgniter\Model->__call('orderBy', [...])
+ 3 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getSeason()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 08:08:38 --> TypeError: CodeIgniter\Database\BaseBuilder::orderBy(): Argument #1 ($orderBy) must be of type string, int given, called in D:\xampp\htdocs\hopamthanhca-site\system\Model.php on line 930
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 1449.
+ 1 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->orderBy(12, 'RANDOM')
+ 2 APPPATH\Controllers\Home.php(80): CodeIgniter\Model->__call('orderBy', [...])
+ 3 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getSeason()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 08:14:21 --> InvalidArgumentException: whereNotIn() expects $values to be of type array or closure
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 951.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(863): CodeIgniter\Database\BaseBuilder->_whereIn('songcat.id_cat', 55, true, 'AND ', null)
+ 2 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->whereNotIn('songcat.id_cat', 55)
+ 3 APPPATH\Controllers\Home.php(81): CodeIgniter\Model->__call('whereNotIn', [...])
+ 4 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getSeason()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 08:26:49 --> ErrorException: Array to string conversion
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 90.
+ 1 APPPATH\Controllers\Home.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php', 90)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:09:32 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:09:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:09:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:09:32 --> [Caused by] mysqli_sql_exception: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:11:40 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:11:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:11:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:11:40 --> [Caused by] mysqli_sql_exception: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:12:42 --> mysqli_sql_exception: Illegal parameter data types int and row for operation '=' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:12:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:12:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:12:42 --> [Caused by] mysqli_sql_exception: Illegal parameter data types int and row for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = (22,23,24,25,26,27,28)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, CONVERT(songmeta.value, SIGNED INTEGER) as st
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) = :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:13:11 --> TypeError: CodeIgniter\Database\BaseBuilder::whereIn(): Argument #1 ($key) must be of type ?string, array given, called in D:\xampp\htdocs\hopamthanhca-site\system\Model.php on line 930
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseBuilder.php on line 835.
+ 1 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->whereIn([...])
+ 2 APPPATH\Controllers\Home.php(190): CodeIgniter\Model->__call('whereIn', [...])
+ 3 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:18:35 --> mysqli_sql_exception: Unknown column 'songmeta.lovesong' in 'field list' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:18:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songmeta.lovesong' in 'field list'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:18:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songmeta.lovesong' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'lovesong\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'lovesong\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:18:35 --> [Caused by] mysqli_sql_exception: Unknown column 'songmeta.lovesong' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'lovesong\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'lovesong\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'lovesong\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `st` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as st, `songmeta`.`lovesong`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `st` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(194): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:24:27 --> ParseError: syntax error, unexpected token "return"
+[Method: GET, Route: /]
+in APPPATH\Controllers\Home.php on line 199.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:39:05 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:39:55 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:40:33 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:41:13 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:41:42 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:42:21 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:42:54 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:43:41 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:45:24 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:45:30 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2024-07-24 09:47:17 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8 in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:47:17 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:17 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:47:28 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8 in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:47:28 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:28 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:47:37 --> mysqli_sql_exception: Unknown column 'songmeta' in 'order clause' in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:47:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songmeta' in 'order clause'
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `songmeta` DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'songmeta' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `songmeta` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `songmeta` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `songmeta` DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:37 --> [Caused by] mysqli_sql_exception: Unknown column 'songmeta' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `songmeta` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `songmeta` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY `songmeta` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY `songmeta` DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:45 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2024-07-24 09:47:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8 in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:47:59 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:59 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-24 09:47:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8 in D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\xampp\htdocs\hopamthanhca-site\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`...', 0)
+#1 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`...')
+#2 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`...')
+#3 D:\xampp\htdocs\hopamthanhca-site\system\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`...', Array, false)
+#4 D:\xampp\htdocs\hopamthanhca-site\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\xampp\htdocs\hopamthanhca-site\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+#7 D:\xampp\htdocs\hopamthanhca-site\app\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+#8 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(933): App\Controllers\Home->index()
+#9 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\xampp\htdocs\hopamthanhca-site\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 D:\xampp\htdocs\hopamthanhca-site\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\xampp\htdocs\hopamthanhca-site\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2024-07-24 09:47:59 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:47:59 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'DESC, SIGNED INTEGER) DESC
+ LIMIT 10' at line 8
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = \'publish\'
+AND `songmeta`.`key` = \'luotxem\'
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN (22,23,24,25,26,27,28)
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN (7,7,7,7,7,7,7)
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1636): CodeIgniter\Database\BaseConnection->query('SELECT `song`.`id`, `song`.`title`, `song`.`slug`, `song`.`excerpt`, `song`.`date`, CONVERT(songmeta.value, SIGNED INTEGER) as view
+FROM `song`
+JOIN `songmeta` ON `songmeta`.`id_song` = `song`.`id`
+WHERE `song`.`status` = :song.status:
+AND `songmeta`.`key` = :songmeta.key:
+AND CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER):
+AND CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER) IN :CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER):
+ORDER BY CONVERT(songmeta.value DESC, SIGNED INTEGER) DESC
+ LIMIT 10', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\Home.php(193): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Home.php(14): App\Controllers\Home::getMostWeek()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:48:02 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:48:36 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:48:43 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:49:12 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:49:50 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:50:15 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:50:52 --> ErrorException: Undefined array key "name"
+[Method: GET, Route: /]
+in APPPATH\Views\HomePage.php on line 127.
+ 1 APPPATH\Views\HomePage.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php', 127)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+ 5 APPPATH\Controllers\Home.php(91): view('HomePage', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:52:23 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:52:38 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:52:50 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:53:51 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:54:13 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:55:13 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:56:21 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:56:42 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:56:47 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:57:39 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:57:51 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-07-24 09:58:48 --> ErrorException: Undefined variable $view
+[Method: GET, Route: /]
+in APPPATH\Cells\song_iron.php on line 11.
+ 1 APPPATH\Cells\song_iron.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $view', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Cells\\song_iron.php', 11)
+ 2 SYSTEMPATH\View\Cells\Cell.php(115): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Cells\\song_iron.php')
+ 3 SYSTEMPATH\View\Cells\Cell.php(118): CodeIgniter\View\Cells\Cell->CodeIgniter\View\Cells\{closure}()
+ 4 SYSTEMPATH\View\Cells\Cell.php(52): CodeIgniter\View\Cells\Cell->view('')
+ 5 SYSTEMPATH\View\Cell.php(234): CodeIgniter\View\Cells\Cell->render()
+ 6 SYSTEMPATH\View\Cell.php(104): CodeIgniter\View\Cell->renderCell(Object(App\Cells\SongIronCell), 'render', [...])
+ 7 SYSTEMPATH\Common.php(1187): CodeIgniter\View\Cell->render('SongIronCell', [...], 0, 'AppCellsSongIronCellrender559c96af50d3937e87fc74b16f294705')
+ 8 APPPATH\Views\HomePage.php(126): view_cell('SongIronCell', [...])
+ 9 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\HomePage.php')
+10 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+11 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('HomePage', [], true)
+12 APPPATH\Controllers\Home.php(91): view('HomePage', [...])
+13 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+14 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+15 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-24 09:59:28 --> ErrorException: Type of App\Cells\SongIronCell::$view must be string (as in class CodeIgniter\View\Cells\Cell)
+[Method: GET, Route: /]
+in APPPATH\Cells\SongIronCell.php on line 7.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

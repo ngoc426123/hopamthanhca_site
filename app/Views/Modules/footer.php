@@ -49,8 +49,8 @@ $options = $footerClass::getOptions();
             <div class="footer__contact-info">
               <?php $phoneNumber = str_replace('.', '', $options['phonenumber']) ?>
               <ul>
-                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= $options['phonenumber'] ?></a></li>
-                <li><a href="mailto:<?= $options['email'] ?>"><strong>EMAIL: </strong><?= $options['email'] ?></a></li>
+                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= esc($options['phonenumber']) ?></a></li>
+                <li><a href="mailto:<?= $options['email'] ?>"><strong>EMAIL: </strong><?= esc($options['email']) ?></a></li>
                 <li><a href="<?= base_url() ?>"><strong>SITE: </strong>hopamthanhca.com</a></li>
               </ul>
             </div>

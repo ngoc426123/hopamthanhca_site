@@ -37,7 +37,7 @@
   </head>
   <body>
     <div class="page">
-      <?= $this->include('Modules/header'); ?>
+      <?= $this->include('Modules/Header'); ?>
       <div class="main-page" data-main-page>
         <div class="comp-wrapper">
           <?= $this->renderSection('main_page'); ?>
@@ -57,7 +57,8 @@
           </script> -->
         </div>
       </div>
-      <?= $this->include('Modules/footer'); ?>
+      <?= $this->include('Modules/Footer'); ?>
+      <?= $this->include('Modules/Loading'); ?>
     </div>
   </body>
   <script type="text/javascript">
