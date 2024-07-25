@@ -1,21 +1,5 @@
 <?php $this->extend('Layout'); ?>
 
-<?php $this->section('page_title') ?>
-  <title>Hợp âm Thánh ca - Trang chủ</title>
-<?php $this->endSection() ?>
-
-<?php $this->section('meta_tag') ?>
-  <meta property="og:title" content="Trang chủ">
-  <meta property="og:url" content="localhost:3000">
-  <meta property="og:description" content="Lorem ispum">
-  <meta name="description" content="Lorem ispum">
-  <meta name="keywords" content="hop,am,thanh,ca">
-<?php $this->endSection() ?>
-
-<?php $this->section('link_tag') ?>
-  <link rel="canonical" href="localhost:3000">
-<?php $this->endSection() ?>
-
 <?php $this->section('schema') ?>
   <script type="application/ld+json">
     {
@@ -41,7 +25,7 @@
     </div>
     <div class="comp-box__content">
       <?php
-        foreach ($season as $value) {
+        foreach ($pagedata['season'] as $value) {
           echo view_cell('SongItemSeasonCell', [
             'title'       => $value['title'],
             'author'      => $value['cat']['author'],
@@ -64,7 +48,7 @@
         </div>
         <div class="comp-box__content">
           <?php
-          foreach ($newest as $value) {
+          foreach ($pagedata['newest'] as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
               'author'      => $value['cat']['author'],
@@ -83,7 +67,7 @@
         </div>
         <div class="comp-box__content">
           <?php
-          foreach ($mostview as $value) {
+          foreach ($pagedata['mostview'] as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
               'author'      => $value['cat']['author'],
@@ -100,7 +84,7 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <?php
-          foreach ($cat as $value) {
+          foreach ($pagedata['cat'] as $value) {
             echo view_cell('CatBannerCell', [
               'title' => $value['name'],
               'img'   => base_url($value['img']),
@@ -122,7 +106,7 @@
         </div>
         <div class="comp-box__content --background --padding">
           <?php
-            foreach ($mostweek as $value) {
+            foreach ($pagedata['mostweek'] as $value) {
               echo view_cell('SongIronCell', [
                 'title' => $value['title'],
                 'link'  => base_url('bai-hat/'.$value['slug']),
@@ -141,7 +125,7 @@
         </div>
         <div class="comp-box__content --background --padding">
           <?php
-            foreach ($mostmonth as $value) {
+            foreach ($pagedata['mostmonth'] as $value) {
               echo view_cell('SongIronCell', [
                 'title' => $value['title'],
                 'link'  => base_url('bai-hat/'.$value['slug']),
@@ -160,7 +144,7 @@
         </div>
         <div class="comp-box__content --background --padding">
           <?php
-            foreach ($mostlove as $value) {
+            foreach ($pagedata['mostlove'] as $value) {
               echo view_cell('SongIronCell', [
                 'title' => $value['title'],
                 'link'  => base_url('bai-hat/'.$value['slug']),
@@ -182,7 +166,7 @@
         <div class="swiper">
           <div class="swiper-wrapper">
             <?php
-              foreach ($author as $value) {
+              foreach ($pagedata['author'] as $value) {
                 echo view_cell('AuthorBannerCell', [
                   'name'  => $value['name'],
                   'img'   => base_url($value['img']),
@@ -208,7 +192,7 @@
   <div class="comp-list-song-home">
     <div class="row">
       <?php
-        foreach ($songhome as $value) {
+        foreach ($pagedata['songhome'] as $value) {
           echo view_cell('SongHomeCell', [
             'title'     => $value['title'],
             'dater'     => $value['date'],

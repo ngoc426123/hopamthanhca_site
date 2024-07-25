@@ -2,20 +2,24 @@
 <html>
   <head>
     <!-- TITLE TAG -->
-    <?= $this->renderSection('page_title'); ?>
+    <title><?= esc($pagemeta['title']) ?></title>
     <!-- META TAG -->
-    <?= $this->renderSection('meta_tag'); ?>
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta property="og:title" content="<?= esc($pagemeta['title']) ?>">
+    <meta property="og:description" content="<?= esc($pagemeta['desc']) ?>">
     <meta property="og:image" content="<?= base_url("images/logo.svg"); ?>">
     <meta property="og:type" content="website">
-    <meta name="google-site-verification" content="u_MBkWSe2AFG1aeQNi93_Y_jL4F7Cq31jGZACqK2SGs" />
+    <meta property="og:url" content="<?= base_url(); ?>">
+    <meta name="description" content="<?= esc($pagemeta['desc']) ?>">
+    <meta name="keywords" content="<?= esc($pagemeta['keywork']) ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="nositelinkssearchbox">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
+    <meta name="google-site-verification" content="u_MBkWSe2AFG1aeQNi93_Y_jL4F7Cq31jGZACqK2SGs" />
     <!-- LINK TAG -->
-    <?= $this->renderSection('link_tag'); ?>
+    <link rel="canonical" href="<?= esc($pagemeta['canonical']) ?>">
     <link rel="shortcut icon" href="<?= base_url("images/favicon.ico"); ?>"/>
     <link rel="image_src" href="<?= base_url("images/1.jpg"); ?>">
     <link href="<?= base_url("images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">

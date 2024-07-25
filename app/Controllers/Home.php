@@ -2,28 +2,52 @@
 
 namespace App\Controllers;
 
+use App\Models\Options;
 use App\Models\Song;
 use App\Models\Songcat;
 use App\Models\Songmeta;
 
 class Home extends BaseController {
-	public function index(): string {
+	public function index() {
 		$data = [
-			'newest' 		=> $this::getNewSong(),
-			'mostview' 	=> $this::getMostView(),
-			'mostweek' 	=> $this::getMostWeek(),
-			'mostmonth' => $this::getMostMonth(),
-			'mostlove' 	=> $this::getMostLove(),
-			'season' 		=> $this::getSeason(),
-			'cat' 			=> $this::getCat(),
-			'author' 		=> $this::getAuthor(),
-			'songhome'	=> $this::getSongHome()
+			'pagemeta' => $this::getMeta(),
+			'pagedata' => [
+				'newest'    => $this::getNewSong(),
+				'mostview'  => $this::getMostView(),
+				'mostweek'  => $this::getMostWeek(),
+				'mostmonth' => $this::getMostMonth(),
+				'mostlove'  => $this::getMostLove(),
+				'season'    => $this::getSeason(),
+				'cat'       => $this::getCat(),
+				'author'    => $this::getAuthor(),
+				'songhome'  => $this::getSongHome(),
+			]
 		];
 
 		return view('HomePage', $data);
 	}
 
-	private static function getSeason() {
+	private static function getMeta() {
+		$optionsModel = new Options();
+		$optionsData = $optionsModel
+			->whereIn('key', ['title', 'keywork', 'desc', 'site_url'])
+			->find();
+		$options = [];
+
+		foreach ($optionsData as $value) {
+			$options[$value['key']] = $value['value'];
+		}
+
+		return [
+			'title'     => 'Trang chủ - ' . $options['title'] . ' - Thư viện thánh ca hợp âm lớn nhất.',
+			'keywork'   => $options['keywork'],
+			'desc'      => $options['desc'],
+			'site_url'  => $options['site_url'],
+			'canonical' => base_url(),
+		];
+	}
+
+	private static function getSeason(){
 		$songModel = new Song();
 		$songCatModel = new Songcat();
 		$songList = $songModel
@@ -51,7 +75,8 @@ class Home extends BaseController {
 					'author' => $val['cat_name'],
 				];
 			}
-		};
+		}
+		;
 
 		return $songList;
 	}
@@ -82,7 +107,8 @@ class Home extends BaseController {
 					'author' => $val['cat_name'],
 				];
 			}
-		};
+		}
+		;
 
 		return $songList;
 	}
@@ -114,7 +140,8 @@ class Home extends BaseController {
 					'author' => $val['cat_name'],
 				];
 			}
-		};
+		}
+		;
 
 		return $songList;
 	}
@@ -122,75 +149,75 @@ class Home extends BaseController {
 	private static function getCat() {
 		return [
 			[
-				'name' 	=> 'Mùa thường niên',
-				'img' 	=> 'images/chuyen-muc/_0011_thuongnien.jpg',
-				'link' 	=> '/chuyen-muc/mua-thuong-nien',
+				'name' => 'Mùa thường niên',
+				'img' => 'images/chuyen-muc/_0011_thuongnien.jpg',
+				'link' => '/chuyen-muc/mua-thuong-nien',
 				'class' => '--muathuongnien',
 			],
 			[
-				'name' 	=> 'Mùa chay',
-				'img' 	=> 'images/chuyen-muc/_0010_muachay.jpg',
-				'link' 	=> '/chuyen-muc/mua-chay',
+				'name' => 'Mùa chay',
+				'img' => 'images/chuyen-muc/_0010_muachay.jpg',
+				'link' => '/chuyen-muc/mua-chay',
 				'class' => '--muachay',
 			],
 			[
-				'name' 	=> 'Mùa phục sinh',
-				'img' 	=> 'images/chuyen-muc/_0009_muaphucsinh.jpg',
-				'link' 	=> '/chuyen-muc/mua-phuc-sinh',
+				'name' => 'Mùa phục sinh',
+				'img' => 'images/chuyen-muc/_0009_muaphucsinh.jpg',
+				'link' => '/chuyen-muc/mua-phuc-sinh',
 				'class' => '--muaphucsinh',
 			],
 			[
-				'name' 	=> 'Mùa vọng',
-				'img' 	=> 'images/chuyen-muc/_0008_muavong.jpg',
-				'link' 	=> '/chuyen-muc/mua-vong',
+				'name' => 'Mùa vọng',
+				'img' => 'images/chuyen-muc/_0008_muavong.jpg',
+				'link' => '/chuyen-muc/mua-vong',
 				'class' => '--muavong',
 			],
 			[
-				'name' 	=> 'Mùa giáng sinh',
-				'img' 	=> 'images/chuyen-muc/_0007_muagiangsinh.jpg',
-				'link' 	=> '/chuyen-muc/mua-giang-sinh',
+				'name' => 'Mùa giáng sinh',
+				'img' => 'images/chuyen-muc/_0007_muagiangsinh.jpg',
+				'link' => '/chuyen-muc/mua-giang-sinh',
 				'class' => '--muagiangsinh',
 			],
 			[
-				'name' 	=> 'Đức Mẹ Maria',
-				'img' 	=> 'images/chuyen-muc/_0006_ducme.jpg',
-				'link' 	=> '/chuyen-muc/duc-me',
+				'name' => 'Đức Mẹ Maria',
+				'img' => 'images/chuyen-muc/_0006_ducme.jpg',
+				'link' => '/chuyen-muc/duc-me',
 				'class' => '--ducme',
 			],
 			[
-				'name' 	=> 'Hôn phối',
-				'img' 	=> 'images/chuyen-muc/_0005_honphoi.jpg',
-				'link' 	=> '/chuyen-muc/hon-phoi',
+				'name' => 'Hôn phối',
+				'img' => 'images/chuyen-muc/_0005_honphoi.jpg',
+				'link' => '/chuyen-muc/hon-phoi',
 				'class' => '--honphoi',
 			],
 			[
-				'name' 	=> 'Tận hiến',
-				'img' 	=> 'images/chuyen-muc/_0004_tanhien.jpg',
-				'link' 	=> '/chuyen-muc/tan-hien',
+				'name' => 'Tận hiến',
+				'img' => 'images/chuyen-muc/_0004_tanhien.jpg',
+				'link' => '/chuyen-muc/tan-hien',
 				'class' => '--tanhien',
 			],
 			[
-				'name' 	=> 'Lòng thương xót',
-				'img' 	=> 'images/chuyen-muc/_0003_longthuongxot.jpg',
-				'link' 	=> '/chuyen-muc/long-thuong-xot-chua',
+				'name' => 'Lòng thương xót',
+				'img' => 'images/chuyen-muc/_0003_longthuongxot.jpg',
+				'link' => '/chuyen-muc/long-thuong-xot-chua',
 				'class' => '--longthuongxot',
 			],
 			[
-				'name' 	=> 'Các Thánh TĐVN',
-				'img' 	=> 'images/chuyen-muc/_0002_cacthanhTDVN.jpg',
-				'link' 	=> '/chuyen-muc/cac-thanh-tu-dao-viet-nam',
+				'name' => 'Các Thánh TĐVN',
+				'img' => 'images/chuyen-muc/_0002_cacthanhTDVN.jpg',
+				'link' => '/chuyen-muc/cac-thanh-tu-dao-viet-nam',
 				'class' => '--tudaovietnam',
 			],
 			[
-				'name' 	=> 'Cầu hồn',
-				'img' 	=> 'images/chuyen-muc/_0001_cauhon.jpg',
-				'link' 	=> '/chuyen-muc/cau-hon',
+				'name' => 'Cầu hồn',
+				'img' => 'images/chuyen-muc/_0001_cauhon.jpg',
+				'link' => '/chuyen-muc/cau-hon',
 				'class' => '--cauhon',
 			],
 			[
-				'name' 	=> 'Xem thêm',
-				'img' 	=> 'images/chuyen-muc/_0000_xemthem.jpg',
-				'link' 	=> '/chuyen-muc',
+				'name' => 'Xem thêm',
+				'img' => 'images/chuyen-muc/_0000_xemthem.jpg',
+				'link' => '/chuyen-muc',
 				'class' => '--xemthem',
 			],
 		];
@@ -199,7 +226,7 @@ class Home extends BaseController {
 	private static function getMostWeek() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
-		$listDay = get_list_date("week");
+		$listDay = get_list_date('week');
 		$songList = $songModel
 			->select('song.id, song.title, song.slug, song.excerpt, song.date, CONVERT(songmeta.value, SIGNED INTEGER) as view')
 			->join('songmeta', 'songmeta.id_song = song.id')
@@ -294,69 +321,69 @@ class Home extends BaseController {
 	private static function getAuthor() {
 		return [
 			[
-				'name' 	=> 'Ân Đức',
-				'img' 	=> 'images/tac-gia/_001_anduc.jpg',
-				'link' 	=> '/tac-gia/an-duc',
+				'name' => 'Ân Đức',
+				'img' => 'images/tac-gia/_001_anduc.jpg',
+				'link' => '/tac-gia/an-duc',
 			],
 			[
-				'name' 	=> 'Cao Huy Hoàng',
-				'img' 	=> 'images/tac-gia/_002_caohuyhoang.jpg',
-				'link' 	=> '/tac-gia/cao-huy-hoang',
+				'name' => 'Cao Huy Hoàng',
+				'img' => 'images/tac-gia/_002_caohuyhoang.jpg',
+				'link' => '/tac-gia/cao-huy-hoang',
 			],
 			[
-				'name' 	=> 'Cung Trầm',
-				'img' 	=> 'images/tac-gia/_003_cungtram.jpg',
-				'link' 	=> '/tac-gia/cung-tram',
+				'name' => 'Cung Trầm',
+				'img' => 'images/tac-gia/_003_cungtram.jpg',
+				'link' => '/tac-gia/cung-tram',
 			],
 			[
-				'name' 	=> 'Đinh Công Huỳnh',
-				'img' 	=> 'images/tac-gia/_004_dinhconghuynh.jpg',
-				'link' 	=> '/tac-gia/dinh-cong-huynh',
+				'name' => 'Đinh Công Huỳnh',
+				'img' => 'images/tac-gia/_004_dinhconghuynh.jpg',
+				'link' => '/tac-gia/dinh-cong-huynh',
 			],
 			[
-				'name' 	=> 'Huỳnh Minh Kỳ',
-				'img' 	=> 'images/tac-gia/_005_huynhminhky.jpg',
-				'link' 	=> '/tac-gia/huynh-minh-ky',
+				'name' => 'Huỳnh Minh Kỳ',
+				'img' => 'images/tac-gia/_005_huynhminhky.jpg',
+				'link' => '/tac-gia/huynh-minh-ky',
 			],
 			[
-				'name' 	=> 'Đỗ Vỹ Hạ',
-				'img' 	=> 'images/tac-gia/_006_dovyha.jpg',
-				'link' 	=> '/tac-gia/do-vy-ha',
+				'name' => 'Đỗ Vỹ Hạ',
+				'img' => 'images/tac-gia/_006_dovyha.jpg',
+				'link' => '/tac-gia/do-vy-ha',
 			],
 			[
-				'name' 	=> 'Giang Ân',
-				'img' 	=> 'images/tac-gia/_007_giangan.jpg',
-				'link' 	=> '/tac-gia/giang-an',
+				'name' => 'Giang Ân',
+				'img' => 'images/tac-gia/_007_giangan.jpg',
+				'link' => '/tac-gia/giang-an',
 			],
 			[
-				'name' 	=> 'Giang Tâm',
-				'img' 	=> 'images/tac-gia/_008_giangtam.jpg',
-				'link' 	=> '/tac-gia/giang-tam',
+				'name' => 'Giang Tâm',
+				'img' => 'images/tac-gia/_008_giangtam.jpg',
+				'link' => '/tac-gia/giang-tam',
 			],
 			[
-				'name' 	=> 'Kim Long',
-				'img' 	=> 'images/tac-gia/_009_kimlong.jpg',
-				'link' 	=> '/tac-gia/kim-long',
+				'name' => 'Kim Long',
+				'img' => 'images/tac-gia/_009_kimlong.jpg',
+				'link' => '/tac-gia/kim-long',
 			],
 			[
-				'name' 	=> 'Mi Trầm',
-				'img' 	=> 'images/tac-gia/_010_mitram.jpg',
-				'link' 	=> '/tac-gia/mi-tram',
+				'name' => 'Mi Trầm',
+				'img' => 'images/tac-gia/_010_mitram.jpg',
+				'link' => '/tac-gia/mi-tram',
 			],
 			[
-				'name' 	=> 'Nguyễn Duy',
-				'img' 	=> 'images/tac-gia/_011_nguyenduy.jpg',
-				'link' 	=> '/tac-gia/nguyen-duy',
+				'name' => 'Nguyễn Duy',
+				'img' => 'images/tac-gia/_011_nguyenduy.jpg',
+				'link' => '/tac-gia/nguyen-duy',
 			],
 			[
-				'name' 	=> 'Nguyễn Mộng Huỳnh',
-				'img' 	=> 'images/tac-gia/_012_nguyenmonghuynh.jpg',
-				'link' 	=> '/tac-gia/nguyen-mong-huynh',
+				'name' => 'Nguyễn Mộng Huỳnh',
+				'img' => 'images/tac-gia/_012_nguyenmonghuynh.jpg',
+				'link' => '/tac-gia/nguyen-mong-huynh',
 			],
 			[
-				'name' 	=> 'Vũ Đình Ân',
-				'img' 	=> 'images/tac-gia/_013_vudinhan.jpg',
-				'link' 	=> '/tac-gia/vu-dinh-an',
+				'name' => 'Vũ Đình Ân',
+				'img' => 'images/tac-gia/_013_vudinhan.jpg',
+				'link' => '/tac-gia/vu-dinh-an',
 			],
 		];
 	}
@@ -389,13 +416,14 @@ class Home extends BaseController {
 			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
 
 			foreach ($arrayCat as $val) {
-				$songList[$key]['cat'] = [ 'author' => $val['cat_name'] ];
+				$songList[$key]['cat'] = ['author' => $val['cat_name']];
 			}
 
 			foreach ($arrayMeta as $val) {
 				$songList[$key]['meta'][$val['key']] = $val['value'];
 			}
-		};
+		}
+		;
 
 		return $songList;
 	}
