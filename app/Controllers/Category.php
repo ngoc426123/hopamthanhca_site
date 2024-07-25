@@ -19,34 +19,37 @@ class Category extends BaseController {
     $typeID = $typeData['id'];
     $catData = [];
     $viewRender = $catSlug == 'bang-chu-cai' ? 'AlphabetCategory' : 'CommonCategory';
-    $page = $this->request->getPostGet('page') ?? 0;
+    $page = $this->request->getPostGet('page') ?? 1;
     $catData = $catModel
       ->join('cattype', 'cattype.id_cat = cat.id')
       ->where('cattype.id_type', $typeID)
-      ->orderBy('cat_name', 'ASC')
-      ->find();
-    
-    if ($catSlug != 'bang-chu-cai') {
-      $pageStart = ($page) * $this->perpage;
-      $pageEnd = ($pageStart - 1) + $this->perpage;
-      $catData = array_filter($catData, function($item, $key) use($pageStart, $pageEnd) {
-        if ($pageStart <= $key && $key <= $pageEnd) {
-          return $item;
-        }
-      }, ARRAY_FILTER_USE_BOTH);
-    
+      ->orderBy('cat_name', 'ASC');
+    if ($catSlug == 'bang-chu-cai') {
+      $catData = $catData->find();
+    } else {
+      $pageStart = ($page - 1) * $this->perpage;
+      $catData = $catData
+        ->limit($this->perpage, $pageStart)
+        ->find();
+
       foreach ($catData as $key => $value) {
         $songcatModel = new Songcat();
         $songcatData = $songcatModel
           ->where('id_cat', $value['id_cat'])
           ->countAllResults();
-
+  
         $catData[$key]['count'] = $songcatData;
       }
     }
+    $catCounter = $catModel
+      ->selectCount('cat.id')
+      ->join('cattype', 'cattype.id_cat = cat.id')
+      ->where('cattype.id_type', $typeID)
+      ->orderBy('cat_name', 'ASC')
+      ->first();
 
     $pager = service('pager');
-    $pagination = $pager->makeLinks($page + 1, $this->perpage, count($catData), 'pagination');
+    $pagination = $pager->makeLinks($page, $this->perpage, $catCounter['id'], 'pagination');
 		$data = [
       'pagemeta' => [
         'title'     => "Thánh ca theo {$typeData["type_name"]} - Hợp âm thánh ca",
