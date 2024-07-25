@@ -19,7 +19,8 @@ $isMaintain = $optionsData[0]['value'] == 1 && $cookieAdminLogin;
 if ($isMaintain) {
   $routes->get('(:any)', 'Maintain::index');
 } else {
-  $routes->get('/', 'Home::index');
+  $routes->get('/', 'Home::Index');
   $routes->get('/gioi-thieu', 'StaticPage::About');
   $routes->get('/hop-am', 'StaticPage::Chords');
+  $routes->get('/(:any)', 'Category::Index/$1');
 }

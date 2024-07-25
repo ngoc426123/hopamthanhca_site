@@ -83,16 +83,16 @@
   <div class="comp-slide-category" data-slide-category>
     <div class="swiper">
       <div class="swiper-wrapper">
-        <?php
-          foreach ($pagedata['cat'] as $value) {
-            echo view_cell('CatBannerCell', [
+        <?php foreach ($pagedata['cat'] as $value) { ?>
+          <div class="swiper-slide">
+            <?= view_cell('CatBannerCell', [
               'title' => $value['name'],
               'img'   => base_url($value['img']),
               'link'  => base_url($value['link']),
               'class' => $value['class'],
-            ]);
-          }
-        ?>
+            ]); ?>
+          </div>
+        <?php } ?>
       </div>
     </div>
     <button class="comp-slide-design__arrow --prev" data-slide-prev></button>
@@ -165,15 +165,15 @@
       <div class="comp-slide-author" data-slide-author>
         <div class="swiper">
           <div class="swiper-wrapper">
-            <?php
-              foreach ($pagedata['author'] as $value) {
-                echo view_cell('AuthorBannerCell', [
+            <?php foreach ($pagedata['author'] as $value) { ?>
+              <div class="swiper-slide">
+                <?= view_cell('AuthorBannerCell', [
                   'name'  => $value['name'],
                   'img'   => base_url($value['img']),
                   'link'  => base_url($value['link']),
-                ]);
-              }
-            ?>
+                ]); ?>
+              </div>
+            <?php } ?>
             <div class="swiper-slide">
               <div class="comp-author-banner">
                 <a href="<?= esc('tac-gia') ?>" title="Nhiều Hơn">
@@ -191,18 +191,18 @@
   </div>
   <div class="comp-list-song-home">
     <div class="row">
-      <?php
-        foreach ($pagedata['songhome'] as $value) {
-          echo view_cell('SongHomeCell', [
+      <?php foreach ($pagedata['songhome'] as $value) { ?>
+        <div class="col-12 col-lg-6">
+          <?= view_cell('SongHomeCell', [
             'title'     => $value['title'],
             'dater'     => $value['date'],
             'author'    => $value['cat']['author'],
             'viewer'    => $value['meta']['luotxem'],
             'lover'     => $value['meta']['lovesong'],
             'permalink' => base_url('bai-hat/'.$value['slug']),
-          ]);
-        }
-      ?>
+          ]); ?>
+        </div>
+      <?php } ?>
     </div>
   </div>
 <?php $this->endSection() ?>

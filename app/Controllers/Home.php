@@ -8,7 +8,8 @@ use App\Models\Songcat;
 use App\Models\Songmeta;
 
 class Home extends BaseController {
-	public function index() {
+
+	public function Index() {
 		$data = [
 			'pagemeta' => $this::getMeta(),
 			'pagedata' => [
@@ -30,7 +31,7 @@ class Home extends BaseController {
 	private static function getMeta() {
 		$optionsModel = new Options();
 		$optionsData = $optionsModel
-			->whereIn('key', ['title', 'keywork', 'desc', 'site_url'])
+			->whereIn('key', ['title', 'keywork', 'desc'])
 			->find();
 		$options = [];
 
@@ -42,7 +43,6 @@ class Home extends BaseController {
 			'title'     => 'Trang chủ - ' . $options['title'] . ' - Thư viện thánh ca hợp âm lớn nhất.',
 			'keywork'   => $options['keywork'],
 			'desc'      => $options['desc'],
-			'site_url'  => $options['site_url'],
 			'canonical' => base_url(),
 		];
 	}

@@ -1,7 +1,7 @@
 <?php $this->extend('Layout'); ?>
 
 <?php $this->section('main_page') ?>
-  <?= view_cell('BreadcrumbCell', ['data' => $breadcrumb]) ?>
+  <?= view_cell('BreadcrumbCell', ['data' => $pagedata['breadcrumb']]) ?>
   <div class="comp-box --padding">
     <div class="comp-chords" data-chords>
       <div class="comp-chords__text">Vòng tròn hợp âm</div>

@@ -10,7 +10,7 @@
     <meta property="og:description" content="<?= esc($pagemeta['desc']) ?>">
     <meta property="og:image" content="<?= base_url("images/logo.svg"); ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?= base_url(); ?>">
+    <meta property="og:url" content="<?= base_url() ?>">
     <meta name="description" content="<?= esc($pagemeta['desc']) ?>">
     <meta name="keywords" content="<?= esc($pagemeta['keywork']) ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

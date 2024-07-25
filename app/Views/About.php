@@ -1,7 +1,7 @@
 <?php $this->extend('Layout'); ?>
 
 <?php $this->section('main_page') ?>
-  <?= view_cell('BreadcrumbCell', ['data' => $breadcrumb]) ?>
+  <?= view_cell('BreadcrumbCell', ['data' => $pagedata['breadcrumb']]) ?>
   <div class="comp-box --padding">
     <div class="comp-box__heading">
       <h1 class="comp-box__title-text">Hợp âm thánh ca, nơi lưu trữ các bài hát thánh ca với hợp âm và sheet nhạc đã được imprimatur</h1>
