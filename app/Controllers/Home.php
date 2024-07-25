@@ -40,7 +40,7 @@ class Home extends BaseController {
 		}
 
 		return [
-			'title'     => 'Trang chủ - ' . $options['title'] . ' - Thư viện thánh ca hợp âm lớn nhất.',
+			'title'     => 'Trang chủ - ' . $options['title'] . ' - Thư viện thánh ca có hợp âm lớn nhất.',
 			'keywork'   => $options['keywork'],
 			'desc'      => $options['desc'],
 			'canonical' => base_url(),

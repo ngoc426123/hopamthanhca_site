@@ -22,5 +22,6 @@ if ($isMaintain) {
   $routes->get('/', 'Home::Index');
   $routes->get('/gioi-thieu', 'StaticPage::About');
   $routes->get('/hop-am', 'StaticPage::Chords');
+  $routes->get('/(:any)/(:any)', 'Category::ListSong/$1/$2');
   $routes->get('/(:any)', 'Category::Index/$1');
 }

@@ -5784,3 +5784,503 @@ in APPPATH\Controllers\Category.php on line 19.
  5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
  6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:20:02 --> ParseError: syntax error, unexpected token "}", expecting ";" or "{"
+[Method: GET, Route: dieu-bai-hat]
+in APPPATH\Controllers\Category.php on line 85.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(296): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(272): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Category')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Category')
+ 4 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Category', true)
+ 5 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:20:55 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 19.
+ 1 APPPATH\Controllers\Category.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 19)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->Index('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:20:58 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 19.
+ 1 APPPATH\Controllers\Category.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 19)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->Index('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:23:59 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ListSong.php"
+[Method: GET, Route: chuyen-muc/bollero]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ListSong.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 3 APPPATH\Controllers\Category.php(87): view('ListSong')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->CategoryDetail('chuyen-muc', 'bollero')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:24:41 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(87): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->CategoryDetail('chuyen-muc', 'bollero')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:24:56 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->CategoryDetail('chuyen-muc', 'bollero')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:25:11 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->CategoryDetail('chuyen-muc', 'bollero')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:25:36 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'bollero')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:25:43 --> ErrorException: Undefined variable $pagedata
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\ListSong.php on line 4.
+ 1 APPPATH\Views\ListSong.php(4): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagedata', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\ListSong.php', 4)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\ListSong.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 5 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'bollero')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:07 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/bollero]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'bollero')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:09 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: api/search]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:11 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: api/search]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:13 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/chachacha]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'chachacha')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:14 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: api/search]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:26:15 --> ErrorException: Undefined variable $pagemeta
+[Method: GET, Route: chuyen-muc/ballad]
+in APPPATH\Views\Layout.php on line 5.
+ 1 APPPATH\Views\Layout.php(5): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pagemeta', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php', 5)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Views\\Layout.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(250): CodeIgniter\View\View->render('Layout', [], true)
+ 5 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('ListSong', [], true)
+ 6 APPPATH\Controllers\Category.php(85): view('ListSong')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'ballad')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:28:43 --> ErrorException: Undefined variable $typeData
+[Method: GET, Route: chuyen-muc/ballad]
+in APPPATH\Controllers\Category.php on line 88.
+ 1 APPPATH\Controllers\Category.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $typeData', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'ballad')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:28:44 --> ErrorException: Undefined variable $typeData
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 88.
+ 1 APPPATH\Controllers\Category.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $typeData', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:28:44 --> ErrorException: Undefined variable $typeData
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 88.
+ 1 APPPATH\Controllers\Category.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $typeData', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:28:48 --> ErrorException: Undefined variable $typeData
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 88.
+ 1 APPPATH\Controllers\Category.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $typeData', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:28:52 --> ErrorException: Undefined variable $typeData
+[Method: GET, Route: chuyen-muc/cac-thanh]
+in APPPATH\Controllers\Category.php on line 88.
+ 1 APPPATH\Controllers\Category.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $typeData', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 88)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'cac-thanh')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:41:26 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 91.
+ 1 APPPATH\Controllers\Category.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 91)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:41:40 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 91.
+ 1 APPPATH\Controllers\Category.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 91)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:42:31 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 91.
+ 1 APPPATH\Controllers\Category.php(91): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 91)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:44:42 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 90.
+ 1 APPPATH\Controllers\Category.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 90)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:45:12 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 90.
+ 1 APPPATH\Controllers\Category.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 90)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:45:23 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 90.
+ 1 APPPATH\Controllers\Category.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 90)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:45:51 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 90.
+ 1 APPPATH\Controllers\Category.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 90)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:47:51 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:49:05 --> TypeError: Illegal offset type
+[Method: GET, Route: chuyen-muc/cac-thanh]
+in APPPATH\Controllers\Category.php on line 102.
+ 1 [internal function]: App\Controllers\Category->App\Controllers\{closure}([...])
+ 2 APPPATH\Controllers\Category.php(102): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'cac-thanh')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:51:20 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:58:20 --> TypeError: Illegal offset type
+[Method: GET, Route: chuyen-muc/cac-thanh]
+in APPPATH\Controllers\Category.php on line 102.
+ 1 [internal function]: App\Controllers\Category->App\Controllers\{closure}([...])
+ 2 APPPATH\Controllers\Category.php(102): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('chuyen-muc', 'cac-thanh')
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:59:15 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 14:59:59 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:00:28 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:01:30 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:03:41 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:05:25 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:07:11 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:08:26 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:08:31 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:08:38 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:09:23 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:09:23 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-25 15:09:41 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: api/search]
+in APPPATH\Controllers\Category.php on line 92.
+ 1 APPPATH\Controllers\Category.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'D:\\xampp\\htdocs\\hopamthanhca-site\\app\\Controllers\\Category.php', 92)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Category->ListSong('api', 'search')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Category))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
