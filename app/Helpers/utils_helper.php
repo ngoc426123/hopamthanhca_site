@@ -85,4 +85,16 @@ if (!function_exists('get_list_date')) {
 		return $return;
 	}
 }
+
+if (!function_exists('renderAuthor')) {
+	function renderAuthor($arrayAuthor) {
+		$author = '';
+
+		foreach ($arrayAuthor as $key => $value) {
+			$author .= ($key > 0 ? ', ' : '') . $value['cat_name'];
+		}
+
+		return $author;
+	}
+}
 ?>

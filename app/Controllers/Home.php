@@ -59,7 +59,8 @@ class Home extends BaseController {
 			->limit(11, 0)
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
-		$catData = $songCatModel
+		$authorsData = $songCatModel
+			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
 			->join('cat', 'cat.id = songcat.id_cat')
 			->join('cattype', 'cattype.id_cat = songcat.id_cat')
 			->join('type', 'type.id = cattype.id_type')
@@ -68,15 +69,12 @@ class Home extends BaseController {
 			->findAll();
 
 		foreach ($songList as $key => $songValue) {
-			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
 
-			foreach ($arrayCat as $val) {
-				$songList[$key]['cat'] = [
-					'author' => $val['cat_name'],
-				];
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
 			}
 		}
-		;
 
 		return $songList;
 	}
@@ -91,7 +89,8 @@ class Home extends BaseController {
 			->limit(10, 0)
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
-		$catData = $songCatModel
+		$authorsData = $songCatModel
+			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
 			->join('cat', 'cat.id = songcat.id_cat')
 			->join('cattype', 'cattype.id_cat = songcat.id_cat')
 			->join('type', 'type.id = cattype.id_type')
@@ -100,15 +99,12 @@ class Home extends BaseController {
 			->findAll();
 
 		foreach ($songList as $key => $songValue) {
-			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
 
-			foreach ($arrayCat as $val) {
-				$songList[$key]['cat'] = [
-					'author' => $val['cat_name'],
-				];
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
 			}
 		}
-		;
 
 		return $songList;
 	}
@@ -124,7 +120,7 @@ class Home extends BaseController {
 			->limit(10, 0)
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
-		$catData = $songCatModel
+		$authorsData = $songCatModel
 			->join('cat', 'cat.id = songcat.id_cat')
 			->join('cattype', 'cattype.id_cat = songcat.id_cat')
 			->join('type', 'type.id = cattype.id_type')
@@ -133,15 +129,12 @@ class Home extends BaseController {
 			->findAll();
 
 		foreach ($songList as $key => $songValue) {
-			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
 
-			foreach ($arrayCat as $val) {
-				$songList[$key]['cat'] = [
-					'author' => $val['cat_name'],
-				];
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
 			}
 		}
-		;
 
 		return $songList;
 	}
@@ -399,7 +392,8 @@ class Home extends BaseController {
 			->limit(12, 10)
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
-		$catData = $songCatModel
+		$authorsData = $songCatModel
+			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
 			->join('cat', 'cat.id = songcat.id_cat')
 			->join('cattype', 'cattype.id_cat = songcat.id_cat')
 			->join('type', 'type.id = cattype.id_type')
@@ -412,18 +406,17 @@ class Home extends BaseController {
 			->findAll();
 
 		foreach ($songList as $key => $songValue) {
-			$arrayCat = array_filter($catData, fn($item) => $item['id_song'] === $songValue['id']);
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
 			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
 
-			foreach ($arrayCat as $val) {
-				$songList[$key]['cat'] = ['author' => $val['cat_name']];
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
 			}
 
 			foreach ($arrayMeta as $val) {
 				$songList[$key]['meta'][$val['key']] = $val['value'];
 			}
 		}
-		;
 
 		return $songList;
 	}

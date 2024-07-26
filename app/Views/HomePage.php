@@ -26,9 +26,10 @@
     <div class="comp-box__content">
       <?php
         foreach ($pagedata['season'] as $value) {
+          $author = '';
           echo view_cell('SongItemSeasonCell', [
             'title'       => $value['title'],
-            'author'      => $value['cat']['author'],
+            'author'      => renderAuthor($value['author']),
             'excerpt'     => $value['excerpt'],
             'permalink'   => base_url('bai-hat/'.$value['slug']),
           ]);
@@ -51,7 +52,7 @@
           foreach ($pagedata['newest'] as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
-              'author'      => $value['cat']['author'],
+              'author'      => renderAuthor($value['author']),
               'excerpt'     => $value['excerpt'],
               'permalink'   => base_url('bai-hat/'.$value['slug']),
             ]);
@@ -70,7 +71,7 @@
           foreach ($pagedata['mostview'] as $value) {
             echo view_cell('SongItemCell', [
               'title'       => $value['title'],
-              'author'      => $value['cat']['author'],
+              'author'      => renderAuthor($value['author']),
               'excerpt'     => $value['excerpt'],
               'permalink'   => base_url('bai-hat/'.$value['slug']),
             ]);
@@ -196,7 +197,7 @@
           <?= view_cell('SongHomeCell', [
             'title'     => $value['title'],
             'dater'     => $value['date'],
-            'author'    => $value['cat']['author'],
+            'author'    => renderAuthor($value['author']),
             'viewer'    => $value['meta']['luotxem'],
             'lover'     => $value['meta']['lovesong'],
             'permalink' => base_url('bai-hat/'.$value['slug']),

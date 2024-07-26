@@ -6,7 +6,8 @@
     <div class="col-12 col-lg-8">
       <div class="comp-box --padding">
         <div class="comp-box__heading">
-          <h1 class="comp-box__title-text">Mùa thường niên</h1><small class="comp-box__title-small">Bài hát được tổng hợp theo mùa thường niên, thuận tiện các việc tìm kiếm các bài hát theo từng chủ đề.</small>
+          <h1 class="comp-box__title-text"><?= esc($pagedata['pagetitle']) ?></h1>
+          <small class="comp-box__title-small"><?= esc($pagedata['pagedesc']) ?></small>
         </div>
         <div class="comp-box__content">
           <div class="comp-song-item">
@@ -126,35 +127,12 @@
       <div class="comp-box --padding --small-spacing">
         <div class="comp-category-tag">
           <ul>
-            <li><a href=""><span>Ân Đức</span></a></li>
-            <li><a href=""><span>Cao Huy Hoàng</span></a></li>
-            <li><a href=""><span>Dấu Chân</span></a></li>
-            <li><a href=""><span>Duy Tân</span></a></li>
-            <li><a href=""><span>Duy Thiên</span></a></li>
-            <li><a href=""><span>Gia Ân</span></a></li>
-            <li><a href=""><span>Giang Ân</span></a></li>
-            <li><a href=""><span>Giang Tâm</span></a></li>
-            <li><a href=""><span>Hạ Đăng</span></a></li>
-            <li><a href=""><span>Hải Linh</span></a></li>
-            <li><a href=""><span>Hoài Bắc</span></a></li>
-            <li><a href=""><span>Hoài Chiên</span></a></li>
-            <li><a href=""><span>Hoài Đức</span></a></li>
-            <li><a href=""><span>Hoàng Nam</span></a></li>
-            <li><a href="">   <span>Hoàng Phúc</span></a></li>
-            <li><a href=""><span>Hùng Lân</span></a></li>
-            <li><a href=""><span>Huyền Linh</span></a></li>
-            <li><a href=""><span>Huỳnh Minh Kỳ</span></a></li>
-            <li><a href=""><span>Kim Long</span></a></li>
-            <li><a href=""><span>Lâm Sơn Hải</span></a></li>
-            <li><a href=""><span>Lê Huy</span></a></li>
-            <li><a href=""><span>Lê Phú Hải</span></a></li>
-            <li><a href=""><span>Lê Quốc</span></a></li>
-            <li><a href=""><span>Lê Đức Hùng</span></a></li>
-            <li><a href=""><span>Mai Khanh</span></a></li>
-            <li><a href=""><span>Mai Nguyên Vũ</span></a></li>
-            <li><a href=""><span>Matinô</span></a></li>
-            <li><a href=""><span>Mi Trầm</span></a></li>
-            <li><a href=""><span>Nhiều hơn ...</span></a></li>
+            <?php foreach ($pagedata['catlist'] as $value) { ?>
+              <li><a href="<?= base_url($pagedata['typeslug'].'/'.$value['cat_slug']); ?>"><span><?= esc($value['cat_name']); ?></span></a></li>
+            <?php } ?>
+            <?php if (count($pagedata['catlist']) > 26) { ?>
+              <li><a href="<?= base_url($value['cat_slug']) ?>"><span>Nhiều hơn ...</span></a></li>
+            <?php } ?>
           </ul>
         </div>
       </div>
@@ -163,12 +141,17 @@
           <div class="comp-song-home">
             <div class="comp-song-home__wrap">
               <div class="comp-song-home__title">
-                <h3><a href="">Ca vang tình yêu Chúa  <span>Đinh Công Huỳnh</span></a></h3>
+                <h3>
+                  <a href="<?= base_url('bai-hat/'.$pagedata['songrandom']['slug']) ?>">
+                    <?= esc($pagedata['songrandom']['title']) ?>
+                    <span><?= esc(renderAuthor($pagedata['songrandom']['author'])) ?></span>
+                  </a>
+                </h3>
               </div>
-              <div class="comp-song-home__info">Hoàng Minh Ngọc - March 23, 2020</div>
+              <div class="comp-song-home__info"><?= esc($pagedata['songrandom']['date']) ?></div>
               <div class="comp-song-home__attrs">
-                <div class="comp-song-home__attr-item"><span class="fa-eye">9125</span></div>
-                <div class="comp-song-home__attr-item"><span class="fa-heart">0</span></div>
+                <div class="comp-song-home__attr-item"><span class="fa-eye"><?= esc($pagedata['songrandom']['meta']['luotxem']) ?></span></div>
+                <div class="comp-song-home__attr-item"><span class="fa-heart"><?= esc($pagedata['songrandom']['meta']['lovesong']) ?></span></div>
               </div>
             </div>
             <div class="comp-song-home__content">
@@ -177,7 +160,7 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, odit quasi minus ab quos natus expedita earum. Inventore, temporibus odio nobis doloribus sapiente, libero quaerat ab delectus mollitia aliquam hic!</p>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, magnam omnis, sed architecto facere atque distinctio repellat ratione, nostrum adipisci placeat recusandae blanditiis pariatur. Accusantium libero itaque provident consequatur perspiciatis.</p>
             </div>
-            <div class="comp-song-home__link"><a href="">Xem chi tiết</a></div>
+            <div class="comp-song-home__link"><a href="<?= base_url('bai-hat/'.$pagedata['songrandom']['slug']) ?>">Xem chi tiết</a></div>
           </div>
         </div>
       </div>

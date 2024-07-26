@@ -5,7 +5,9 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\Cat;
 use App\Models\Catmeta;
+use App\Models\Song;
 use App\Models\Songcat;
+use App\Models\Songmeta;
 use App\Models\Type;
 
 class Category extends BaseController {
@@ -64,6 +66,7 @@ class Category extends BaseController {
         'pagetitle'  => $typeData['type_name'],
         'pagedesc'   => $typeData['desc'],
         'typename'   => $typeData['type_name'],
+        'typeslug'   => $typeSlug,
         'list'       => $catData,
         'breadcrumb' => [
           [
@@ -83,6 +86,9 @@ class Category extends BaseController {
   }
 
   public function ListSong($typeSlug, $catSlug) {
+    $songModel = new Song();
+    $songCatModel = new Songcat();
+    $songMetaModel = new Songmeta();
     $catModel = new Cat();
 		$typeModel = new Type();
     $catMetaModel = new Catmeta();
@@ -99,20 +105,60 @@ class Category extends BaseController {
       ->where('id_cat', $catID)
       ->find();
     $catMeta = [];
+
     foreach ($catMetaData as $value) {
       $catMeta[$value['key']] = $value['value'];
+    }
+
+    $catListData = $typeModel
+      ->select('cat.cat_name, cat.cat_slug')
+      ->join('cattype', 'cattype.id_type = type.id')
+      ->join('cat', 'cat.id = cattype.id_cat')
+      ->where('type.type_slug', $typeSlug)
+      ->orderBy('cat.cat_name', 'ASC')
+      ->limit(26, 0)
+      ->find();
+    $songRandom = $songModel
+      ->select('song.id, song.title, song.slug, song.content, song.date')
+      ->join('songcat', 'songcat.id_song = song.id')
+      ->join('cat', 'cat.id = songcat.id_cat')
+      ->where('cat.cat_slug', $catSlug)
+      ->orderBy('cat.cat_name', 'RANDOM')
+      ->first();
+    $songCat = $songCatModel
+      ->select('cat.id, cat.cat_name, cat.cat_slug')
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->where('songcat.id_song', $songRandom['id'])
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
+    $songMeta = $songMetaModel
+			->where('id_song', $songRandom['id'])
+			->WhereIn('key', ['luotxem', 'lovesong'])
+			->findAll();
+
+    foreach ($songMeta as $value) {
+      $songRandom['meta'][$value['key']] = $value['value'];
+    }
+
+    foreach ($songCat as $value) {
+      $songRandom['author'][] = $value;
     }
 
     $data = [
       'pagemeta' => [
         'title'     => 'Chuyên mục '. $catName. ' - Thư viện thánh ca có hợp âm lớn nhất.',
-        'desc'      => $catMeta['seodes'] ?? 'Chuyên mục '. $catName. ' - Kho lưu trữ bài hát theo chuyên mục, hỗ trợ sheet nhạc và được sử dụng trong thánh lễ (imprimatur)',
+        'desc'      => $catMeta['seodes'] != '' ? $catMeta['seodes'] : 'Chuyên mục '. $catName. ' - Kho lưu trữ bài hát theo chuyên mục, hỗ trợ sheet nhạc và được sử dụng trong thánh lễ (imprimatur)',
         'keywork'   => $catMeta['seokeywork'],
         'canonical' => base_url($typeSlug . '/' . $catSlug),
       ],
 			'pagedata' => [
         'pagetitle'  => $catMeta['seotitle'],
-        'pagedesc'   => $catMeta['seodes'] ?? 'Chuyên mục '. $catName. ' - Kho lưu trữ bài hát theo chuyên mục, hỗ trợ sheet nhạc và được sử dụng trong thánh lễ (imprimatur)',
+        'pagedesc'   => $catMeta['seodes'] != '' ? $catMeta['seodes'] : 'Chuyên mục '. $catName. ' - Kho lưu trữ bài hát theo chuyên mục, hỗ trợ sheet nhạc và được sử dụng trong thánh lễ (imprimatur)',
+        'catlist'    => $catListData,
+        'songrandom' => $songRandom,
+        'typeslug'   => $typeSlug,
         'breadcrumb' => [
           [
             'title' => 'Trang chủ',

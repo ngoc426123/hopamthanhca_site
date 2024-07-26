@@ -16,7 +16,7 @@
                 'title' => $pagedata['typename'],
                 'name'  => $value['cat_name'],
                 'count' => $value['count'],
-                'link'  => base_url('chuyen-muc/'.$value['cat_slug']),
+                'link'  => base_url($pagedata['typeslug'].'/'.$value['cat_slug']),
               ]) ?>
             </div>
           <?php } ?>
