@@ -70,7 +70,7 @@ $headerClass = new Header();
       </div>
     </div>
   </div>
-  <div class="header__search" data-search>
+  <div class="header__search">
     <div class="comp-wrapper">
       <div class="header__search--title">Cùng tìm kiếm bài hát bạn thích nhất</div>
       <div class="header__search--form"data-search-form>

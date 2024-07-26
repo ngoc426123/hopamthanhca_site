@@ -2,6 +2,8 @@
 namespace App\Libraries;
 
 class SongHandle {
+  private $song;
+
   public function __construct($song) {
     $this->song = $song;
   }
@@ -14,10 +16,10 @@ class SongHandle {
 			return preg_replace_callback($partten, function ($text) use($parttenChord) {
 				$chord = preg_replace($parttenChord, '', $text[0]);
 				$chord = ucfirst($chord);
-				return "<span class='chordOC'>
-					<span class='chordPer'>[</span>
-					<span class='chord'>{$chord}</span>
-					<span class='chordPer'>]</span>
+				return "<span class='chordsOC'>
+					<span class='chordsPer'>[</span>
+					<span class='chords'>{$chord}</span>
+					<span class='chordsPer'>]</span>
 				</span>";
 			}, $chord[0]);
 		}, $this->song);
