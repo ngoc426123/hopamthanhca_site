@@ -13,10 +13,7 @@
 				</div>
 			</div>
 			<div class="comp-song-home__content">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae expedita ad architecto error delectus. Atque ratione commodi totam animi laborum, aliquid quos saepe cumque sint? Sunt eos minus quos nulla?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit blanditiis sequi temporibus dicta corrupti aliquam, provident quibusdam officia cumque numquam illum dolorem recusandae ullam dolor voluptate eum eos? Alias, ipsam!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, odit quasi minus ab quos natus expedita earum. Inventore, temporibus odio nobis doloribus sapiente, libero quaerat ab delectus mollitia aliquam hic!</p>
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, magnam omnis, sed architecto facere atque distinctio repellat ratione, nostrum adipisci placeat recusandae blanditiis pariatur. Accusantium libero itaque provident consequatur perspiciatis.</p>
+				<?= html_entity_decode($content) ?>
 			</div>
 			<div class="comp-song-home__link"><a href="<?= esc($permalink) ?>">Xem chi tiết</a>
 			</div>

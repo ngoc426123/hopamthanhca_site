@@ -25,16 +25,16 @@
     </div>
     <div class="comp-box__content">
       <?php
-        foreach ($pagedata['season'] as $value) {
-          $author = '';
-          echo view_cell('SongItemSeasonCell', [
-            'title'       => $value['title'],
-            'author'      => renderAuthor($value['author']),
-            'excerpt'     => $value['excerpt'],
-            'permalink'   => base_url('bai-hat/'.$value['slug']),
-          ]);
-        }
-        ?>
+      foreach ($pagedata['season'] as $value) {
+        $author = '';
+        echo view_cell('SongItemSeasonCell', [
+          'title'       => $value['title'],
+          'author'      => renderAuthor($value['author']),
+          'excerpt'     => $value['excerpt'],
+          'permalink'   => base_url('bai-hat/'.$value['slug']),
+        ]);
+      }
+      ?>
       <div class="comp-song-item --more">
         <div class="comp-song-item__text-more">Xem<br/> nhiều hơn</div>
         <a class="comp-song-item__link" href="<?= esc('bai-hat') ?>"></a>
@@ -107,14 +107,14 @@
         </div>
         <div class="comp-box__content --background --padding">
           <?php
-            foreach ($pagedata['mostweek'] as $value) {
-              echo view_cell('SongIronCell', [
-                'title' => $value['title'],
-                'link'  => base_url('bai-hat/'.$value['slug']),
-                'viewer'  => $value['meta']['luotxem'],
-                'lover'  => $value['meta']['lovesong'],
-              ]);
-            }
+          foreach ($pagedata['mostweek'] as $value) {
+            echo view_cell('SongIronCell', [
+              'title' => $value['title'],
+              'link'  => base_url('bai-hat/'.$value['slug']),
+              'viewer'  => $value['meta']['luotxem'],
+              'lover'  => $value['meta']['lovesong'],
+            ]);
+          }
           ?>
         </div>
       </div>
@@ -200,6 +200,7 @@
             'author'    => renderAuthor($value['author']),
             'viewer'    => $value['meta']['luotxem'],
             'lover'     => $value['meta']['lovesong'],
+            'content'   => $value['content'],
             'permalink' => base_url('bai-hat/'.$value['slug']),
           ]); ?>
         </div>

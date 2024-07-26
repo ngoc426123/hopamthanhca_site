@@ -9,9 +9,11 @@ use App\Models\Song;
 use App\Models\Songcat;
 use App\Models\Songmeta;
 use App\Models\Type;
+use App\Libraries\SongHandle;
 
 class Category extends BaseController {
-  public $perpage = 20;
+  public $catPerpage = 20;
+  public $listSongPerpage = 10;
 
   public function Index($typeSlug) {
     $catModel = new Cat();
@@ -31,9 +33,9 @@ class Category extends BaseController {
     if ($typeSlug == 'bang-chu-cai') {
       $catData = $catData->find();
     } else {
-      $pageStart = ($page - 1) * $this->perpage;
+      $pageStart = ($page - 1) * $this->catPerpage;
       $catData = $catData
-        ->limit($this->perpage, $pageStart)
+        ->limit($this->catPerpage, $pageStart)
         ->find();
 
       foreach ($catData as $key => $value) {
@@ -52,9 +54,8 @@ class Category extends BaseController {
       ->where('cattype.id_type', $typeID)
       ->orderBy('cat_name', 'ASC')
       ->first();
-
     $pager = service('pager');
-    $pagination = $pager->makeLinks($page, $this->perpage, $catCounter['id'], 'pagination');
+    $pagination = $pager->makeLinks($page, $this->catPerpage, $catCounter['id'], 'pagination');
 		$data = [
       'pagemeta' => [
         'title'     => "Thánh ca theo {$typeData["type_name"]} - Thư viện thánh ca có hợp âm lớn nhất.",
@@ -137,7 +138,55 @@ class Category extends BaseController {
 			->where('id_song', $songRandom['id'])
 			->WhereIn('key', ['luotxem', 'lovesong'])
 			->findAll();
+    $page = $this->request->getPostGet('page') ?? 1;
+    $pageStart = ($page - 1) * $this->listSongPerpage;
+    $songList = $songModel
+			->select('song.id, song.title, song.slug, song.excerpt, song.date')
+			->join('songcat', 'songcat.id_song = song.id')
+			->where([
+        'song.status'    => 'publish',
+        'songcat.id_cat' => $catID,
+      ])
+			->orderBy('song.id', 'DESC')
+			->limit($this->listSongPerpage, $pageStart)
+			->findAll();
+    $songIDs = array_map(fn($item) => $item['id'], $songList);
+    $authorsData = $songCatModel
+			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
+			->join('cat', 'cat.id = songcat.id_cat')
+			->join('cattype', 'cattype.id_cat = songcat.id_cat')
+			->join('type', 'type.id = cattype.id_type')
+			->whereIn('songcat.id_song', $songIDs)
+			->where('type.type_slug', 'tac-gia')
+			->findAll();
+    $metaData = $songMetaModel
+			->whereIn('id_song', $songIDs)
+			->WhereIn('key', ['luotxem', 'lovesong', 'hopamchinh'])
+			->findAll();
 
+		foreach ($songList as $key => $songValue) {
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
+			$arrayMeta = array_filter($metaData, fn($item) => $item['id_song'] === $songValue['id']);
+
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
+			}
+
+			foreach ($arrayMeta as $val) {
+				$songList[$key]['meta'][$val['key']] = $val['value'];
+			}
+		}
+
+    $songCounter = $songModel
+			->selectCount('song.id')
+			->join('songcat', 'songcat.id_song = song.id')
+			->where([
+        'song.status'    => 'publish',
+        'songcat.id_cat' => $catID,
+      ])
+			->first();
+    $pager = service('pager');
+    $pagination = $pager->makeLinks($page, $this->listSongPerpage, $songCounter['id'], 'pagination');
     foreach ($songMeta as $value) {
       $songRandom['meta'][$value['key']] = $value['value'];
     }
@@ -145,6 +194,9 @@ class Category extends BaseController {
     foreach ($songCat as $value) {
       $songRandom['author'][] = $value;
     }
+
+    $songHandle = new SongHandle($songRandom['content']);
+    $songRandom['content'] = $songHandle->removeChords()->removeUnderscore()->getsong();
 
     $data = [
       'pagemeta' => [
@@ -173,6 +225,8 @@ class Category extends BaseController {
             'link'  => base_url($typeSlug . '/' . $catSlug),
           ],
         ],
+        'pagination' => $pagination,
+        'songlist'   => $songList,
 			],
     ];
 

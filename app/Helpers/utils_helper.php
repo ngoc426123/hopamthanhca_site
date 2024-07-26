@@ -7,8 +7,8 @@ if (!function_exists('pr')) {
   }
 }
 
-if (!function_exists('get_list_date')) {
-	function get_list_date($option){
+if (!function_exists('getListDate')) {
+	function getListDate($option){
 		$return = array(
 			'day' => [],
 			'month' => [],

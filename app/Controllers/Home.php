@@ -6,6 +6,7 @@ use App\Models\Options;
 use App\Models\Song;
 use App\Models\Songcat;
 use App\Models\Songmeta;
+use App\Libraries\SongHandle;
 
 class Home extends BaseController {
 
@@ -219,7 +220,7 @@ class Home extends BaseController {
 	private static function getMostWeek() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
-		$listDay = get_list_date('week');
+		$listDay = getListDate('week');
 		$songList = $songModel
 			->select('song.id, song.title, song.slug, song.excerpt, song.date, CONVERT(songmeta.value, SIGNED INTEGER) as view')
 			->join('songmeta', 'songmeta.id_song = song.id')
@@ -252,7 +253,7 @@ class Home extends BaseController {
 	private static function getMostMonth() {
 		$songModel = new Song();
 		$songMetaModel = new Songmeta();
-		$listDay = get_list_date("week");
+		$listDay = getListDate("week");
 		$songList = $songModel
 			->select('song.id, song.title, song.slug, song.excerpt, song.date, CONVERT(songmeta.value, SIGNED INTEGER) as view')
 			->join('songmeta', 'songmeta.id_song = song.id')
@@ -386,7 +387,7 @@ class Home extends BaseController {
 		$songCatModel = new Songcat();
 		$songMetaModel = new Songmeta();
 		$songList = $songModel
-			->select('id, title, slug, date')
+			->select('id, title, slug, date, content')
 			->where('status', 'publish')
 			->orderBy('id', 'DESC')
 			->limit(12, 10)
@@ -416,6 +417,9 @@ class Home extends BaseController {
 			foreach ($arrayMeta as $val) {
 				$songList[$key]['meta'][$val['key']] = $val['value'];
 			}
+
+			$songHandle = new SongHandle($songValue['content']);
+			$songList[$key]['content'] = $songHandle->removeChords()->removeUnderscore()->getsong();
 		}
 
 		return $songList;

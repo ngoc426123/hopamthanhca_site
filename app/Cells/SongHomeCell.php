@@ -10,5 +10,6 @@ class SongHomeCell extends Cell {
 	public $author;
 	public $viewer;
 	public $lover;
+	public $content;
 	public $permalink;
 }
