@@ -16,12 +16,12 @@ class StaticPage extends BaseController {
       'pagedata' => [
         'breadcrumb' => [
           [
-            "title" => "Trang chủ",
-            "link"  => base_url(),
+            'title' => 'Trang chủ',
+            'link'  => base_url(),
           ],
           [
-            "title" => "Giới thiệu",
-            "link"  => base_url('gioi-thieu'),
+            'title' => 'Giới thiệu',
+            'link'  => base_url('gioi-thieu'),
           ],
         ],
       ],
@@ -41,12 +41,12 @@ class StaticPage extends BaseController {
       'pagedata' => [
         'breadcrumb' => [
           [
-            "title" => "Trang chủ",
-            "link"  => base_url(),
+            'title' => 'Trang chủ',
+            'link'  => base_url(),
           ],
           [
-            "title" => "Hợp âm",
-            "link"  => base_url('danh-sach-hop-am'),
+            'title' => 'Hợp âm',
+            'link'  => base_url('danh-sach-hop-am'),
           ],
         ],
       ],

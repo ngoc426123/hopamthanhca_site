@@ -10,5 +10,6 @@ class SongItemCell extends Cell {
 	public $excerpt;
 	public $date;
 	public $chords;
+	public $pdf;
 	public $permalink;
 }

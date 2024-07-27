@@ -68,6 +68,18 @@ class SongDetail extends BaseController {
       $songData['author'][] = $value;
     }
 
+    $viewer = array_filter($metaData, fn($item) => $item['key'] == 'luotxem', 0);
+    $viewer = reset($viewer);
+    $viewer = $viewer['value'];
+    $viewer += 1;
+    $songMetaModel
+      ->set('value', $viewer)
+      ->where([
+        'id_song' => $songData['id'],
+        'key'     => 'luotxem',
+      ])
+      ->update();
+
     $songHandle = new SongHandle($songData['content']);
     $songData['content'] = $songHandle->convertChordsSystax()->getsong();
     $authorRender = renderAuthor($songData['author']);

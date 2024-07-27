@@ -70,7 +70,7 @@ $headerClass = new Header();
       </div>
     </div>
   </div>
-  <div class="header__search">
+  <div class="header__search" data-search>
     <div class="comp-wrapper">
       <div class="header__search--title">Cùng tìm kiếm bài hát bạn thích nhất</div>
       <div class="header__search--form"data-search-form>
@@ -81,7 +81,8 @@ $headerClass = new Header();
           autocomplete="off"
           placeholder="Nhập tên bài hát, từ khóa tìm kiếm..."
           data-search-input
-          data-url="<?= base_url("api/search") ?>"
+          data-action='tim-kiem'
+          data-url="<?= base_url('api/search') ?>"
           value=""
         >
         <div class="header__search--suggess">

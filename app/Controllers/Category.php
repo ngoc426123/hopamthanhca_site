@@ -18,13 +18,13 @@ class Category extends BaseController {
   public function Index($typeSlug) {
     $catModel = new Cat();
 		$typeModel = new Type();
+    $page = $this->request->getPostGet('page') ?? 1;
 		$typeData = $typeModel
 			->where('type_slug', $typeSlug)
 			->first();
     $typeID = $typeData['id'];
     $typeName = $typeData['type_name'];
     $viewRender = $typeSlug == 'bang-chu-cai' ? 'AlphabetCategory' : 'CommonCategory';
-    $page = $this->request->getPostGet('page') ?? 1;
     $catData = $catModel
       ->join('cattype', 'cattype.id_cat = cat.id')
       ->where('cattype.id_type', $typeID)
@@ -41,10 +41,11 @@ class Category extends BaseController {
       foreach ($catData as $key => $value) {
         $songcatModel = new Songcat();
         $songcatData = $songcatModel
+          ->selectCount('id_cat')
           ->where('id_cat', $value['id_cat'])
-          ->countAllResults();
+          ->first();
   
-        $catData[$key]['count'] = $songcatData;
+        $catData[$key]['count'] = $songcatData['id_cat'];
       }
     }
 
@@ -187,6 +188,7 @@ class Category extends BaseController {
 			->first();
     $pager = service('pager');
     $pagination = $pager->makeLinks($page, $this->listSongPerpage, $songCounter['id'], 'pagination');
+
     foreach ($songMeta as $value) {
       $songRandom['meta'][$value['key']] = $value['value'];
     }
