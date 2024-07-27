@@ -39,11 +39,10 @@ $options = $footerClass::getOptions();
   <div class="footer__main">
     <div class="comp-wrapper">
       <div class="footer__grid">
-        <div class="footer__col-1 footer__col-order-logo">
-          <div class="footer__logo"><a href="<?= base_url() ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
+        <div class="footer__col-1 footer__col-order-contact">
+          <div class="footer__logo">
+            <a href="<?= base_url() ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
           </div>
-        </div>
-        <div class="footer__col-2 footer__col-order-contact">
           <div class="footer__contact">
             <div class="footer__contact-title">Liên hệ với chúng tôi</div>
             <div class="footer__contact-info">
@@ -55,6 +54,9 @@ $options = $footerClass::getOptions();
               </ul>
             </div>
           </div>
+        </div>
+        <div class="footer__col-2 footer__col-order-quote">
+          <div class="footer__quote">Hát là mang niềm tin vào Thiên Chúa Phục Sinh đến cho mọi người. Hát là lời cầu nguyện dâng lên Thiên Chúa Ba Ngôi. Hát là thể hiện niềm phó thác trọn cuộc đời vào Đấng Hiện Hữu và "Hát là cầu nguyện hai lần (Thánh Augustino)"</div>
         </div>
         <div class="footer__col-3 footer__col-order-nav">
           <div class="footer__navigation">
