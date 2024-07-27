@@ -56,7 +56,7 @@ $options = $footerClass::getOptions();
           </div>
         </div>
         <div class="footer__col-2 footer__col-order-quote">
-          <div class="footer__quote">Hát là mang niềm tin vào Thiên Chúa Phục Sinh đến cho mọi người. Hát là lời cầu nguyện dâng lên Thiên Chúa Ba Ngôi. Hát là thể hiện niềm phó thác trọn cuộc đời vào Đấng Hiện Hữu và "Hát là cầu nguyện hai lần (Thánh Augustino)"</div>
+          <div class="footer__quote">Hát là ơn Thiên Chúa ban cho mọi người. Hát là mang niềm tin vào Thiên Chúa Phục Sinh đến cho mọi nơi. Hát là thể hiện niềm phó thác trọn cuộc đời vào Đấng Hiện Hữu và "Hát là cầu nguyện hai lần (Thánh Augustino)"</div>
         </div>
         <div class="footer__col-3 footer__col-order-nav">
           <div class="footer__navigation">
