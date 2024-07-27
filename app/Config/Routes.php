@@ -21,8 +21,9 @@ if ($isMaintain) {
 } else {
   $routes->get('/', 'Home::Index');
   $routes->get('/gioi-thieu', 'StaticPage::About');
-  $routes->get('/hop-am', 'StaticPage::Chords');
+  $routes->get('/danh-sach-hop-am', 'StaticPage::Chords');
   $routes->get('/sheet-nhac', 'Sheet::Index');
+  $routes->get('/bai-hat', 'SongList::Index');
   $routes->get('/thanh-ca-hang-tuan', 'SongWeekly::Index');
   $routes->get('/thanh-ca-hang-tuan/(:any)', 'SongWeekly::Detail/$1');
   $routes->get('/tim-kiem', 'Search');

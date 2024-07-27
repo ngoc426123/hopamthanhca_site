@@ -62,7 +62,7 @@ $options = $footerClass::getOptions();
               <li><a href="<?= base_url() ?>" title=" Trang chủ"><span> Trang chủ</span></a></li>
               <li><a href="<?= base_url('gioi-thieu') ?>" title="Giới thiệu"><span>Giới thiệu</span></a></li>
               <li><a href="<?= base_url('bai-hat') ?>" title="Bài hát"><span>Bài hát</span></a></li>
-              <li><a href="<?= base_url('hop-am') ?>" title="Hợp âm"><span>Hợp âm</span></a></li>
+              <li><a href="<?= base_url('danh-sach-hop-am') ?>" title="Hợp âm"><span>Hợp âm</span></a></li>
               <li><a href="<?= base_url('thanh-ca-hang-tuan') ?>" title="Thánh ca hàng tuần"><span>Thánh ca hàng tuần</span></a></li>
             </ul>
           </div>

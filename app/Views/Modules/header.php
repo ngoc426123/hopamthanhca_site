@@ -64,6 +64,8 @@ $headerClass = new Header();
               </li>
               <li><a href="<?= base_url("thanh-ca-hang-tuan"); ?>" title="Hợp âm">Thánh ca hàng tuần</a></li>
               <li><a href="<?= base_url("sheet-nhac"); ?>" title="Sheet nhạc">Sheet nhạc</a></li>
+              <li class="d-block d-md-none"><a href="<?= base_url("bai-hat"); ?>" title="Bài hát">Bài hát</a></li>
+              <li class="d-block d-md-none"><a href="<?= base_url("danh-sach-hop-am"); ?>" title="Hợp âm">Hợp âm</a></li>
             </ul>
           </div>
         </div>
