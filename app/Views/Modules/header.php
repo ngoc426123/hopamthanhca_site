@@ -16,7 +16,7 @@ class Header {
     foreach ($listIdDieuBaiHat as $value) {
       $listDieuBaiHat[] = $value['id_cat'];
     }
-    
+
     return $catModel->whereIn('id', $listDieuBaiHat)->findAll();
   }
 }
@@ -74,8 +74,8 @@ $headerClass = new Header();
   </div>
   <div class="header__search" data-search>
     <div class="comp-wrapper">
-      <div class="header__search--title">Cùng tìm kiếm bài hát bạn thích nhất</div>
-      <div class="header__search--form"data-search-form>
+      <div class="header__search-title">Cùng tìm kiếm bài hát bạn thích nhất</div>
+      <div class="header__search-form"data-search-form>
         <input
           type="text"
           name="query"
@@ -85,13 +85,13 @@ $headerClass = new Header();
           data-search-input
           data-action='tim-kiem'
           data-url="<?= base_url('api/search') ?>"
-          value=""
         >
-        <div class="header__search--suggess">
+        <div class="header__search-loading"><img src="<?= base_url('images/loading-search.svg') ?>" alt="Loading search"/>
+        <div class="header__search-suggess">
           <ul data-suggess></ul>
         </div>
       </div>
-      <div class="header__search--note">
+      <div class="header__search-note">
         <p>Tìm với tên bài hát: Ca vang tình yêu Chúa, Tình yêu Thiên Chúa</p>
         <p>Tìm với lời đầu tiên của bài hát: "Đời con là những nốt nhạc thiêng"</p>
         <p> Nhập bài hát đầy đủ dấu và chữ, không ghi tắt.</p>
