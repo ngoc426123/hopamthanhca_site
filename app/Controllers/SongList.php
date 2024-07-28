@@ -32,6 +32,20 @@ class SongList extends BaseController{
 		$songMeta = $songMetaModel
 			->whereIn('id_song', $songIDs)
 			->findAll();
+
+		foreach ($songList as $key => $songValue) {
+			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
+			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
+
+			foreach ($arrayMeta as $val) {
+				$songList[$key]['meta'][$val['key']] = $val['value'];
+			}
+
+			foreach ($author as $val) {
+				$songList[$key]['author'][] = $val;
+			}
+		}
+
 		$catList = [
 			'chuyen-muc'   => [],
 			'tac-gia'      => [],
@@ -48,20 +62,6 @@ class SongList extends BaseController{
 				->find();
 			$catList[$key] = [];
 			$catList[$key] = $catData;
-			
-		}
-
-		foreach ($songList as $key => $songValue) {
-			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
-			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
-
-			foreach ($arrayMeta as $val) {
-				$songList[$key]['meta'][$val['key']] = $val['value'];
-			}
-
-			foreach ($author as $val) {
-				$songList[$key]['author'][] = $val;
-			}
 		}
 
 		$data = [

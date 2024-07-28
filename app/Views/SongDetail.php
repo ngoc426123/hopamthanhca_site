@@ -18,7 +18,7 @@
           <li><a class="fac share-facebook" href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
           <li><a class="goo" href="" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600,hl=vi');return false;"><i class="fab fa-google"></i></a></li>
           <li><a class="twi" href=""><i class="fab fa-twitter"></i></a></li>
-          <li><a class="love" href="" data-love-song data-post-id="706" data-love="5" data-url="data/updatelove.json"><i class="fa fa-heart"></i></a><span>0</span></li>
+          <li><a class="love <?= esc($songdata['meta']['lovesong'] > 0 ? '--active' : '') ?>" href="" data-love-song data-post-id="<?= esc($songdata['id']) ?>" data-love="5" data-url="<?= base_url('api/updatelove') ?>"><i class="fa fa-heart"></i></a><span><?= esc($songdata['meta']['lovesong']) ?></span></li>
         </ul>
       </div>
     </div>
