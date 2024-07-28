@@ -75,7 +75,7 @@ $headerClass = new Header();
   <div class="header__search" data-search>
     <div class="comp-wrapper">
       <div class="header__search-title">Cùng tìm kiếm bài hát bạn thích nhất</div>
-      <div class="header__search-form"data-search-form>
+      <div class="header__search-form" data-search-form>
         <input
           type="text"
           name="query"
@@ -86,7 +86,7 @@ $headerClass = new Header();
           data-action='tim-kiem'
           data-url="<?= base_url('api/search') ?>"
         >
-        <div class="header__search-loading"><img src="<?= base_url('images/loading-search.svg') ?>" alt="Loading search"/>
+        <div class="header__search-loading"><img src="<?= base_url('images/loading-search.svg') ?>" alt="Loading search"/></div>
         <div class="header__search-suggess">
           <ul data-suggess></ul>
         </div>
