@@ -114,32 +114,7 @@ class Api extends ResourceController {
 		$DieuBaiHat = $arrayParams['DieuBaiHat'] ?? null;
 		$hasCat = $ChuyenMuc ?? $TacGia ?? $BangChuCai ?? $DieuBaiHat ?? null;
 		$songList = [];
-		$counter = 0;
-		$songList = $songModel
-			->distinct()
-			->select('song.id, song.title, song.slug, song.excerpt, song.date')
-			->when($hasCat, static function ($query) {
-				$query->join('songcat', 'songcat.id_song = song.id');
-				$query->join('cat', 'cat.id = songcat.id_cat');
-			})
-			->when($Keywork, static function ($query, $keywork) {
-				$query->like('song.title', $keywork);
-			})
-			->when($ChuyenMuc, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($TacGia, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($BangChuCai, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($DieuBaiHat, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->orderBy('song.id', 'DESC')
-			->limit($this->perpage, $PageQuery)
-			->findAll();
+		$pagination = '';
 		$counter = $songModel
 			->distinct()
 			->selectCount('song.id')
@@ -162,37 +137,63 @@ class Api extends ResourceController {
 			})
 			->orderBy('song.id', 'DESC')
 			->first();
-
-		$songIDs = array_map(fn($item) => $item['id'], $songList);
-		$authorsData = $songCatModel
-			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
-			->join('cat', 'cat.id = songcat.id_cat')
-			->join('cattype', 'cattype.id_cat = songcat.id_cat')
-			->join('type', 'type.id = cattype.id_type')
-			->whereIn('songcat.id_song', $songIDs)
-			->where('type.type_slug', 'tac-gia')
-			->findAll();
-		$songMeta = $songMetaModel
-			->whereIn('id_song', $songIDs)
-			->findAll();
-
-		foreach ($songList as $key => $songValue) {
-			$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
-			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
-
-			foreach ($arrayMeta as $val) {
-				$songList[$key]['meta'][$val['key']] = $val['value'];
-			}
-
-			foreach ($author as $val) {
-				$songList[$key]['author'][] = $val;
-			}
-		}
-
 		
+		if ($counter['id'] > 0) {
+			$songList = $songModel
+				->distinct()
+				->select('song.id, song.title, song.slug, song.excerpt, song.date')
+				->when($hasCat, static function ($query) {
+					$query->join('songcat', 'songcat.id_song = song.id');
+					$query->join('cat', 'cat.id = songcat.id_cat');
+				})
+				->when($Keywork, static function ($query, $keywork) {
+					$query->like('song.title', $keywork);
+				})
+				->when($ChuyenMuc, static function ($query, $arrayCat) {
+					$query->orWhereIn('cat.cat_slug', $arrayCat);
+				})
+				->when($TacGia, static function ($query, $arrayCat) {
+					$query->orWhereIn('cat.cat_slug', $arrayCat);
+				})
+				->when($BangChuCai, static function ($query, $arrayCat) {
+					$query->orWhereIn('cat.cat_slug', $arrayCat);
+				})
+				->when($DieuBaiHat, static function ($query, $arrayCat) {
+					$query->orWhereIn('cat.cat_slug', $arrayCat);
+				})
+				->orderBy('song.id', 'DESC')
+				->limit($this->perpage, $PageQuery)
+				->findAll();
+	
+			$songIDs = array_map(fn($item) => $item['id'], $songList);
+			$authorsData = $songCatModel
+				->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
+				->join('cat', 'cat.id = songcat.id_cat')
+				->join('cattype', 'cattype.id_cat = songcat.id_cat')
+				->join('type', 'type.id = cattype.id_type')
+				->whereIn('songcat.id_song', $songIDs)
+				->where('type.type_slug', 'tac-gia')
+				->findAll();
+			$songMeta = $songMetaModel
+				->whereIn('id_song', $songIDs)
+				->findAll();
+	
+			foreach ($songList as $key => $songValue) {
+				$arrayMeta = array_filter($songMeta, fn($item) => $item['id_song'] === $songValue['id']);
+				$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
+	
+				foreach ($arrayMeta as $val) {
+					$songList[$key]['meta'][$val['key']] = $val['value'];
+				}
+	
+				foreach ($author as $val) {
+					$songList[$key]['author'][] = $val;
+				}
+			}
 
-		$pager = service('pager');
-    $pagination = $pager->makeLinks($Page, $this->perpage, $counter['id'], 'pagination-api');
+			$pager = service('pager');
+    	$pagination = $pager->makeLinks($Page, $this->perpage, $counter['id'], 'pagination-api');
+		}
 
 		$data = [
 			'data'       => $songList,
