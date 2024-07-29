@@ -61,6 +61,7 @@ class SongList extends BaseController{
 				->join('cattype', 'cattype.id_cat = cat.id')
 				->join('type', 'type.id = cattype.id_type')
 				->where('type_slug', $key)
+				->orderBy('cat.cat_name', 'ASC')
 				->find();
 			$catList[$key] = [];
 			$catList[$key] = $catData;

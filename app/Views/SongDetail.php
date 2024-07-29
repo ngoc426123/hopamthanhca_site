@@ -66,8 +66,8 @@
                     <li><span class="comp-song-info__att">Ngày đăng :</span><span class="comp-song-info__ats"><?= esc($songdata['date']) ?></span></li>
                     <li><span class="comp-song-info__att">Lượt xem :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['luotxem']) ?></span></li>
                     <li><span class="comp-song-info__att">Tone chính :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['hopamchinh']) ?></span></li>
-                    <li><span class="comp-song-info__att">Điệu bài hát :</span><a class="comp-song-info__ats" href="<?= base_url('chuyen-muc/'.$songdata['cat']['cat_slug']) ?>"><?= esc($songdata['cat']['cat_name']) ?></a></li>
-                    <li><span class="comp-song-info__att">Chuyên mục :</span><a class="comp-song-info__ats --up" href="<?= base_url('dieu-bai-hat/'.$songdata['rhythm']['cat_slug']) ?>"><?= esc($songdata['rhythm']['cat_name']) ?></a></li>
+                    <li><span class="comp-song-info__att">Chuyên mục :</span><a class="comp-song-info__ats" href="<?= base_url('chuyen-muc/'.$songdata['cat']['cat_slug']) ?>"><?= esc($songdata['cat']['cat_name']) ?></a></li>
+                    <li><span class="comp-song-info__att">Điệu bài hát :</span><a class="comp-song-info__ats --up" href="<?= base_url('dieu-bai-hat/'.$songdata['rhythm']['cat_slug']) ?>"><?= esc($songdata['rhythm']['cat_name']) ?></a></li>
                   </ul>
                 </div>
               </div>
