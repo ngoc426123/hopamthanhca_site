@@ -112,10 +112,16 @@ class Api extends ResourceController {
 		$TacGia = $arrayParams['TacGia'] ?? null;
 		$BangChuCai = $arrayParams['BangChuCai'] ?? null;
 		$DieuBaiHat = $arrayParams['DieuBaiHat'] ?? null;
+		$hasCat = $ChuyenMuc ?? $TacGia ?? $BangChuCai ?? $DieuBaiHat ?? null;
+		$songList = [];
+		$counter = 0;
 		$songList = $songModel
+			->distinct()
 			->select('song.id, song.title, song.slug, song.excerpt, song.date')
-			->join('songcat', 'songcat.id_song = song.id')
-			->join('cat', 'cat.id = songcat.id_cat')
+			->when($hasCat, static function ($query) {
+				$query->join('songcat', 'songcat.id_song = song.id');
+				$query->join('cat', 'cat.id = songcat.id_cat');
+			})
 			->when($Keywork, static function ($query, $keywork) {
 				$query->like('song.title', $keywork);
 			})
@@ -134,7 +140,29 @@ class Api extends ResourceController {
 			->orderBy('song.id', 'DESC')
 			->limit($this->perpage, $PageQuery)
 			->findAll();
-			
+		$counter = $songModel
+			->distinct()
+			->selectCount('song.id')
+			->join('songcat', 'songcat.id_song = song.id')
+			->join('cat', 'cat.id = songcat.id_cat')
+			->when($Keywork, static function ($query, $keywork) {
+				$query->like('song.title', $keywork);
+			})
+			->when($ChuyenMuc, static function ($query, $arrayCat) {
+				$query->orWhereIn('cat.cat_slug', $arrayCat);
+			})
+			->when($TacGia, static function ($query, $arrayCat) {
+				$query->orWhereIn('cat.cat_slug', $arrayCat);
+			})
+			->when($BangChuCai, static function ($query, $arrayCat) {
+				$query->orWhereIn('cat.cat_slug', $arrayCat);
+			})
+			->when($DieuBaiHat, static function ($query, $arrayCat) {
+				$query->orWhereIn('cat.cat_slug', $arrayCat);
+			})
+			->orderBy('song.id', 'DESC')
+			->first();
+
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
 		$authorsData = $songCatModel
 			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
@@ -161,27 +189,7 @@ class Api extends ResourceController {
 			}
 		}
 
-		$counter = $songModel
-			->selectCount('song.id')
-			->join('songcat', 'songcat.id_song = song.id')
-			->join('cat', 'cat.id = songcat.id_cat')
-			->when($Keywork, static function ($query, $keywork) {
-				$query->like('song.title', $keywork);
-			})
-			->when($ChuyenMuc, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($TacGia, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($BangChuCai, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->when($DieuBaiHat, static function ($query, $arrayCat) {
-				$query->orWhereIn('cat.cat_slug', $arrayCat);
-			})
-			->orderBy('song.id', 'DESC')
-			->first();
+		
 
 		$pager = service('pager');
     $pagination = $pager->makeLinks($Page, $this->perpage, $counter['id'], 'pagination-api');
