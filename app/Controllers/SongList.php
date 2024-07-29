@@ -9,6 +9,8 @@ use App\Models\Songcat;
 use App\Models\Songmeta;
 
 class SongList extends BaseController{
+	private $perpage = 10;
+
 	public function index() {
 		$songModel = new Song();
 		$songCatModel = new Songcat();
@@ -18,7 +20,7 @@ class SongList extends BaseController{
 			->select('id, title, slug, excerpt, date')
 			->where('status', 'publish')
 			->orderBy('id', 'DESC')
-			->limit(10, 0)
+			->limit($this->perpage, 0)
 			->findAll();
 		$songIDs = array_map(fn($item) => $item['id'], $songList);
 		$authorsData = $songCatModel

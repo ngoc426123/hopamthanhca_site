@@ -34,4 +34,5 @@ if ($isMaintain) {
   $routes->get('/(:any)', 'Category::Index/$1');
   $routes->post('/api/search', 'Api::Search');
   $routes->post('/api/updatelove', 'Api::UpdateLove');
+  $routes->post('/api/songfilter', 'Api::SongFilter');
 }
