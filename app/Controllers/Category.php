@@ -162,6 +162,95 @@ class Category extends BaseController {
       ->first();
     $catID = $catData['id'];
     $catName = $catData['cat_name'];
+
+    // SONG LIST
+    $page = $this->request->getPostGet('page') ?? 1;
+    $pageStart = ($page - 1) * $this->listSongPerpage;
+    $songCounter = $songModel
+			->selectCount('song.id')
+			->join('songcat', 'songcat.id_song = song.id')
+			->where([
+        'song.status'    => 'publish',
+        'songcat.id_cat' => $catID,
+      ])
+			->first();
+    $songList = [];
+    $songRandom = [];
+    
+    if ($songCounter['id'] > 0) {
+      $songList = $songModel
+        ->select('song.id, song.title, song.slug, song.excerpt, song.date')
+        ->join('songcat', 'songcat.id_song = song.id')
+        ->where([
+          'song.status'    => 'publish',
+          'songcat.id_cat' => $catID,
+        ])
+        ->orderBy('song.id', 'DESC')
+        ->limit($this->listSongPerpage, $pageStart)
+        ->findAll();
+      $songIDs = array_map(fn($item) => $item['id'], $songList);
+      $authorsData = $songCatModel
+        ->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
+        ->join('cat', 'cat.id = songcat.id_cat')
+        ->join('cattype', 'cattype.id_cat = songcat.id_cat')
+        ->join('type', 'type.id = cattype.id_type')
+        ->whereIn('songcat.id_song', $songIDs)
+        ->where('type.type_slug', 'tac-gia')
+        ->findAll();
+      $metaData = $songMetaModel
+        ->whereIn('id_song', $songIDs)
+        ->WhereIn('key', ['luotxem', 'lovesong', 'hopamchinh'])
+        ->findAll();
+  
+      foreach ($songList as $key => $songValue) {
+        $author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
+        $arrayMeta = array_filter($metaData, fn($item) => $item['id_song'] === $songValue['id']);
+  
+        foreach ($author as $val) {
+          $songList[$key]['author'][] = $val;
+        }
+  
+        foreach ($arrayMeta as $val) {
+          $songList[$key]['meta'][$val['key']] = $val['value'];
+        }
+      }
+
+      // SONG RANDOM
+      $songRandom = $songModel
+        ->select('song.id, song.title, song.slug, song.content, song.date')
+        ->join('songcat', 'songcat.id_song = song.id')
+        ->join('cat', 'cat.id = songcat.id_cat')
+        ->where('cat.cat_slug', $catSlug)
+        ->orderBy('cat.cat_name', 'RANDOM')
+        ->first();
+      $songRandomCat = $songCatModel
+        ->select('cat.id, cat.cat_name, cat.cat_slug')
+        ->join('cat', 'cat.id = songcat.id_cat')
+        ->join('cattype', 'cattype.id_cat = songcat.id_cat')
+        ->join('type', 'type.id = cattype.id_type')
+        ->where('songcat.id_song', $songRandom['id'])
+        ->where('type.type_slug', 'tac-gia')
+        ->findAll();
+      $songRandomMeta = $songMetaModel
+        ->where('id_song', $songRandom['id'])
+        ->WhereIn('key', ['luotxem', 'lovesong'])
+        ->findAll();
+
+      foreach ($songRandomCat as $value) {
+        $songRandom['author'][] = $value;
+      }
+        foreach ($songRandomMeta as $value) {
+        $songRandom['meta'][$value['key']] = $value['value'];
+      }
+
+      $songHandle = new SongHandle($songRandom['content']);
+      $songRandom['content'] = $songHandle->removeChords()->removeUnderscore()->getsong();
+    }
+
+    $pager = service('pager');
+    $pagination = $pager->makeLinks($page, $this->listSongPerpage, $songCounter['id'], 'pagination');
+
+    // CAT META
     $catMetaData = $catMetaModel
       ->where('id_cat', $catID)
       ->find();
@@ -179,85 +268,6 @@ class Category extends BaseController {
       ->orderBy('cat.cat_name', 'ASC')
       ->limit(26, 0)
       ->find();
-    $songRandom = $songModel
-      ->select('song.id, song.title, song.slug, song.content, song.date')
-      ->join('songcat', 'songcat.id_song = song.id')
-      ->join('cat', 'cat.id = songcat.id_cat')
-      ->where('cat.cat_slug', $catSlug)
-      ->orderBy('cat.cat_name', 'RANDOM')
-      ->first();
-    $songCat = $songCatModel
-      ->select('cat.id, cat.cat_name, cat.cat_slug')
-			->join('cat', 'cat.id = songcat.id_cat')
-			->join('cattype', 'cattype.id_cat = songcat.id_cat')
-			->join('type', 'type.id = cattype.id_type')
-			->where('songcat.id_song', $songRandom['id'])
-			->where('type.type_slug', 'tac-gia')
-			->findAll();
-    $songMeta = $songMetaModel
-			->where('id_song', $songRandom['id'])
-			->WhereIn('key', ['luotxem', 'lovesong'])
-			->findAll();
-    $page = $this->request->getPostGet('page') ?? 1;
-    $pageStart = ($page - 1) * $this->listSongPerpage;
-    $songList = $songModel
-			->select('song.id, song.title, song.slug, song.excerpt, song.date')
-			->join('songcat', 'songcat.id_song = song.id')
-			->where([
-        'song.status'    => 'publish',
-        'songcat.id_cat' => $catID,
-      ])
-			->orderBy('song.id', 'DESC')
-			->limit($this->listSongPerpage, $pageStart)
-			->findAll();
-    $songIDs = array_map(fn($item) => $item['id'], $songList);
-    $authorsData = $songCatModel
-			->select('cat.id, cat.cat_name, cat.cat_slug, songcat.id_song')
-			->join('cat', 'cat.id = songcat.id_cat')
-			->join('cattype', 'cattype.id_cat = songcat.id_cat')
-			->join('type', 'type.id = cattype.id_type')
-			->whereIn('songcat.id_song', $songIDs)
-			->where('type.type_slug', 'tac-gia')
-			->findAll();
-    $metaData = $songMetaModel
-			->whereIn('id_song', $songIDs)
-			->WhereIn('key', ['luotxem', 'lovesong', 'hopamchinh'])
-			->findAll();
-
-		foreach ($songList as $key => $songValue) {
-			$author = array_filter($authorsData, fn($item) => $item['id_song'] === $songValue['id']);
-			$arrayMeta = array_filter($metaData, fn($item) => $item['id_song'] === $songValue['id']);
-
-			foreach ($author as $val) {
-				$songList[$key]['author'][] = $val;
-			}
-
-			foreach ($arrayMeta as $val) {
-				$songList[$key]['meta'][$val['key']] = $val['value'];
-			}
-		}
-
-    $songCounter = $songModel
-			->selectCount('song.id')
-			->join('songcat', 'songcat.id_song = song.id')
-			->where([
-        'song.status'    => 'publish',
-        'songcat.id_cat' => $catID,
-      ])
-			->first();
-    $pager = service('pager');
-    $pagination = $pager->makeLinks($page, $this->listSongPerpage, $songCounter['id'], 'pagination');
-
-    foreach ($songMeta as $value) {
-      $songRandom['meta'][$value['key']] = $value['value'];
-    }
-
-    foreach ($songCat as $value) {
-      $songRandom['author'][] = $value;
-    }
-
-    $songHandle = new SongHandle($songRandom['content']);
-    $songRandom['content'] = $songHandle->removeChords()->removeUnderscore()->getsong();
 
     $data = [
       'pagemeta' => [

@@ -11,17 +11,29 @@
         </div>
         <div class="comp-box__content">
           <?php
-          foreach ($pagedata['songlist'] as $value) {
-            echo view_cell('SongItemCell', [
-              'title'     => $value['title'],
-              'author'    => renderAuthor($value['author']),
-              'excerpt'   => $value['excerpt'],
-              'permalink' => base_url('bai-hat/'.$value['slug']),
-              'date'      => $value['date'],
-              'chords'    => $value['meta']['hopamchinh'],
-            ]);
-          }
-          ?>
+          if (count($pagedata['songlist']) > 0) {
+            foreach ($pagedata['songlist'] as $value) {
+              echo view_cell('SongItemCell', [
+                'title'     => $value['title'],
+                'author'    => renderAuthor($value['author']),
+                'excerpt'   => $value['excerpt'],
+                'permalink' => base_url('bai-hat/'.$value['slug']),
+                'date'      => $value['date'],
+                'chords'    => $value['meta']['hopamchinh'],
+              ]);
+            }
+          } else { ?>
+            <div class="comp-filter__no-result">
+              <div class="comp-filter__no-result-text">Hiện chưa có bài hát nào trong chuyên mục này</div>
+              <div class="comp-filter__no-result-img">
+                <img src="<?= base_url('images/no-result.png') ?>" alt="Không có kết quả chính xác">
+              </div>
+              <div class="comp-filter__no-result-desc">
+                <p>Có thể hệ thống vẫn chưa có bài hát nào phù hợp với mong muốn của bạn, xin thông cảm vì thiếu sót này của đội ngũ chúng tôi.</p>
+                <p>Nếu được, bạn hãy đóng góp bài hát theo mong muốn của bạn vô địa chỉ email này: <a href="mailto: minhngoc.ith@gmail.com" title="Email liên hệ">minhngoc.ith@gmail.com</a>, chúng tôi sẽ cập nhật bài hát sớm nhất có thể.</p><p>Xin cảm ơn.</p>
+              </div>
+            </div>
+          <?php } ?>
           <?= $pagedata['pagination'] ?>
         </div>
       </div>
@@ -39,6 +51,7 @@
           </ul>
         </div>
       </div>
+      <?php if (count($pagedata['songrandom']) > 0) { ?>
       <div class="comp-box --padding">
         <div class="box-content">
           <div class="comp-song-home">
@@ -64,6 +77,7 @@
           </div>
         </div>
       </div>
+      <?php } ?>
     </div>
   </div>
 <?php $this->endSection() ?>
