@@ -43,7 +43,7 @@ $headerClass = new Header();
             <ul>
               <li><a href="<?= base_url(); ?>" title="Trang chủ">Trang chủ</a></li>
               <li><a href="<?= base_url('gioi-thieu'); ?>" title="Giới thiệu">Giới thiệu</a></li>
-              <li><a href=""><span>Danh mục</span></a>
+              <li><a href="<?= base_url('danh-muc'); ?>"><span>Danh mục</span></a>
                 <ul>
                   <li><a href="<?= base_url('bang-chu-cai'); ?>" title="Bảng chữ cái">Bảng chữ cái</a></li>
                   <li><a href="<?= base_url('chuyen-muc'); ?>" title="Chuyên mục">Chuyên mục</a></li>

@@ -15,7 +15,66 @@ class Category extends BaseController {
   public $catPerpage = 20;
   public $listSongPerpage = 10;
 
-  public function Index($typeSlug) {
+  public function Index() {
+    $typeModel = new Type();
+    $catalogue = [
+      'chuyen-muc'   => [],
+      'tac-gia'      => [],
+      'bang-chu-cai' => [],
+      'dieu-bai-hat' => [],
+    ];
+
+    foreach ($catalogue as $key => $value) {
+      $catData = $typeModel
+        ->select('type.type_slug, type.type_name, cat.cat_name, cat.cat_slug')
+        ->join('cattype', 'cattype.id_type = type.id')
+        ->join('cat', 'cat.id = cattype.id_cat')
+        ->where('type.type_slug', $key)
+        ->limit(5, 0)
+        ->orderBy('cat.cat_name', 'ASC')
+        ->find();
+      $catCounter = $typeModel
+        ->selectCount('cat.id')
+        ->join('cattype', 'cattype.id_type = type.id')
+        ->join('cat', 'cat.id = cattype.id_cat')
+        ->where('type.type_slug', $key)
+        ->first();
+      $catalogue[$key] = [
+        'slug'    => $key,
+        'name'    => $catData[0]['type_name'],
+        'data'    => $catData,
+        'counter' => $catCounter['id'],
+      ];
+    }
+
+    $data = [
+      'pagemeta' => [
+        'title'     => 'Danh mục - Mục lục các phần bài hát thánh ca - Hợp âm thánh ca',
+        'keywork'   => 'danh mục thánh ca, Mục lục thánh ca, , chuyên mục thánh ca, hợp âm thánh ca theo mục lục',
+        'desc'      => 'Lựa chọn danh mục bạn cần tham khảo, đừng ngại liên hệ với chúng tôi nếu cần sự giúp đỡ',
+        'canonical' => base_url('danh-muc'),
+      ],
+      'pagedata' => [
+        'pagetitle'  => 'Danh Mục',
+				'pagedesc'   => 'Lựa chọn danh mục bạn cần tham khảo, đừng ngại liên hệ với chúng tôi nếu cần sự giúp đỡ',
+        'breadcrumb' => [
+          [
+            'title' => 'Trang chủ',
+            'link'  => base_url(),
+          ],
+          [
+            'title' => 'Danh mục',
+            'link'  => base_url('danh-muc'),
+          ],
+        ],
+        'catalogue'  => $catalogue,
+      ],
+    ];
+  
+		return view('Catalogue', $data);
+  }
+
+  public function Category($typeSlug) {
     $catModel = new Cat();
 		$typeModel = new Type();
     $page = $this->request->getPostGet('page') ?? 1;

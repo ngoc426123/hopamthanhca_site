@@ -28,10 +28,11 @@ if ($isMaintain) {
   $routes->get('/bai-hat', 'SongList::Index');
   $routes->get('/thanh-ca-hang-tuan', 'SongWeekly::Index');
   $routes->get('/thanh-ca-hang-tuan/(:any)', 'SongWeekly::Detail/$1');
+  $routes->get('/danh-muc', 'Category::Index');
   $routes->get('/tim-kiem', 'Search');
   $routes->get('/bai-hat/(:any)', 'SongDetail::Index/$1');
   $routes->get('/(:any)/(:any)', 'Category::ListSong/$1/$2');
-  $routes->get('/(:any)', 'Category::Index/$1');
+  $routes->get('/(:any)', 'Category::Category/$1');
   $routes->post('/api/search', 'Api::Search');
   $routes->post('/api/updatelove', 'Api::UpdateLove');
   $routes->post('/api/songfilter', 'Api::SongFilter');
