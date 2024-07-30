@@ -18,10 +18,10 @@
   </script>
 <?php $this->endSection() ?>
 <?php $this->section('main_page') ?>
-  <div class="comp-box --season --focus --song-fix-desc">
-    <div class="comp-box__title --padding">
+  <div class="comp-box --padding --season --focus --song-fix-desc">
+    <div class="comp-box__title">
       <h2 class="comp-box__title-text">Thánh ca tuyển chọn</h2>
-      <span>Danh sách bài hát thánh ca, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
+      <span class="comp-box__title-small">Danh sách bài hát thánh ca, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
     </div>
     <div class="comp-box__content">
       <?php
