@@ -32,6 +32,7 @@ if ( $isMaintain ) {
     <link rel="image_src" href="<?php echo base_url("tmp/images/1.jpg"); ?>">
     <link href="<?php echo base_url("tmp/images/favicon.ico"); ?>" rel="icon" sizes="64x64" type="image/ico">
     <link href="<?php echo base_url("tmp/css/style.min.css"); ?>" rel="stylesheet">
+    <link href="<?php echo base_url("tmp/css/customs.css"); ?>" rel="stylesheet">
     <?php 
     if ( is_home() ) {
     ?>
@@ -66,6 +67,9 @@ if ( $isMaintain ) {
      crossorigin="anonymous"></script>
   </head>
   <body>
+    <div class="py-2 bg-dark text-light fw-light">
+      <div class="wrapper">Hiện tại trang web chuẩn bị nâng cấp giao diện, quý khách có thể xem trước tại đây: <a class="text-light fw-bold" href="https://demo.hopamthanhca.com">demo.hopamthanhca.com</a></div>
+    </div>
     <div class="page">
       <header class="header">
         <div class="header__main">

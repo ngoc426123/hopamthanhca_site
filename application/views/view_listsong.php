@@ -23,7 +23,7 @@
                 </div>
                 <div class="song__desc"><?php echo $value["excerpt"] ?></div>
                 <div class="song__info">
-                  <div class="song__date"><?php echo $value["date"] ?></div>
+                  <div class="song__date"><?php echo date_format(date_create($value["date"]), 'd/m/Y H:i:s') ?></div>
                   <div class="song__chord"><?php echo $value["meta"]["hopamchinh"] ?></div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                     </a>
                   </h3>
                 </div>
-                <div class="songhome__info"><?php echo $data_page["songrandom"]["date"] ?></div>
+                <div class="songhome__info"><?php echo date_format(date_create($data_page["songrandom"]["date"]), 'd/m/Y H:i:s') ?></div>
                 <div class="songhome__df">
                   <div class="songhome__att"><span class="fa-eye"><?php echo $data_page["songrandom"]["meta"]["luotxem"] ?></span></div>
                   <div class="songhome__att"><span class="fa-heart"><?php echo $data_page["songrandom"]["meta"]["lovesong"] ?></span></div>

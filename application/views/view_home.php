@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="wrapper">
-    <div class="box season easter">
+    <!-- <div class="box season easter">
       <div class="box-title padding">
         <h3>Chúa Giêsu Phục Sinh cho mọi người</h3>
         <span>Danh sách bài hát thánh ca về mùa phục sinh, thánh ca tuyển chọn, được imprimatur(sử dụng trong phụng vụ) bởi các Đấng Bản Quyền tại các giáo phận</span>
@@ -21,11 +21,11 @@
           <?php } ?>
           <div class="song more">
             <div class="song__text-more">
-              Xem<br/> nhiều hơn</div><a class="song__link" href="<?php echo base_url("/chuyen-muc/mua-chay") ?>"></a>
+              Xem<br/> nhiều hơn</div><a class="song__link" href="<?php echo base_url("/chuyen-muc/mua-phuc-sinh") ?>"></a>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row justify-content-center">
       <div class="col-lg-6"> 
         <div class="box padding"> 
@@ -261,7 +261,7 @@
                     <?php } ?></span>
                   </a></h3>
                 </div>
-                <div class="songhome__info"><?php echo $value["date"] ?></div>
+                <div class="songhome__info"><?php echo date_format(date_create($value["date"]), 'd/m/Y H:i:s') ?></div>
                 <div class="songhome__df">
                   <div class="songhome__att"><span class="fa-eye"><?php echo $value["meta"]["luotxem"] ?></span></div>
                   <div class="songhome__att"><span class="fa-heart"><?php echo $value["meta"]["lovesong"] ?></span></div>

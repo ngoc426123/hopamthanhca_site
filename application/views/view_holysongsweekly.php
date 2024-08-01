@@ -25,7 +25,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="holy-songs-weekly__group">
                 <div class="holy-songs-weekly__title">NĂM A</div>
                 <div class="holy-songs-weekly__list">
@@ -41,7 +41,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="holy-songs-weekly__group">
                 <div class="holy-songs-weekly__title">NĂM B</div>
                 <div class="holy-songs-weekly__list">
@@ -57,7 +57,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4">
               <div class="holy-songs-weekly__group">
                 <div class="holy-songs-weekly__title">NĂM C</div>
                 <div class="holy-songs-weekly__list">

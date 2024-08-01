@@ -132,7 +132,7 @@ $pdf = ($data_page["song"]["meta"]["pdffile"] != "")
                         </p>
                       </li>
                       <li><span class="song-info__att">Người đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["author"]["displayname"] ?></span></li>
-                      <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo $data_page["song"]["date"] ?></span></li>
+                      <li><span class="song-info__att">Ngày đăng :</span><span class="song-info__ats"><?php echo date_format(date_create($data_page["song"]["date"]), 'd/m/Y H:i:s') ?></span></li>
                       <li><span class="song-info__att">Lượt xem :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["luotxem"] ?></span></li>
                       <li><span class="song-info__att">Tone chính :</span><span class="song-info__ats"><?php echo $data_page["song"]["meta"]["hopamchinh"] ?></span></li>
                       <li><span class="song-info__att">Điệu bài hát :</span><a href="<?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["permalink"] ?>" class="song-info__ats" title="<?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["cat_name"] ?>"><?php echo $data_page["song"]["cat"]["dieu-bai-hat"][0]["cat_name"] ?></a></li>
