@@ -13,7 +13,7 @@
 	<?php } ?>
 	<?php if ($date && $chords) { ?>
 		<div class="comp-song-item__info">
-			<div class="comp-song-item__date"><?= esc($date) ?></div>
+			<div class="comp-song-item__date"><?= esc($dateFormat) ?></div>
 			<div class="comp-song-item__chord"><?= esc($chords) ?></div>
 		</div>
 	<?php } ?>

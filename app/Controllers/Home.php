@@ -228,8 +228,8 @@ class Home extends BaseController {
 				'song.status' => 'publish',
 				'songmeta.key' => 'luotxem',
 			])
-			->whereIn('CONVERT(SUBSTRING(song.date, 1, 2), SIGNED INTEGER)', $listDay['day'])
-			->whereIn('CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER)', $listDay['month'])
+			->whereIn('day(song.date)', $listDay['day'])
+			->whereIn('month(song.date)', $listDay['month'])
 			->orderBy('view', 'DESC')
 			->limit(10, 0)
 			->findAll();
@@ -261,7 +261,7 @@ class Home extends BaseController {
 				'song.status' => 'publish',
 				'songmeta.key' => 'luotxem',
 			])
-			->whereIn('CONVERT(SUBSTRING(song.date, 4, 2), SIGNED INTEGER)', $listDay['month'])
+			->whereIn('month(song.date)', $listDay['month'])
 			->orderBy('view', 'DESC')
 			->limit(10, 0)
 			->findAll();

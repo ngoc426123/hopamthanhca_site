@@ -6,7 +6,7 @@
 					<h3><a href="<?= esc($permalink) ?>"><?= esc($title) ?> <span><?= esc($author) ?></span></a>
 					</h3>
 				</div>
-				<div class="comp-song-home__info"><?= esc($date) ?></div>
+				<div class="comp-song-home__info"><?= esc($dateFormat) ?></div>
 				<div class="comp-song-home__attrs">
 					<div class="comp-song-home__attr-item"><span class="fa-eye"><?= esc($viewer) ?></span></div>
 					<div class="comp-song-home__attr-item"><span class="fa-heart"><?= esc($lover) ?></span></div>

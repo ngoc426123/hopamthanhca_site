@@ -52,31 +52,15 @@
         </div>
       </div>
       <?php if (count($pagedata['songrandom']) > 0) { ?>
-      <div class="comp-box --padding">
-        <div class="box-content">
-          <div class="comp-song-home">
-            <div class="comp-song-home__wrap">
-              <div class="comp-song-home__title">
-                <h3>
-                  <a href="<?= base_url('bai-hat/'.$pagedata['songrandom']['slug']) ?>">
-                    <?= esc($pagedata['songrandom']['title']) ?>
-                    <span><?= esc(renderAuthor($pagedata['songrandom']['author'])) ?></span>
-                  </a>
-                </h3>
-              </div>
-              <div class="comp-song-home__info"><?= esc($pagedata['songrandom']['date']) ?></div>
-              <div class="comp-song-home__attrs">
-                <div class="comp-song-home__attr-item"><span class="fa-eye"><?= esc($pagedata['songrandom']['meta']['luotxem']) ?></span></div>
-                <div class="comp-song-home__attr-item"><span class="fa-heart"><?= esc($pagedata['songrandom']['meta']['lovesong']) ?></span></div>
-              </div>
-            </div>
-            <div class="comp-song-home__content">
-              <?= html_entity_decode($pagedata['songrandom']['content']) ?>
-            </div>
-            <div class="comp-song-home__link"><a href="<?= base_url('bai-hat/'.$pagedata['songrandom']['slug']) ?>">Xem chi tiết</a></div>
-          </div>
-        </div>
-      </div>
+        <?= view_cell('SongHomeCell', [
+          'title'     => $pagedata['songrandom']['title'],
+          'date'      => $pagedata['songrandom']['date'],
+          'author'    => renderAuthor($pagedata['songrandom']['author']),
+          'viewer'    => $pagedata['songrandom']['meta']['luotxem'],
+          'lover'     => $pagedata['songrandom']['meta']['lovesong'],
+          'content'   => $pagedata['songrandom']['content'],
+          'permalink' => base_url('bai-hat/'.$pagedata['songrandom']['slug']),
+        ]); ?>
       <?php } ?>
     </div>
   </div>

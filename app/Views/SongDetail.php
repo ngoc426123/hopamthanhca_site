@@ -63,7 +63,7 @@
                   <ul>
                     <li><span class="comp-song-info__att">Tác giả :</span><a class="comp-song-info__ats --up" href=""><?= esc($pagedata['authorrender']) ?></a></li>
                     <li><span class="comp-song-info__att">Người đăng :</span><span class="comp-song-info__ats"><?= esc($songdata['user']) ?></span></li>
-                    <li><span class="comp-song-info__att">Ngày đăng :</span><span class="comp-song-info__ats"><?= esc($songdata['date']) ?></span></li>
+                    <li><span class="comp-song-info__att">Ngày đăng :</span><span class="comp-song-info__ats"><?= esc(date_format(date_create($songdata['date']), 'd/m/Y H:i:s')) ?></span></li>
                     <li><span class="comp-song-info__att">Lượt xem :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['luotxem']) ?></span></li>
                     <li><span class="comp-song-info__att">Tone chính :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['hopamchinh']) ?></span></li>
                     <li><span class="comp-song-info__att">Chuyên mục :</span><a class="comp-song-info__ats" href="<?= base_url('chuyen-muc/'.$songdata['cat']['cat_slug']) ?>"><?= esc($songdata['cat']['cat_name']) ?></a></li>

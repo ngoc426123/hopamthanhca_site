@@ -196,7 +196,7 @@
         <div class="col-12 col-lg-6">
           <?= view_cell('SongHomeCell', [
             'title'     => $value['title'],
-            'dater'     => $value['date'],
+            'date'     => $value['date'],
             'author'    => renderAuthor($value['author']),
             'viewer'    => $value['meta']['luotxem'],
             'lover'     => $value['meta']['lovesong'],
