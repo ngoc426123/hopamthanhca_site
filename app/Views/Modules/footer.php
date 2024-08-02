@@ -1,27 +1,4 @@
-<?php
-use App\Models\Options;
-
-class Footer {
-  public static function getOptions() {
-    $optionsResult = [];
-    $optionsModel = new Options();
-    $optionsQuery = $optionsModel
-      ->whereIn('key', ['social_facebook', 'social_youtube', 'social_twitter', 'phonenumber', 'email'])
-      ->findAll();
-
-    foreach ($optionsQuery as $value) {
-      if ($value['key'] != 'id') {
-        $optionsResult[$value['key']] = $value['value'];
-      }
-    }
-
-    return $optionsResult;
-  }
-}
-
-$footerClass = new Footer();
-$options = $footerClass::getOptions();
-?>
+<?php $session = service('session'); ?>
 
 <footer class="footer">
   <div class="footer__social">
@@ -29,9 +6,9 @@ $options = $footerClass::getOptions();
       <div class="footer__social-text">Kết nối với chúng tôi tại đây: </div>
       <div class="footer__social-list">
         <ul>
-          <li><a href="<?= $options['social_facebook'] ?>"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="<?= $options['social_youtube'] ?>"><i class="fab fa-youtube"></i></a></li>
-          <li><a href="<?= $options['social_twitter'] ?>"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="<?= $session->get('social_facebook') ?>"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="<?= $session->get('social_youtube') ?>"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="<?= $session->get('social_twitter') ?>"><i class="fab fa-twitter"></i></a></li>
         </ul>
       </div>
     </div>
@@ -41,16 +18,16 @@ $options = $footerClass::getOptions();
       <div class="footer__grid">
         <div class="footer__col-1 footer__col-order-contact">
           <div class="footer__logo">
-            <a href="<?= base_url() ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
+            <a href="<?= $session->get('site_url') ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
           </div>
           <div class="footer__contact">
             <div class="footer__contact-title">Liên hệ với chúng tôi</div>
             <div class="footer__contact-info">
-              <?php $phoneNumber = str_replace('.', '', $options['phonenumber']) ?>
+              <?php $phoneNumber = str_replace('.', '', $session->get('phonenumber')) ?>
               <ul>
-                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= esc($options['phonenumber']) ?></a></li>
-                <li><a href="mailto:<?= $options['email'] ?>"><strong>EMAIL: </strong><?= esc($options['email']) ?></a></li>
-                <li><a href="<?= base_url() ?>"><strong>SITE: </strong>hopamthanhca.com</a></li>
+                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= esc($session->get('phonenumber')) ?></a></li>
+                <li><a href="mailto:<?= esc($session->get('email')) ?>"><strong>EMAIL: </strong><?= esc($session->get('email')) ?></a></li>
+                <li><a href="<?= $session->get('site_url') ?>"><strong>SITE: </strong><?= $session->get('site_url') ?></a></li>
               </ul>
             </div>
           </div>

@@ -7,7 +7,7 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->get('/bao-tri', 'Maintain::index');
 
-$routes->group('', ['filter' => 'maintainmode'], static function ($routes) {
+$routes->group('', ['filter' => 'siteinit'], static function ($routes) {
   $routes->get('/', 'Home::Index');
   $routes->get('/gioi-thieu', 'StaticPage::About');
   $routes->get('/danh-sach-hop-am', 'StaticPage::Chords');

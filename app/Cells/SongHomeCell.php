@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Cells;
 
 use CodeIgniter\View\Cells\Cell;
@@ -16,7 +15,8 @@ class SongHomeCell extends Cell {
 	private $dateFormat;
 
 	public function mount() {
-		$this->dateFormat = date_format(date_create($this->date), 'd/m/Y H:i:s');
+		$session = service('session');
+		$this->dateFormat = date_format(date_create($this->date), $session->get('datetimeformat'));
 	}
 
 	public function getDateFormatProperty() {
