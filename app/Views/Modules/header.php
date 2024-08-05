@@ -84,7 +84,7 @@ $headerClass = new Header();
           placeholder="Nhập tên bài hát, từ khóa tìm kiếm..."
           data-search-input
           data-action='tim-kiem'
-          data-url="<?= base_url('api/search') ?>"
+          data-url="https://api.hopamthanhca.com/search"
         >
         <div class="header__search-loading"><img src="<?= base_url('images/loading-search.svg') ?>" alt="Loading search"/></div>
         <div class="header__search-suggess">
