@@ -25,7 +25,6 @@
             data-love-song
             data-post-id="<?= esc($songdata['id']) ?>"
             data-love="5"
-            data-url="https://api.hopamthanhca.com/song/updatelove"
           ><i class="fa fa-heart"></i></a><span><?= esc($songdata['meta']['lovesong']) ?></span></li>
         </ul>
       </div>

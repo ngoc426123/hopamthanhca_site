@@ -69,5 +69,6 @@
   <script type="text/javascript">
     const BASE_URL = '<?= base_url() ?>';
   </script>
+  <script src="<?= base_url("js/endpoint.js"); ?>" type="text/javascript"></script>
   <script src="<?= base_url("js/app.min.js"); ?>" type="text/javascript"></script>
 </html>

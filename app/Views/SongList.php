@@ -15,7 +15,7 @@
           </div>
           <div class="comp-filter" data-filter>
             <div class="comp-filter__overlay" data-filter-overlay></div>
-            <div class="comp-filter__inner" data-filter-form data-url="https://api.hopamthanhca.com/song/filter">
+            <div class="comp-filter__inner" data-filter-form>
               <div class="comp-filter__box" data-filter-box=""><input type="hidden" name="Page" value="1"></div>
               <div class="comp-filter__box" data-filter-box>
                 <div class="comp-filter__title">Tên bài hát</div>
