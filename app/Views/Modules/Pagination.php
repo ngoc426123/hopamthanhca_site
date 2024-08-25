@@ -18,8 +18,9 @@ $pager->setSurroundCount(2);
       </li>
     <?php } ?>
     <?php foreach ($pager->links() as $key => $value) { ?>
+      <?php $uri = preg_replace('/\/index.php/', '', $value['uri']); ?>
       <li class="<?= $value['active'] == 1 ? 'active' : '' ?>">
-        <a href="<?= esc($value['uri']) ?>">
+        <a href="<?= esc($uri) ?>">
           <span><?= esc($value['title']) ?></span>
         </a>
       </li>
