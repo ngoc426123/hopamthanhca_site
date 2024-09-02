@@ -4,15 +4,17 @@ $pager->setSurroundCount(2);
 <div class="comp-pagination">
   <ul>
     <?php if ($pager->hasPrevious()) { ?>
+      <?php $uri = preg_replace('/\/index.php/', '', $pager->getFirst()); ?>
       <li>
-        <a href="<?= esc($pager->getFirst()) ?>">
+        <a href="<?= esc($uri) ?>">
           <i class="fa fa-angle-double-left"></i>
         </a>
       </li>
     <?php } ?>
     <?php if ($pager->hasPreviousPage()) { ?>
+      <?php $uri = preg_replace('/\/index.php/', '', $pager->getPrevious()); ?>
       <li>
-        <a href="<?= esc($pager->getPrevious()) ?>">
+        <a href="<?= esc($uri) ?>">
           <i class="fa fa-angle-left"></i>
         </a>
       </li>
@@ -26,15 +28,17 @@ $pager->setSurroundCount(2);
       </li>
     <?php } ?>
     <?php if ($pager->hasNextPage()) { ?>
+      <?php $uri = preg_replace('/\/index.php/', '', $pager->getNext()); ?>
       <li class="">
-        <a href="<?= esc($pager->getNext()) ?>">
+        <a href="<?= esc($uri) ?>">
           <i class="fa fa-angle-right"></i>
         </a>
       </li>
     <?php } ?>
     <?php if ($pager->hasNext()) { ?>
+      <?php $uri = preg_replace('/\/index.php/', '', $pager->getLast()); ?>
       <li>
-        <a href="<?= esc($pager->getLast()) ?>">
+        <a href="<?= esc($uri) ?>">
           <i class="fa fa-angle-double-right"></i>
         </a>
       </li>
