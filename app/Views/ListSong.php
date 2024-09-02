@@ -14,12 +14,13 @@
           if (count($pagedata['songlist']) > 0) {
             foreach ($pagedata['songlist'] as $value) {
               echo view_cell('SongItemCell', [
-                'title'     => $value['title'],
-                'author'    => renderAuthor($value['author']),
-                'excerpt'   => $value['excerpt'],
-                'permalink' => base_url('bai-hat/'.$value['slug']),
-                'date'      => $value['date'],
-                'chords'    => $value['meta']['hopamchinh'],
+                'title'          => $value['title'],
+                'author'         => renderAuthor($value['author']),
+                'excerpt'        => $value['excerpt'],
+                'permalink'      => base_url('bai-hat/'.$value['slug']),
+                'date'           => $value['date'],
+                'chords'         => $value['meta']['hopamchinh'],
+                'datetimeformat' => $pageinit['datetimeformat'],
               ]);
             }
           } else { ?>
@@ -53,13 +54,14 @@
       </div>
       <?php if (count($pagedata['songrandom']) > 0) { ?>
         <?= view_cell('SongHomeCell', [
-          'title'     => $pagedata['songrandom']['title'],
-          'date'      => $pagedata['songrandom']['date'],
-          'author'    => renderAuthor($pagedata['songrandom']['author']),
-          'viewer'    => $pagedata['songrandom']['meta']['luotxem'],
-          'lover'     => $pagedata['songrandom']['meta']['lovesong'],
-          'content'   => $pagedata['songrandom']['content'],
-          'permalink' => base_url('bai-hat/'.$pagedata['songrandom']['slug']),
+          'title'          => $pagedata['songrandom']['title'],
+          'date'           => $pagedata['songrandom']['date'],
+          'author'         => renderAuthor($pagedata['songrandom']['author']),
+          'viewer'         => $pagedata['songrandom']['meta']['luotxem'],
+          'lover'          => $pagedata['songrandom']['meta']['lovesong'],
+          'content'        => $pagedata['songrandom']['content'],
+          'permalink'      => base_url('bai-hat/'.$pagedata['songrandom']['slug']),
+          'datetimeformat' => $pageinit['datetimeformat'],
         ]); ?>
       <?php } ?>
     </div>

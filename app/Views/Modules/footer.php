@@ -1,14 +1,12 @@
-<?php $session = service('session'); ?>
-
 <footer class="footer">
   <div class="footer__social">
     <div class="comp-wrapper">
       <div class="footer__social-text">Kết nối với chúng tôi tại đây: </div>
       <div class="footer__social-list">
         <ul>
-          <li><a href="<?= $session->get('social_facebook') ?>"><i class="fab fa-facebook"></i></a></li>
-          <li><a href="<?= $session->get('social_youtube') ?>"><i class="fab fa-youtube"></i></a></li>
-          <li><a href="<?= $session->get('social_twitter') ?>"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="<?= $pageinit['social_facebook'] ?>"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="<?= $pageinit['social_youtube'] ?>"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="<?= $pageinit['social_twitter'] ?>"><i class="fab fa-twitter"></i></a></li>
         </ul>
       </div>
     </div>
@@ -18,16 +16,16 @@
       <div class="footer__grid">
         <div class="footer__col-1 footer__col-order-contact">
           <div class="footer__logo">
-            <a href="<?= $session->get('site_url') ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
+            <a href="<?= $pageinit['site_url'] ?>"><img src="<?= base_url("images/logo.svg") ?>" alt="logo"></a>
           </div>
           <div class="footer__contact">
             <div class="footer__contact-title">Liên hệ với chúng tôi</div>
             <div class="footer__contact-info">
-              <?php $phoneNumber = str_replace('.', '', $session->get('phonenumber')) ?>
+              <?php $phoneNumber = str_replace('.', '', $pageinit['phonenumber']) ?>
               <ul>
-                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= esc($session->get('phonenumber')) ?></a></li>
-                <li><a href="mailto:<?= esc($session->get('email')) ?>"><strong>EMAIL: </strong><?= esc($session->get('email')) ?></a></li>
-                <li><a href="<?= $session->get('site_url') ?>"><strong>SITE: </strong><?= $session->get('site_url') ?></a></li>
+                <li><a href="tel:<?= $phoneNumber ?>"> <strong>PHONE: </strong><?= esc($pageinit['phonenumber']) ?></a></li>
+                <li><a href="mailto:<?= esc($pageinit['email']) ?>"><strong>EMAIL: </strong><?= esc($pageinit['email']) ?></a></li>
+                <li><a href="<?= $pageinit['site_url'] ?>"><strong>SITE: </strong><?= $pageinit['site_url'] ?></a></li>
               </ul>
             </div>
           </div>

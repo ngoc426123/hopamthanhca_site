@@ -90,6 +90,7 @@ class SongDetail extends BaseController {
         'keywork'   => $songData['meta']['seokeywork'],
         'canonical' => base_url('bai-hat/'.$songData['slug']),
       ],
+      'pageinit' => $this->siteInit,
 			'pagedata' => [
         'pagetitle'  => $songData['title'],
         'breadcrumb' => [

@@ -54,6 +54,7 @@ class Category extends BaseController {
         'desc'      => 'Lựa chọn danh mục bạn cần tham khảo, đừng ngại liên hệ với chúng tôi nếu cần sự giúp đỡ',
         'canonical' => base_url('danh-muc'),
       ],
+      'pageinit' => $this->siteInit,
       'pagedata' => [
         'pagetitle'  => 'Danh Mục',
 				'pagedesc'   => 'Lựa chọn danh mục bạn cần tham khảo, đừng ngại liên hệ với chúng tôi nếu cần sự giúp đỡ',
@@ -123,6 +124,7 @@ class Category extends BaseController {
         'keywork'   => "Thánh ca theo {$typeData["type_name"]} - Hợp âm thánh ca, kho lưu trữ thư viện âm nhạc có hợp âm lớn nhất Việt Nam.",
         'canonical' => base_url('danh-sach-hop-am'),
       ],
+      'pageinit' => $this->siteInit,
 			'pagedata' => [
         'pagetitle'  => $typeData['type_name'],
         'pagedesc'   => $typeData['desc'],
@@ -276,6 +278,7 @@ class Category extends BaseController {
         'keywork'   => $catMeta['seokeywork'],
         'canonical' => base_url($typeSlug . '/' . $catSlug),
       ],
+      'pageinit' => $this->siteInit,
 			'pagedata' => [
         'pagetitle'  => $catMeta['seotitle'],
         'pagedesc'   => $catMeta['seodes'] != '' ? $catMeta['seodes'] : 'Chuyên mục '. $catName. ' - Kho lưu trữ bài hát theo chuyên mục, hỗ trợ sheet nhạc và được sử dụng trong thánh lễ (imprimatur)',

@@ -13,6 +13,7 @@ class Home extends BaseController {
 	public function Index() {
 		$data = [
 			'pagemeta' => $this::getMeta(),
+			'pageinit' => $this->siteInit,
 			'pagedata' => [
 				'newest'    => $this::getNewSong(),
 				'mostview'  => $this::getMostView(),

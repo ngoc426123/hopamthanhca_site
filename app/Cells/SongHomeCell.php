@@ -11,12 +11,12 @@ class SongHomeCell extends Cell {
 	public $lover;
 	public $content;
 	public $permalink;
+	public $datetimeformat;
 
 	private $dateFormat;
 
 	public function mount() {
-		$session = service('session');
-		$this->dateFormat = date_format(date_create($this->date), $session->get('datetimeformat'));
+		$this->dateFormat = date_format(date_create($this->date), $this->datetimeformat);
 	}
 
 	public function getDateFormatProperty() {

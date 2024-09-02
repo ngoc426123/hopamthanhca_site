@@ -47,6 +47,7 @@ class SongWeekly extends BaseController {
 				'desc'    => 'Thư viện hợp âm thánh ca lớn nhất hiện nay, soạn bài hát thánh ca theo từng chủ đề, từng tuần, qunh năm phụng vụ với các bài hát được Imprimatur (Bài hát được dùng trong phụng vụ)',
 				'canonical' => base_url('thanh-ca-hang-tuan'),
       ],
+			'pageinit' => $this->siteInit,
       'pagedata' => [
 				'pagetitle'  => 'Sheet nhạc - file pdf nhạc thánh ca.',
 				'pagedesc'   => 'Danh sách sheet nhạc - Tổng hợp bài hát có sheet nhạc, dễ tra cứu, truy cập, in bài hát.',
@@ -118,6 +119,7 @@ class SongWeekly extends BaseController {
 				'keywork' => $weeklyData['meta']['seokeywork'],
 				'canonical' => base_url('thanh-ca-hang-tuan'),
       ],
+			'pageinit' => $this->siteInit,
       'pagedata' => [
 				'pagetitle'  => $weeklyData['name'],
 				'pagedesc'   => $weeklyData['desc'] ? $weeklyData['desc'] : $weeklyData['meta']['seodes'],

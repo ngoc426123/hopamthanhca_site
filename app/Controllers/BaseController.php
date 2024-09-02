@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\Options;
 
 /**
  * Class BaseController
@@ -20,6 +21,8 @@ use Psr\Log\LoggerInterface;
  * For security be sure to declare any new methods as protected or private.
  */
 abstract class BaseController extends Controller {
+	public $siteinit = [];
+
 	/**
 	 * Instance of the main Request object.
 	 *
@@ -48,9 +51,21 @@ abstract class BaseController extends Controller {
 	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
-		
-		// Preload any models, libraries, etc, here.
 
-		// E.g.: $this->session = \Config\Services::session();
+		$optionsModel = new Options();
+		$optionsData = $optionsModel
+			->whereIn('key', ['favicon', 'site_url', 'phonenumber', 'email', 'social_facebook', 'social_youtube', 'social_twitter',  'dateformat', 'timeformat'])
+			->find();
+		$options = [];
+		foreach ($optionsData as $value) {
+			$options[$value['key']] = $value['value'];
+		}
+		$datetimeFormat = $options['dateformat'] . ' ' . $options['timeformat'];
+		$sesionData = [
+			...$options,
+			'datetimeformat' => $datetimeFormat,
+		];
+
+		$this->siteInit = $sesionData;
 	}
 }

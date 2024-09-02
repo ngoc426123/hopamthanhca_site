@@ -13,6 +13,7 @@ class StaticPage extends BaseController {
         'desc'      => 'Website hợp âm dành riêng cho nhạc thánh ca hiện nay, được imprimatur có sheet bài hát',
         'canonical' => base_url('gioi-thieu'),
       ],
+      'pageinit' => $this->siteInit,
       'pagedata' => [
         'breadcrumb' => [
           [
@@ -38,6 +39,7 @@ class StaticPage extends BaseController {
         'desc'      => 'Tổng hợp hợp âm thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
         'canonical' => base_url('danh-sach-hop-am'),
       ],
+      'pageinit' => $this->siteInit,
       'pagedata' => [
         'breadcrumb' => [
           [

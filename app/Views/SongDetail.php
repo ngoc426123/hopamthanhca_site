@@ -1,5 +1,4 @@
 <?php $this->extend('Layout'); ?>
-<?php $session = service('session'); ?>
 
 <?php $this->section('main_page') ?>
   <?php $songdata = $pagedata['songdata'] ?>
@@ -70,7 +69,7 @@
                   <ul>
                     <li><span class="comp-song-info__att">Tác giả :</span><a class="comp-song-info__ats --up" href=""><?= esc($pagedata['authorrender']) ?></a></li>
                     <li><span class="comp-song-info__att">Người đăng :</span><span class="comp-song-info__ats"><?= esc($songdata['user']) ?></span></li>
-                    <li><span class="comp-song-info__att">Ngày đăng :</span><span class="comp-song-info__ats"><?= esc(date_format(date_create($songdata['date']), $session->get('datetimeformat'))) ?></span></li>
+                    <li><span class="comp-song-info__att">Ngày đăng :</span><span class="comp-song-info__ats"><?= esc(date_format(date_create($songdata['date']), $pageinit['datetimeformat'])) ?></span></li>
                     <li><span class="comp-song-info__att">Lượt xem :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['luotxem']) ?></span></li>
                     <li><span class="comp-song-info__att">Tone chính :</span><span class="comp-song-info__ats"><?= esc($songdata['meta']['hopamchinh']) ?></span></li>
                     <li><span class="comp-song-info__att">Chuyên mục :</span><a class="comp-song-info__ats" href="<?= base_url('chuyen-muc/'.$songdata['cat']['cat_slug']) ?>"><?= esc($songdata['cat']['cat_name']) ?></a></li>
@@ -123,10 +122,11 @@
           <?php
           foreach ($pagedata['songauthor'] as $value) {
             echo view_cell('SongItemCell', [
-              'title'       => $value['title'],
-              'author'      => $value['cat']['cat_name'],
-              'excerpt'     => $value['excerpt'],
-              'permalink'   => base_url('bai-hat/'.$value['slug']),
+              'title'          => $value['title'],
+              'author'         => $value['cat']['cat_name'],
+              'excerpt'        => $value['excerpt'],
+              'permalink'      => base_url('bai-hat/'.$value['slug']),
+              'datetimeformat' => $pageinit['datetimeformat'],
             ]);
           }
           ?>
@@ -142,10 +142,11 @@
           <?php
           foreach ($pagedata['songcat'] as $value) {
             echo view_cell('SongItemCell', [
-              'title'       => $value['title'],
-              'author'      => renderAuthor($value['cat']),
-              'excerpt'     => $value['excerpt'],
-              'permalink'   => base_url('bai-hat/'.$value['slug']),
+              'title'          => $value['title'],
+              'author'         => renderAuthor($value['cat']),
+              'excerpt'        => $value['excerpt'],
+              'permalink'      => base_url('bai-hat/'.$value['slug']),
+              'datetimeformat' => $pageinit['datetimeformat'],
             ]);
           }
           ?>

@@ -1,4 +1,3 @@
-<?php $session = service('session'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +10,7 @@
     <meta property="og:description" content="<?= esc($pagemeta['desc']) ?>">
     <meta property="og:image" content="<?= base_url("images/logo.svg"); ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?= $session->get('site_url') ?>">
+    <meta property="og:url" content="<?= $pageinit['site_url'] ?>">
     <meta name="description" content="<?= esc($pagemeta['desc']) ?>">
     <meta name="keywords" content="<?= esc($pagemeta['keywork']) ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,9 +20,9 @@
     <meta name="google-site-verification" content="u_MBkWSe2AFG1aeQNi93_Y_jL4F7Cq31jGZACqK2SGs" />
     <!-- LINK TAG -->
     <link rel="canonical" href="<?= esc($pagemeta['canonical']) ?>">
-    <link rel="shortcut icon" href="<?= base_url($session->get('favicon')); ?>"/>
+    <link rel="shortcut icon" href="<?= base_url($pageinit['favicon']); ?>"/>
     <link rel="image_src" href="<?= base_url("images/1.jpg"); ?>">
-    <link href="<?= base_url($session->get('favicon')) ?>" rel="icon" sizes="64x64" type="image/ico">
+    <link href="<?= base_url($pageinit['favicon']) ?>" rel="icon" sizes="64x64" type="image/ico">
     <!-- ASSETS -->
     <link href="<?= base_url("css/style.min.css"); ?>" rel="stylesheet">
     <link href="<?= base_url("css/customs.css"); ?>" rel="stylesheet">

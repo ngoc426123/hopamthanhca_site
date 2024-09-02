@@ -15,11 +15,12 @@ class Search extends BaseController {
 		if (!$keywork) {
 			$data = [
 				'pagemeta' => [
-				'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
-				'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
-				'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
-				'canonical' => base_url('tim-kiem'),
+					'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
+					'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
+					'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
+					'canonical' => base_url('tim-kiem'),
 				],
+				'pageinit' => $this->siteInit,
 				'pagedata' => [
 					'pagetitle'  => 'Không có từ khoá để tìm',
 					'pagedesc'   => 'Bạn hãy sử dụng công cụ tìm kiếm phía trên để tim bài hát theo ý muốn',
@@ -63,11 +64,12 @@ class Search extends BaseController {
 		if (count($songList) == 0) {
 			$data = [
 				'pagemeta' => [
-				'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
-				'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
-				'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
-				'canonical' => base_url('tim-kiem'),
+					'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
+					'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
+					'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
+					'canonical' => base_url('tim-kiem'),
 				],
+				'pageinit' => $this->siteInit,
 				'pagedata' => [
 					'pagetitle'  => 'Không tìm thấy bài hát bạn mong muốn',
 					'pagedesc'   => 'Bạn hãy sử dụng công cụ tìm kiếm phía trên để tim bài hát theo ý muốn',
@@ -116,11 +118,12 @@ class Search extends BaseController {
 
 		$data = [
       'pagemeta' => [
-			'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
-			'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
-			'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
-			'canonical' => base_url('tim-kiem'),
+				'title'     => 'Tìm kiếm - công cụ tìm kiếm thánh ca có hợp âm.',
+				'keywork'   => 'Danh sách bài hát thánh ca, bài hát thánh ca guitar, bài hát thánh ca thường dùng, bài hát thánh ca cơ bản.',
+				'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
+				'canonical' => base_url('tim-kiem'),
       ],
+			'pageinit' => $this->siteInit,
       'pagedata' => [
 				'pagetitle'  => 'Tìm kiếm từ khoá: '.$keywork,
 				'pagedesc'   => 'Danh sách sheet nhạc - Tổng hợp bài hát có sheet nhạc, dễ tra cứu, truy cập, in bài hát.',

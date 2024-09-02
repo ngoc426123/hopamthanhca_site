@@ -11,11 +11,12 @@
       <?php
       foreach ($pagedata['list'] as $value) {
         echo view_cell('SongItemCell', [
-          'title'       => $value['title'],
-          'author'      => renderAuthor($value['author']),
-          'excerpt'     => $value['excerpt'],
-          'permalink'   => base_url('bai-hat/'.$value['slug']),
-          'pdf'         => $value['meta']['pdffile'],
+          'title'          => $value['title'],
+          'author'         => renderAuthor($value['author']),
+          'excerpt'        => $value['excerpt'],
+          'permalink'      => base_url('bai-hat/'.$value['slug']),
+          'pdf'            => $value['meta']['pdffile'],
+          'datetimeformat' => $pageinit['datetimeformat'],
         ]);
       }
       ?>

@@ -51,10 +51,11 @@
           <?php
           foreach ($pagedata['newest'] as $value) {
             echo view_cell('SongItemCell', [
-              'title'       => $value['title'],
-              'author'      => renderAuthor($value['author']),
-              'excerpt'     => $value['excerpt'],
-              'permalink'   => base_url('bai-hat/'.$value['slug']),
+              'title'          => $value['title'],
+              'author'         => renderAuthor($value['author']),
+              'excerpt'        => $value['excerpt'],
+              'permalink'      => base_url('bai-hat/'.$value['slug']),
+              'datetimeformat' => $pageinit['datetimeformat'],
             ]);
           }
           ?>
@@ -70,10 +71,11 @@
           <?php
           foreach ($pagedata['mostview'] as $value) {
             echo view_cell('SongItemCell', [
-              'title'       => $value['title'],
-              'author'      => renderAuthor($value['author']),
-              'excerpt'     => $value['excerpt'],
-              'permalink'   => base_url('bai-hat/'.$value['slug']),
+              'title'          => $value['title'],
+              'author'         => renderAuthor($value['author']),
+              'excerpt'        => $value['excerpt'],
+              'permalink'      => base_url('bai-hat/'.$value['slug']),
+              'datetimeformat' => $pageinit['datetimeformat'],
             ]);
           }
           ?>
@@ -195,13 +197,14 @@
       <?php foreach ($pagedata['songhome'] as $value) { ?>
         <div class="col-12 col-lg-6">
           <?= view_cell('SongHomeCell', [
-            'title'     => $value['title'],
-            'date'     => $value['date'],
-            'author'    => renderAuthor($value['author']),
-            'viewer'    => $value['meta']['luotxem'],
-            'lover'     => $value['meta']['lovesong'],
-            'content'   => $value['content'],
-            'permalink' => base_url('bai-hat/'.$value['slug']),
+            'title'          => $value['title'],
+            'date'           => $value['date'],
+            'author'         => renderAuthor($value['author']),
+            'viewer'         => $value['meta']['luotxem'],
+            'lover'          => $value['meta']['lovesong'],
+            'content'        => $value['content'],
+            'permalink'      => base_url('bai-hat/'.$value['slug']),
+            'datetimeformat' => $pageinit['datetimeformat'],
           ]); ?>
         </div>
       <?php } ?>

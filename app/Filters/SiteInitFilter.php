@@ -1,7 +1,7 @@
 <?php
 namespace App\Filters;
 
-use App\Models\Options;
+// use App\Models\Options;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -23,27 +23,7 @@ class SiteInitFilter implements FilterInterface {
 	 * @return RequestInterface|ResponseInterface|string|void
 	 */
 	public function before(RequestInterface $request, $arguments = null) {
-		$session = service('session');
-
-		if (!$session->get('sitekey')) {
-			$optionsModel = new Options();
-			$optionsData = $optionsModel
-				->whereIn('key', ['favicon', 'site_url', 'phonenumber', 'email', 'social_facebook', 'social_youtube', 'social_twitter',  'dateformat', 'timeformat'])
-				->find();
-			$options = [];
-			foreach ($optionsData as $value) {
-				$options[$value['key']] = $value['value'];
-			}
-			$datetimeFormat = $options['dateformat'] . ' ' . $options['timeformat'];
-			$sitekey = random_string('alnum', 16);
-			$sesionData = [
-				...$options,
-				'datetimeformat' => $datetimeFormat,
-				'sitekey'        => $sitekey,
-			];
-
-			$session->set($sesionData);
-		}
+		// 
 	}
 
 	/**

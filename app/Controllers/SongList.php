@@ -74,6 +74,7 @@ class SongList extends BaseController{
 				'keywork'   => 'Danh sách bài hát, tổng hợp nhạc thánh ca, nhạc thánh ca, bài hát thánh ca',
 				'canonical' => base_url('thanh-ca-hang-tuan'),
       ],
+			'pageinit' => $this->siteInit,
       'pagedata' => [
 				'pagetitle'  => 'Danh sách bài hát',
 				'pagedesc'   => 'Danh sách bài hát được tổng hợp toàn bộ ở đây để người dùng dễ dàng tìm kiếm hoặc muốn xem được toàn bộ bài hát của trang web',

@@ -63,6 +63,7 @@ class Sheet extends BaseController {
 				'desc'      => 'Danh sách bài hát thánh ca - Tổng hợp bài hát thánh ca thường dùng, dễ sử dụng, được nhiều người sử dụng, dành cho những bạn nào đam mê thánh ca.',
 				'canonical' => base_url('sheet-nhac'),
       ],
+			'pageinit' => $this->siteInit,
       'pagedata' => [
 				'pagetitle'  => 'Sheet nhạc - file pdf nhạc thánh ca.',
 				'pagedesc'   => 'Danh sách sheet nhạc - Tổng hợp bài hát có sheet nhạc, dễ tra cứu, truy cập, in bài hát.',
