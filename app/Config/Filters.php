@@ -14,7 +14,7 @@ use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\MaintainModeFilter;
 use App\Filters\SiteInitFilter;
-use App\filters\CheckCategoryAnonymousFilter;
+use App\Filters\CheckCategoryAnonymousFilter;
 
 class Filters extends BaseFilters
 {
