@@ -20,6 +20,7 @@ use App\Models\Options;
  *
  * For security be sure to declare any new methods as protected or private.
  */
+#[\AllowDynamicProperties]
 abstract class BaseController extends Controller {
 	public $siteinit = [];
 

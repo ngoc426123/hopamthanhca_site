@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 
 $routes->get('/bao-tri', 'Maintain::index');
+$routes->get('/canh-bao', 'Warning::index');
 $routes->get('/sitemap.xml', 'Sitemap::index');
 
 $routes->group('', ['filter' => 'siteinit'], static function ($routes) {
@@ -19,8 +20,8 @@ $routes->group('', ['filter' => 'siteinit'], static function ($routes) {
   $routes->get('/danh-muc', 'Category::Index');
   $routes->get('/tim-kiem', 'Search');
   $routes->get('/bai-hat/(:any)', 'SongDetail::Index/$1');
-  $routes->get('/(:any)/(:any)', 'Category::ListSong/$1/$2');
-  $routes->get('/(:any)', 'Category::Category/$1');
+  $routes->get('/(:any)/(:any)', 'Category::ListSong/$1/$2', ['filter' => 'check-category-anonymous']);
+  $routes->get('/(:any)', 'Category::Category/$1', ['filter' => 'check-category-anonymous']);
   $routes->post('/api/search', 'Api::Search');
   $routes->post('/api/updatelove', 'Api::UpdateLove');
   $routes->post('/api/songfilter', 'Api::SongFilter');
