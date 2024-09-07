@@ -8,6 +8,12 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/bao-tri', 'Maintain::index');
 $routes->get('/sitemap.xml', 'Sitemap::index');
 
+// BEGIN: DINH DOWNLOAD
+$routes->get('/dinh-download', 'DinhDownload::index');
+$routes->get('/dinh-download/get-need-to-do', 'DinhDownloadAPI::GetNeedtoDo');
+$routes->post('/dinh-download/handle-sheet', 'DinhDownloadAPI::HandleSheet');
+// END: DINH DOWNLOAD
+
 $routes->group('', ['filter' => 'siteinit'], static function ($routes) {
   $routes->get('/', 'Home::Index');
   $routes->get('/gioi-thieu', 'StaticPage::About');
