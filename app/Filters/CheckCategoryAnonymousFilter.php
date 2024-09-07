@@ -1,12 +1,15 @@
 <?php
+
 namespace App\Filters;
 
+use App\Models\Cat;
+use App\Models\Type;
 use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class SiteInitFilter implements FilterInterface {
-	/**
+class CheckCategoryAnonymousFilter implements FilterInterface {
+  /**
 	 * Do whatever processing this filter needs to do.
 	 * By default it should not return anything during
 	 * normal execution. However, when an abnormal state
@@ -21,9 +24,44 @@ class SiteInitFilter implements FilterInterface {
 	 *
 	 * @return RequestInterface|ResponseInterface|string|void
 	 */
-	public function before(RequestInterface $request, $arguments = null) {
-		// 
-	}
+  public function before(RequestInterface $request, $arguments = null) {
+		$catModel = new Cat();
+		$typeModel = new Type();
+		$checkFlag = true;
+		$uri = $request->getServer(['REQUEST_URI']);
+		$categorys = explode('/', $uri['REQUEST_URI']);
+		$categorys = array_filter($categorys);
+
+		if (count($categorys) > 2) {
+			return redirect()->to(base_url('/canh-bao'));
+		}
+		
+		foreach ($categorys as $value) {
+			$typeData = $typeModel
+				->selectCount('id')
+				->where('type_slug', $value)
+				->first();
+
+			if ($typeData['id'] <= 0) {
+				$checkFlag = false;
+				break;
+			}
+			
+			$catData = $catModel
+				->selectCount('id')
+				->where('cat_slug', $value)
+				->first();
+
+			if ($catData['id'] <= 0) {
+				$checkFlag = false;
+				break;
+			} 
+		}
+
+		if (!$checkFlag) {
+			return redirect()->to(base_url('/canh-bao'));
+		}
+  }
 
 	/**
 	 * Allows After filters to inspect and modify the response
