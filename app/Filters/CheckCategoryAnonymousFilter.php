@@ -31,35 +31,37 @@ class CheckCategoryAnonymousFilter implements FilterInterface {
 		$uri = $request->getServer(['REQUEST_URI']);
 		$categorys = explode('/', $uri['REQUEST_URI']);
 		$categorys = array_filter($categorys);
+		$categorys = array_values($categorys);
+		$categorys = array_map(function ($item) {
+			return preg_replace('/(\?).+/', '', $item);
+		}, $categorys);
 
 		if (count($categorys) > 2) {
-			return redirect()->to(base_url('/canh-bao'));
+			return \Config\Services::response()->setBody(view('Warning'));  
 		}
-		
-		foreach ($categorys as $value) {
-			$typeData = $typeModel
-				->selectCount('id')
-				->where('type_slug', $value)
-				->first();
 
-			if ($typeData['id'] <= 0) {
-				$checkFlag = false;
-				break;
-			}
-			
+		$typeData = $typeModel
+			->selectCount('id')
+			->where('type_slug', $categorys[0])
+			->first();
+
+		if ($typeData['id'] <= 0) {
+			$checkFlag = false;
+		}
+
+		if (count($categorys) == 2) {
 			$catData = $catModel
 				->selectCount('id')
-				->where('cat_slug', $value)
+				->where('cat_slug', $categorys[1])
 				->first();
 
 			if ($catData['id'] <= 0) {
 				$checkFlag = false;
-				break;
-			} 
+			}
 		}
 
 		if (!$checkFlag) {
-			return redirect()->to(base_url('/canh-bao'));
+			return \Config\Services::response()->setBody(view('Warning')); 
 		}
   }
 

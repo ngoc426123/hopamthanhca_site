@@ -24,7 +24,7 @@
             <p class="p-0 mb-5 text-center">
               <a class="btn btn-primary py-3 px-5" href="<?= base_url('/') ?>">Quay lại</a>
             </p>
-            <p class="p-0">Hoặc liên hệ email: <a class="text-info" href="mailto:<?= esc($pageinit['email']) ?>"><?= esc($pageinit['email']) ?></a></p>
+            <p class="p-0">Hoặc liên hệ email: <a class="text-info" href="mailto:minhngoc.ith@gmail.com">minhngoc.ith@gmail.com</a></p>
             <p class="p-0">Xin cảm ơn.</p>
           </div>
         </div>
